@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">Chever</string>
+
+    <!-- App common -->
+    <string name="app_button_reload">Recargar</string>
+
+    <!-- Movies browse -->
+    <string name="movies_browse_list_trending_title">Tendencias</string>
+    <string name="movies_browse_list_watched_title">Más vistas</string>
+    <string name="movies_browse_list_recommended_title">Recomendadas</string>
+    <string name="movies_browse_list_popular_title">Populares</string>
+    <string name="movies_browse_list_collected_title">Más coleccionadas</string>
+    <string name="movies_browse_list_anticipated_title">Proximos estrenos</string>
+    <string name="movies_browse_error_message">
+        ¡Uy! Algo salió mal cargando las peliculas, intente de nuevo.
+    </string>
+
+
+</resources>

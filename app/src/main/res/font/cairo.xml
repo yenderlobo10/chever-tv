@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <font
+        android:font="@font/cairo_regular"
+        android:fontWeight="400"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/cairo_regular"
+        app:fontWeight="400" />
+
+    <font
+        android:font="@font/cairo_semi_bold"
+        android:fontWeight="600"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/cairo_semi_bold"
+        app:fontWeight="600" />
+
+    <font
+        android:font="@font/cairo_bold"
+        android:fontWeight="700"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/cairo_bold"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/cairo_black"
+        android:fontWeight="900"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/cairo_black"
+        app:fontWeight="900" />
+
+</font-family>

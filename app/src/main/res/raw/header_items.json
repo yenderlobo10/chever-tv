@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "peliculas",
+    "resIconId": "ic_android"
+  },
+  {
+    "id": 2,
+    "title": "series",
+    "resIconId": "ic_android"
+  }
+]

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Light -->
+    <font
+        android:font="@font/ubuntu_light"
+        android:fontWeight="300"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_light"
+        app:fontWeight="300" />
+    <font
+        android:font="@font/ubuntu_light_italic"
+        android:fontStyle="italic"
+        android:fontWeight="300"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_light_italic"
+        app:fontStyle="italic"
+        app:fontWeight="300" />
+
+    <!-- Regular -->
+    <font
+        android:font="@font/ubuntu_regular"
+        android:fontWeight="400"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_regular"
+        app:fontWeight="400" />
+    <font
+        android:font="@font/ubuntu_italic"
+        android:fontStyle="italic"
+        android:fontWeight="400"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_italic"
+        app:fontStyle="italic"
+        app:fontWeight="400" />
+
+    <!-- Medium -->
+    <font
+        android:font="@font/ubuntu_medium"
+        android:fontWeight="500"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_medium"
+        app:fontWeight="500" />
+    <font
+        android:font="@font/ubuntu_medium_italic"
+        android:fontStyle="italic"
+        android:fontWeight="500"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_medium_italic"
+        app:fontStyle="italic"
+        app:fontWeight="500" />
+
+    <!-- Bold -->
+    <font
+        android:font="@font/ubuntu_bold"
+        android:fontWeight="700"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_bold"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/ubuntu_bold_italic"
+        android:fontStyle="italic"
+        android:fontWeight="900"
+        tools:targetApi="o" />
+    <font
+        app:font="@font/ubuntu_bold_italic"
+        app:fontStyle="italic"
+        app:fontWeight="900" />
+
+</font-family>

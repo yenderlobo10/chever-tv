@@ -1,0 +1,31 @@
+<resources>
+
+    <color name="primaryColor">#EF4E50</color>
+    <color name="primaryLightColor">#FF827C</color>
+    <color name="primaryDarkColor">#B60C27</color>
+
+    <color name="secondaryColor">#011548</color>
+    <color name="secondaryLightColor">#363A74</color>0
+    <color name="secondaryDarkColor">#000022</color>
+
+    <color name="tertiaryColor">#FBBF10</color>
+    <color name="tertiaryLightColor">#FFF153</color>
+    <color name="tertiaryDarkColor">#C38F00</color>
+
+    <color name="primaryTextColor">#F3F3F3</color>
+    <color name="secondaryTextColor">#EFEFEF</color>
+
+    <color name="windowBackgroundColor">#01123D</color>
+    <color name="darkColor">#040E20</color>
+    <color name="lightColor">#FAFAFA</color>
+
+    <color name="labelRed">#ED1C24</color>
+    <color name="labelOrange">#E85D04</color>
+    <color name="labelGray">#555555</color>
+    <color name="labelTeal">#16A085</color>
+    <color name="labelBlue">#2B678F</color>
+
+    <color name="lb_error_background_color_translucent">@color/darkColor</color>
+    <color name="lb_error_background_color_opaque">@color/darkColor</color>
+
+</resources>

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "trending",
+    "resTitleId": "movies_browse_list_trending_title",
+    "resChipsColorsId": ["labelRed"]
+  },
+  {
+    "id": 2,
+    "title": "recommended",
+    "resTitleId": "movies_browse_list_recommended_title",
+    "resChipsColorsId": ["labelOrange"]
+  },
+  {
+    "id": 3,
+    "title": "played",
+    "resTitleId": "movies_browse_list_watched_title",
+    "resChipsColorsId": ["labelRed", "labelGray"]
+  },
+  {
+    "id": 4,
+    "title": "collected",
+    "resTitleId": "movies_browse_list_collected_title",
+    "resChipsColorsId": ["labelTeal"]
+  },
+  {
+    "id": 5,
+    "title": "popular",
+    "resTitleId": "movies_browse_list_popular_title"
+  },
+  {
+    "id": 6,
+    "title": "anticipated",
+    "resTitleId": "movies_browse_list_anticipated_title",
+    "resChipsColorsId": ["labelBlue", "labelGray"]
+  }
+]
