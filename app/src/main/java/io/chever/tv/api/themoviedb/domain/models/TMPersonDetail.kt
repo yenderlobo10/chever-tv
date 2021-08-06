@@ -1,6 +1,7 @@
 package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 import java.util.*
 
 
@@ -35,7 +36,8 @@ data class TMPeopleDetail(
 
     @Json(name = "also_known_as")
     val alsoKnownAs: List<String>,
-)
+
+    ) : Serializable
 
 
 

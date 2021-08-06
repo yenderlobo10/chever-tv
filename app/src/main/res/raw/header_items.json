@@ -1,12 +1,20 @@
 [
   {
-    "id": 1,
-    "title": "peliculas",
-    "resIconId": "ic_android"
+    "id": 2,
+    "title": "home",
+    "resTitleId": "header_item_home_title",
+    "resIconId": "ic_home_outlined"
   },
   {
     "id": 2,
-    "title": "series",
-    "resIconId": "ic_android"
+    "title": "movies",
+    "resTitleId": "header_item_movies_title",
+    "resIconId": "ic_movie"
+  },
+  {
+    "id": 3,
+    "title": "shows",
+    "resTitleId": "header_item_shows_title",
+    "resIconId": "ic_tv"
   }
 ]

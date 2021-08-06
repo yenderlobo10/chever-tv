@@ -1,6 +1,7 @@
 package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 import java.util.*
 
 /**
@@ -38,4 +39,5 @@ data class TMMovie(
 
     @Json(name = "genre_ids")
     val genreIds: List<Int>,
-)
+
+    ) : Serializable

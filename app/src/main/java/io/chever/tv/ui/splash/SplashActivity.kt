@@ -1,6 +1,5 @@
 package io.chever.tv.ui.splash
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -8,15 +7,21 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.FragmentActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import androidx.transition.*
+import androidx.lifecycle.lifecycleScope
+import androidx.transition.ChangeTransform
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import com.orhanobut.logger.Logger
 import io.chever.tv.R
-import io.chever.tv.api.trakttv.TraktTV
 import io.chever.tv.ui.home.view.HomeActivity
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class SplashActivity : Activity() {
+class SplashActivity : FragmentActivity() {
 
     private lateinit var layoutContainer: ConstraintLayout
     private lateinit var ivLogo: ImageView
@@ -63,7 +68,7 @@ class SplashActivity : Activity() {
 
     private fun runLogoAnimate() {
 
-        GlobalScope.launch(Dispatchers.Main) {
+        lifecycleScope.launch(Dispatchers.Main) {
 
             runLogoTransitionScene()
             runLettersTransitionScene()

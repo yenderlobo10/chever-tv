@@ -2,15 +2,18 @@ package io.chever.tv.common.extension
 
 import android.content.Context
 import android.content.res.Resources
+import android.view.View
 import android.widget.Toast
 import com.orhanobut.logger.Logger
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import io.chever.tv.common.extension.StringExtensions.empty
+import io.chever.tv.common.extension.StringExtensions.fromJson
 import java.io.InputStream
 import java.util.*
-import kotlin.math.roundToInt
 
 /**
+ * TODO: document object
  * TODO: refactor class
  */
 @Suppress(
@@ -19,48 +22,9 @@ import kotlin.math.roundToInt
 )
 object Extensions {
 
-    //#region Number types extensions
-
-
-    fun Int.dpFromPx(context: Context): Int {
-        val density = context.resources.displayMetrics.density
-        return (this.toFloat() * density).roundToInt()
-    }
-
-    fun Int.pxFromDp(context: Context): Int {
-        val density = context.resources.displayMetrics.density
-        return (this.toFloat() / density).roundToInt()
-    }
-
-    //#endregion
-
-
-    //#region Text/String types extensions
-
-    /**
-     * Represent an empty ("") string by functionality.
-     */
-    fun String.Companion.empty() = ""
-
-    fun <T> String.fromJson(type: Class<T>): T? {
-
-        return try {
-
-            Moshi.Builder().fromJson(this, type)
-
-        } catch (ex: Exception) {
-
-            Logger.e(ex.message!!, ex)
-            null
-        }
-    }
-
-    //#endregion
-
-
     //#region Toast extensions
 
-    fun Context.showShortToast(message: String): Toast {
+    fun Context.showShortToast(message: CharSequence): Toast {
 
         return Toast.makeText(this, message, Toast.LENGTH_SHORT).also {
             it.show()
@@ -74,7 +38,7 @@ object Extensions {
         }
     }
 
-    fun Context.showLongToast(message: String): Toast {
+    fun Context.showLongToast(message: CharSequence): Toast {
 
         return Toast.makeText(this, message, Toast.LENGTH_LONG).also {
             it.show()
@@ -176,6 +140,47 @@ object Extensions {
 
             Logger.e(ex.message!!, ex)
             null
+        }
+    }
+
+    //#endregion
+
+
+    //#region View extensions
+
+    fun View.show() {
+
+        try {
+
+            this.visibility = View.VISIBLE
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex.message!!, ex)
+        }
+    }
+
+    fun View.gone() {
+
+        try {
+
+            this.visibility = View.GONE
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex.message!!, ex)
+        }
+    }
+
+    fun View.hide() {
+
+        try {
+
+            this.visibility = View.GONE
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex.message!!, ex)
         }
     }
 

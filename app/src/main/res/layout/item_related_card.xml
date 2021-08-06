@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="230dp"
+    android:background="@drawable/g_background_primary">
+
+    <!-- Profile image -->
+    <ImageView
+        android:id="@+id/ivPosterImage"
+        android:layout_width="150dp"
+        android:layout_height="206dp"
+        android:contentDescription="poster-image"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/lyFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/g_background_primary" />
+
+    <LinearLayout
+        android:id="@+id/lyFooter"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:clipToPadding="false"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBackdropImage">
+
+        <TextView
+            android:id="@+id/tvReleaseDate"
+            style="@style/TextAppearance.Caption.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="@color/primaryTextColor"
+            tools:text="26 Jul, 2021" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_heart"
+            android:tint="@color/primaryColor"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:id="@+id/tvVoteAverage"
+            style="@style/TextAppearance.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textSize="12sp"
+            app:fontFamily="@font/ubuntu_medium"
+            tools:text="80%" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

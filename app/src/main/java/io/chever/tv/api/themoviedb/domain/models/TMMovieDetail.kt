@@ -2,6 +2,7 @@ package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
 import io.chever.tv.api.themoviedb.domain.enums.TMMovieStatus
+import java.io.Serializable
 import java.util.*
 
 /**
@@ -59,4 +60,5 @@ data class TMMovieDetail(
 
     @Json(name = "vote_count")
     val voteCount: Long,
-)
+
+    ) : Serializable

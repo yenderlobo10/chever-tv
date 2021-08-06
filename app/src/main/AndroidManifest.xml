@@ -32,6 +32,10 @@
         <activity
             android:name=".ui.home.view.HomeActivity"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.movies.view.MovieDetailActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Chever.Details" />
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package io.chever.tv.ui.home.view
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -16,13 +15,14 @@ import androidx.lifecycle.lifecycleScope
 import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.fromJson
-import io.chever.tv.ui.home.HeaderIconItemPresenter
-import io.chever.tv.ui.home.model.HeaderIconItem
+import io.chever.tv.ui.home.common.model.HeaderIconItem
+import io.chever.tv.ui.home.common.presenter.HeaderIconItemPresenter
 import io.chever.tv.ui.movies.view.MoviesBrowseFragment
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
+/**
+ * TODO: document class
+ */
 class HomeFragment : BrowseSupportFragment() {
 
     private lateinit var mPageRowsAdapter: ArrayObjectAdapter
@@ -61,7 +61,7 @@ class HomeFragment : BrowseSupportFragment() {
 
             setupMenuHeaderItems()
 
-            delay(500)
+            delay(250)
 
             startHeadersTransition(false)
         }
@@ -96,17 +96,27 @@ class HomeFragment : BrowseSupportFragment() {
             override fun getPresenter(item: Any?): Presenter {
 
                 var iconResId = -1
+                var titleResId = -1
 
                 if (item is PageRow) {
 
                     val headerItem = item.headerItem as HeaderIconItem
+                    titleResId = resources.getIdentifier(
+                        headerItem.resTitleId,
+                        "string",
+                        context?.packageName
+                    )
                     iconResId = resources.getIdentifier(
                         headerItem.resIconId,
-                        null, null
+                        "drawable",
+                        context?.packageName
                     )
                 }
 
-                return HeaderIconItemPresenter(resIconId = iconResId)
+                return HeaderIconItemPresenter(
+                    resTitleId = titleResId,
+                    resIconId = iconResId
+                )
             }
         })
     }
@@ -121,6 +131,7 @@ class HomeFragment : BrowseSupportFragment() {
     }
 
 
+    // TODO: refactor this class
     class HomePageRowFragmentFactory : BrowseSupportFragment.FragmentFactory<Fragment>() {
 
         override fun createFragment(anyItem: Any?): Fragment {
@@ -165,7 +176,7 @@ class HomeFragment : BrowseSupportFragment() {
             return root.apply {
 
                 val tvTitle = TextView(requireActivity()).apply {
-                    text = "My Test Fragment"
+                    text = "PENDING BUILD ..."
                     gravity = Gravity.CENTER
                     setTextAppearance(R.style.TextAppearance_Large)
                 }

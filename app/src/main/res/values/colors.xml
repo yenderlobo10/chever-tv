@@ -15,9 +15,12 @@
     <color name="primaryTextColor">#F3F3F3</color>
     <color name="secondaryTextColor">#EFEFEF</color>
 
-    <color name="windowBackgroundColor">#01123D</color>
     <color name="darkColor">#040E20</color>
     <color name="lightColor">#FAFAFA</color>
+    <color name="grayColor">#B2EEEEEE</color>
+    <color name="lightGrayColor">#FFE7E7E7</color>
+    <color name="windowBackgroundColor">#01123D</color>
+    <color name="windowBackgroundDimColor">#A9040E20</color>
 
     <color name="labelRed">#ED1C24</color>
     <color name="labelOrange">#E85D04</color>

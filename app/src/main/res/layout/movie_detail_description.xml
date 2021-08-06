@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/Widget.Leanback.DetailsDescriptionTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Avatar" />
+
+    <TextView
+        android:id="@+id/tvYear"
+        style="@style/TextAppearance.Display3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="@color/grayColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        tools:text="2009" />
+
+    <!-- Detail row (1) -->
+    <LinearLayout
+        android:id="@+id/layoutRow1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <!-- Votes -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerVotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivVotesIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_heart"
+                android:tint="@color/primaryDarkColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primaryDarkColor" />
+
+            <TextView
+                android:id="@+id/tvVoteAverage"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivVotesIcon"
+                app:layout_constraintTop_toTopOf="@id/ivVotesIcon"
+                tools:text="78%" />
+
+            <TextView
+                android:id="@+id/tvVoteCount"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@id/tvVoteAverage"
+                app:layout_constraintTop_toBottomOf="@id/tvVoteAverage"
+                tools:text="51.7k Votes" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Release date -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp">
+
+            <ImageView
+                android:id="@+id/ivReleaseDateIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_calendar_check"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvReleaseDate"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivReleaseDateIcon"
+                app:layout_constraintTop_toTopOf="@id/ivReleaseDateIcon"
+                tools:text="December 18, 2009" />
+
+            <TextView
+                android:id="@+id/tvReleaseDateLabel"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/movie_detail_released_label"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="@id/tvReleaseDate"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
+                tools:text="Released" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Runtime -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerRuntime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp">
+
+            <ImageView
+                android:id="@+id/ivRuntimeIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRuntime"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivRuntimeIcon"
+                app:layout_constraintTop_toTopOf="@id/ivRuntimeIcon"
+                tools:text="2h 41m" />
+
+            <TextView
+                android:id="@+id/tvRuntimeLabel"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/movie_detail_runtime_label"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="@id/tvRuntime"
+                app:layout_constraintTop_toBottomOf="@id/tvRuntime"
+                tools:text="Runtime" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <!-- Genres -->
+    <TextView
+        android:id="@+id/tvGenres"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="24dp"
+        android:maxLines="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutRow1"
+        tools:text="Action · Adventure · Fantasy · Science Fiction" />
+
+    <!-- Tagline -->
+    <TextView
+        android:id="@+id/tvTagline"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/grayColor"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenres"
+        tools:text="Enter the World of Pandora." />
+
+    <!-- Overview -->
+    <TextView
+        android:id="@+id/tvOverview"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="fill"
+        android:justificationMode="inter_word"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTagline"
+        tools:targetApi="o"
+        tools:text="In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization." />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

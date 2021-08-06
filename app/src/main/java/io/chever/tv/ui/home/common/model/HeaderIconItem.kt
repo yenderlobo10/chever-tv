@@ -5,6 +5,9 @@ import com.orhanobut.logger.Logger
 import com.squareup.moshi.Json
 import io.chever.tv.R
 
+/**
+ * TODO: document class
+ */
 data class HeaderIconItem(
 
     @Json(name = "id")
@@ -17,14 +20,14 @@ data class HeaderIconItem(
 
     /**
      * Header items ids.
-     * Sames that {id} in [R.raw.header_items]
      *
+     * @param id Sames that {id} in [R.raw.header_items]
      */
     enum class Id(val id: Long) {
 
-        Movies(1),
-
-        Shows(2),
+        Home(1),
+        Movies(2),
+        Shows(3),
 
         /// Add new items if needed.
 

@@ -1,6 +1,7 @@
 package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 /**
  * TheMovieDB people cast object.
@@ -29,4 +30,5 @@ data class TMPeopleCast(
 
     @Json(name = "credit_id")
     val creditId: String,
-)
+
+    ) : Serializable

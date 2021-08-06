@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/primaryTextColor</item>
 
         <item name="android:colorAccent">@color/primaryColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
 
         <item name="android:colorBackground">@color/darkColor</item>
         <item name="colorOnBackground">@color/secondaryTextColor</item>
@@ -15,10 +16,37 @@
         <item name="android:fontFamily">@font/ubuntu</item>
     </style>
 
+    <!-- Theme leanback details -->
+    <style name="Theme.Chever.Details">
+        <item name="android:windowEnterTransition">@transition/lb_details_enter_transition</item>
+        <item name="android:windowReturnTransition">@transition/lb_details_return_transition</item>
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/lb_shared_element_enter_transition
+        </item>
+        <item name="android:windowSharedElementReturnTransition">
+            @transition/lb_shared_element_return_transition
+        </item>
+    </style>
+
+    <!-- Theme loader dialog -->
+    <style name="Theme.Chever.LoaderDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@color/windowBackgroundDimColor</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:padding">0dp</item>
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
 
     <!--#region Text styles -->
 
     <style name="TextAppearance" />
+
+    <style name="TextAppearance.Leanback">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
 
     <style name="TextAppearance.Display1" parent="TextAppearance.AppCompat.Display1">
         <item name="fontFamily">@font/ubuntu</item>
@@ -68,6 +96,10 @@
     <style name="TextAppearance.Caption" parent="TextAppearance.AppCompat.Caption">
         <item name="fontFamily">@font/ubuntu</item>
         <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Small">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="TextAppearance.Large" parent="TextAppearance.AppCompat.Large">

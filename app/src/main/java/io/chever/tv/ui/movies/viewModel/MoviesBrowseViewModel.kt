@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import com.orhanobut.logger.Logger
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.api.trakttv.domain.models.TKMovie
+import io.chever.tv.common.extension.DateTimeExtensions
+import io.chever.tv.common.extension.DateTimeExtensions.toFormat
+import io.chever.tv.common.extension.NumberExtensions.toFormat
 import io.chever.tv.common.extension.Result
-import io.chever.tv.common.extension.Util
-import io.chever.tv.common.models.MovieCardItem
-import io.chever.tv.ui.movies.MoviesBrowseRepository
+import io.chever.tv.common.extension.StringExtensions.capitalize
+import io.chever.tv.ui.common.models.MovieCardItem
+import io.chever.tv.ui.movies.repository.MoviesBrowseRepository
 import io.chever.tv.ui.movies.common.enums.MovieCollection
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
@@ -17,10 +20,6 @@ class MoviesBrowseViewModel : ViewModel() {
     private val repository = MoviesBrowseRepository()
 
     private val moviesByCollection = MutableStateFlow<MutableList<MovieCardItem>>(mutableListOf())
-
-    init {
-
-    }
 
 
     fun findMoviesByCollections() = flow {
@@ -98,7 +97,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 val trending = result.data[i]
                 // TODO: use res-string or translate
-                item.chips.add("${trending.watchers} personas viendo")
+                item.chips.add("${trending.watchers.toFormat()} personas viendo")
 
                 return@mapIndexed item
             }
@@ -124,7 +123,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 val recommended = result.data[i]
                 // TODO: use res-string or translate
-                item.chips.add("${recommended.userCount} personas recomiendan")
+                item.chips.add("${recommended.userCount.toFormat()} personas recomiendan")
 
                 return@mapIndexed item
             }
@@ -150,8 +149,8 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 val played = result.data[i]
                 // TODO: use res-string or translate
-                item.chips.add("${played.watcherCount} visitas")
-                item.chips.add("${played.playCount} reproducciones")
+                item.chips.add("${played.watcherCount.toFormat()} visitas")
+                item.chips.add("${played.playCount.toFormat()} reproducciones")
 
                 return@mapIndexed item
             }
@@ -177,7 +176,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 val collected = result.data[i]
                 // TODO: use res-string or translate
-                item.chips.add("${collected.collectedCount} colecciones")
+                item.chips.add("${collected.collectedCount.toFormat()} colecciones")
 
                 return@mapIndexed item
             }
@@ -222,8 +221,13 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 val anticipated = result.data[i]
                 // TODO: use res-string or translate
-                item.chips.add("${anticipated.listCount} listas")
-                item.chips.add("${item.releaseDate}")
+                item.chips.add("${anticipated.listCount.toFormat()} listas")
+
+                item.detail?.releaseDate?.let { date ->
+                    val formatDate =
+                        date.toFormat(DateTimeExtensions.Pattern.DateThree).capitalize()
+                    item.chips.add(formatDate)
+                }
 
                 return@mapIndexed item
             }
@@ -253,14 +257,9 @@ class MoviesBrowseViewModel : ViewModel() {
 
                 idTKTV = it.ids.trakt
                 idTMDB = it.ids.tmdb
-            }
 
-            // Get movie-detail & set card-item =>
-            getTMMovieDetail(it.ids.tmdb)?.let { detail ->
-
-                cardItem.transTitle = detail.title
-                cardItem.backdropUrl = Util.createTMDbImageUrl(detail.backdropPath)
-                cardItem.releaseDate = detail.releaseDate?.toString()
+                // Get movie-detail & set into card-item =>
+                detail = getTMMovieDetail(it.ids.tmdb)
             }
 
             movieCardItems.add(cardItem)

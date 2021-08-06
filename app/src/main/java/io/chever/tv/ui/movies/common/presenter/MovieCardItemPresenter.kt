@@ -6,17 +6,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.leanback.widget.BaseCardView
 import coil.load
 import io.chever.tv.R
-import io.chever.tv.common.extension.Extensions.pxFromDp
+import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
+import io.chever.tv.common.extension.NumberExtensions.pxFromDp
 import io.chever.tv.common.extension.Util
-import io.chever.tv.common.models.MovieCardItem
-import io.chever.tv.common.presenter.BaseCardPresenter
+import io.chever.tv.ui.common.models.MovieCardItem
+import io.chever.tv.ui.common.presenter.BaseCardPresenter
 
 /**
  * TODO: document class
@@ -52,7 +52,7 @@ class MovieCardItemPresenter(context: Context) :
 
         // Setup title =>
         val tvMovieTitle = cardView.findViewById<TextView>(R.id.tvItemTitle)
-        tvMovieTitle.text = cardModel.transTitle
+        tvMovieTitle.text = cardModel.detail?.title
 
         // Setup year =>
         val tvMovieYear = cardView.findViewById<TextView>(R.id.tvItemYear)
@@ -70,9 +70,10 @@ class MovieCardItemPresenter(context: Context) :
 
         val ivMovieBackground = view.findViewById<ImageView>(R.id.ivItemBackground)
 
+        // TODO: replace by specific image designed
         val placeholderDrawable =
             ContextCompat.getDrawable(context, R.drawable.logo_foreground)?.apply {
-                alpha = 200
+                alpha = 230
             }
                 ?.toBitmap(COIL_PLACEHOLDER_SIZE, COIL_PLACEHOLDER_SIZE)
                 ?.toDrawable(context.resources)
@@ -82,31 +83,18 @@ class MovieCardItemPresenter(context: Context) :
 
             scaleType = ImageView.ScaleType.CENTER
 
-            load(item.backdropUrl) {
+            val backdropUrl = TMImageSize.W500.createImageUrl(
+                context,
+                item.detail?.backdropPath
+            )
+
+            load(backdropUrl) {
 
                 crossfade(true)
                 placeholder(placeholderDrawable)
                 error(placeholderDrawable)
 
                 listener(
-
-                    onError = { _, _ ->
-
-                        with(this@with.layoutParams as ConstraintLayout.LayoutParams) {
-
-                            ivMovieBackground.layoutParams = ConstraintLayout.LayoutParams(
-                                this.width,
-                                this.height
-                            ).apply {
-
-                                setPadding(
-                                    0, 0, 0,
-                                    COIL_PLACEHOLDER_MARGIN.pxFromDp(context)
-                                )
-                            }
-                        }
-                    },
-
                     onSuccess = { _, _ ->
                         this@with.scaleType = ImageView.ScaleType.FIT_XY
                     }
@@ -178,8 +166,7 @@ class MovieCardItemPresenter(context: Context) :
 
     companion object {
 
-        const val COIL_PLACEHOLDER_SIZE = 76
-        const val COIL_PLACEHOLDER_MARGIN = 64
+        const val COIL_PLACEHOLDER_SIZE = 130
         const val CHIP_HORIZONTAL_MARGIN = 6
     }
 }

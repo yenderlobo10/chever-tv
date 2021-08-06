@@ -1,12 +1,9 @@
 package io.chever.tv.common.extension
 
 import android.content.Context
-import io.chever.tv.CheverApp
 import io.chever.tv.R
-import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.common.extension.Extensions.fromJson
-import io.chever.tv.common.extension.Extensions.getPropertyFromFile
-import io.chever.tv.common.models.RowHeaderItem
+import io.chever.tv.ui.common.models.RowHeaderItem
 import java.util.*
 import kotlin.random.Random
 
@@ -29,26 +26,6 @@ object Util {
      */
     fun genRandomIntId(): Int = Random.nextInt(until = 999999999)
 
-
-    /**
-     * Create a complete url of TheMovieDB API Images by path.
-     * TODO: fix static leak context
-     *
-     * @param urlPath TMDb url path.
-     * @param size TMDb supported size of image.
-     */
-    fun createTMDbImageUrl(
-        urlPath: String?,
-        size: TMImageSize = TMImageSize.W500
-    ): String {
-
-        return CheverApp.context.getPropertyFromFile(
-            Constants.appPropertiesFileName,
-            "theMovieDBImagesUrl"
-        )
-            .plus(size.value)
-            .plus(urlPath)
-    }
 
     /**
      * TODO: document function

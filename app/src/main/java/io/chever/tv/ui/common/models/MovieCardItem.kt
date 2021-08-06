@@ -1,6 +1,8 @@
 package io.chever.tv.common.models
 
+import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.ui.movies.common.enums.MovieCollection
+import java.io.Serializable
 
 /**
  * TODO: document class
@@ -13,8 +15,7 @@ data class MovieCardItem(
 
     var idTMDB: Long? = null,
     var idTKTV: Long? = null,
-    var transTitle: String = "",
-    var backdropUrl: String? = "",
-    var releaseDate: String? = "",
+    var detail: TMMovieDetail? = null,
     var chips: MutableList<String> = mutableListOf(),
-)
+
+    ): Serializable

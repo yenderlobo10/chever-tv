@@ -1,6 +1,7 @@
 package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 /**
  * TheMovieDB standard recommended movies object.
@@ -15,4 +16,5 @@ data class TMMoviesRecommended(
 
     @Json(name = "total_results")
     val totalResults: Int,
-)
+
+    ) : Serializable

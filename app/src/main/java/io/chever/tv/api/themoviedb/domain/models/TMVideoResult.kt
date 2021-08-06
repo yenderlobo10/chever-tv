@@ -2,6 +2,7 @@ package io.chever.tv.api.themoviedb.domain.models
 
 import com.squareup.moshi.Json
 import io.chever.tv.api.themoviedb.domain.enums.TMVideoType
+import java.io.Serializable
 
 /**
  * TheMovieDB item video result object.
@@ -20,4 +21,5 @@ data class TMVideoResult(
 
     @Json(name = "iso_3166_1")
     val iso2: String,
-)
+
+    ) : Serializable

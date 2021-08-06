@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.view.HomeActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/homeFragment"
         android:name="io.chever.tv.ui.home.view.HomeFragment"
         android:layout_width="match_parent"
