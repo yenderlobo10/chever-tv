@@ -1,4 +1,4 @@
-package io.chever.tv.ui.home.model
+package io.chever.tv.ui.home.common.model
 
 import androidx.leanback.widget.HeaderItem
 import com.orhanobut.logger.Logger
@@ -14,6 +14,7 @@ data class HeaderIconItem(
     val mId: Long,
 
     val title: String,
+    val resTitleId: String,
     val resIconId: String,
 
     ) : HeaderItem(mId, title) {

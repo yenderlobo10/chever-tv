@@ -1,4 +1,4 @@
-package io.chever.tv.ui.home
+package io.chever.tv.ui.home.common.presenter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,8 +11,13 @@ import androidx.leanback.widget.PageRow
 import androidx.leanback.widget.Presenter
 import androidx.leanback.widget.RowHeaderPresenter
 import io.chever.tv.R
+import io.chever.tv.common.extension.StringExtensions.capitalize
 
+/**
+ * TODO: document class
+ */
 class HeaderIconItemPresenter(
+    private val resTitleId: Int,
     private val resIconId: Int,
 ) : RowHeaderPresenter() {
 
@@ -49,7 +54,9 @@ class HeaderIconItemPresenter(
         // Icon
         rootView.findViewById<ImageView>(R.id.header_icon)?.let {
 
-            val iconResId = if (resIconId > 0) resIconId else R.drawable.ic_android
+            val iconResId =
+                if (resIconId > 0) resIconId
+                else R.drawable.ic_android
 
             val iconDrawable = ContextCompat.getDrawable(rootView.context, iconResId)
             it.setImageDrawable(iconDrawable)
@@ -58,7 +65,9 @@ class HeaderIconItemPresenter(
         // Title
         rootView.findViewById<TextView>(R.id.header_title)?.let {
 
-            it.text = item.name
+            it.text =
+                if (resTitleId > 0) rootView.context.getString(resTitleId)
+                else item.name.capitalize()
         }
     }
 }

@@ -1,4 +1,4 @@
-package io.chever.tv.ui.movies
+package io.chever.tv.ui.movies.repository
 
 import io.chever.tv.api.themoviedb.TheMovieDB
 import io.chever.tv.api.trakttv.TraktTV

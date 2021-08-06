@@ -1,4 +1,4 @@
-package io.chever.tv.ui.common
+package io.chever.tv.ui.common.view
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.leanback.app.ErrorSupportFragment
 import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.isResourceExist
-import io.chever.tv.common.models.ErrorBuilder
+import io.chever.tv.ui.common.models.ErrorBuilder
 
 /**
  * TODO: document class

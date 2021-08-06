@@ -1,4 +1,4 @@
-package io.chever.tv.common.models
+package io.chever.tv.ui.common.models
 
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.ui.movies.common.enums.MovieCollection

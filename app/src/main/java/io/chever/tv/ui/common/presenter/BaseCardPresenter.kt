@@ -1,4 +1,4 @@
-package io.chever.tv.common.presenter
+package io.chever.tv.ui.common.presenter
 
 import android.content.Context
 import android.view.ViewGroup

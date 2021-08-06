@@ -6,7 +6,7 @@ import java.io.Serializable
 /**
  * TheMovieDB people cast object.
  */
-data class TMPeopleCast(
+data class TMPersonCast(
 
     val id: Long,
     val name: String,

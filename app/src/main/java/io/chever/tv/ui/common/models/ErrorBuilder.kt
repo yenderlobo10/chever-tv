@@ -1,4 +1,4 @@
-package io.chever.tv.common.models
+package io.chever.tv.ui.common.models
 
 import android.content.Context
 import androidx.annotation.IdRes

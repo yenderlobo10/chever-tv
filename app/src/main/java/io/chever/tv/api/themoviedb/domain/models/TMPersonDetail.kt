@@ -8,7 +8,7 @@ import java.util.*
 /**
  * TheMovieDB people detail object.
  */
-data class TMPeopleDetail(
+data class TMPersonDetail(
 
     val id: Long,
     val name: String,
