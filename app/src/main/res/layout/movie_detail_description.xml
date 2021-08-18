@@ -5,27 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Title + Year -->
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvTitleYear"
         style="@style/Widget.Leanback.DetailsDescriptionTitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Avatar" />
-
-    <TextView
-        android:id="@+id/tvYear"
-        style="@style/TextAppearance.Display3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="3dp"
-        android:textColor="@color/grayColor"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvTitle"
-        tools:text="2009" />
+        tools:text="Avatar 2009" />
 
     <!-- Detail row (1) -->
     <LinearLayout
@@ -36,7 +24,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleYear">
 
         <!-- Votes -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +41,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/primaryDarkColor" />
+                app:tint="@color/primaryDarkColor"
+                tools:ignore="UseAppTint" />
 
             <TextView
                 android:id="@+id/tvVoteAverage"

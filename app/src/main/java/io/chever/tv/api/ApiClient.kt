@@ -12,6 +12,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * TODO: document class
+ */
 @Suppress(
     "unused",
     "MemberVisibilityCanBePrivate",
@@ -107,6 +110,12 @@ open class ApiClient {
 
             val originRequest = chain.request()
 
+            // Validate exist header
+            val hasHeader = originRequest.headers.names().contains(name)
+
+            if (hasHeader) return@Interceptor chain.proceed(originRequest)
+
+            // Add new header
             val newRequest = originRequest.newBuilder()
                 .addHeader(name, value)
                 .build()
@@ -146,6 +155,12 @@ open class ApiClient {
 
             val originRequest = chain.request()
 
+            // Validate exist param
+            val hasParameter = originRequest.url.queryParameterNames.contains(name)
+
+            if (hasParameter) return@Interceptor chain.proceed(originRequest)
+
+            // Add new param
             val newUrl = originRequest.url.newBuilder()
             newUrl.addQueryParameter(name, value)
 

@@ -1,7 +1,9 @@
 package io.chever.tv.ui.movies.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.SparseArray
 import android.view.View
 import android.widget.ImageView
 import androidx.core.app.ActivityOptionsCompat
@@ -14,6 +16,9 @@ import androidx.leanback.app.DetailsSupportFragment
 import androidx.leanback.app.DetailsSupportFragmentBackgroundController
 import androidx.leanback.widget.*
 import androidx.lifecycle.lifecycleScope
+import at.huber.youtubeExtractor.VideoMeta
+import at.huber.youtubeExtractor.YouTubeExtractor
+import at.huber.youtubeExtractor.YtFile
 import coil.Coil
 import coil.request.ImageRequest
 import com.orhanobut.logger.Logger
@@ -22,18 +27,22 @@ import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.api.themoviedb.domain.models.TMMovie
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.api.themoviedb.domain.models.TMPersonCast
+import io.chever.tv.api.themoviedb.domain.models.TMVideoResult
 import io.chever.tv.common.extension.Extensions.showLongToast
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.NumberExtensions.dpFromPx
 import io.chever.tv.common.extension.Result
+import io.chever.tv.common.extension.Util
 import io.chever.tv.ui.common.models.PersonCardItem
 import io.chever.tv.ui.common.models.RelatedCardItem
+import io.chever.tv.ui.common.models.YTVideoTrailer
 import io.chever.tv.ui.common.view.LoaderDialogFragment
 import io.chever.tv.ui.movies.common.enums.MovieDetailAction
 import io.chever.tv.ui.movies.common.presenter.MovieDetailOverviewRowPresenter
 import io.chever.tv.ui.movies.common.presenter.PersonCardItemPresenter
 import io.chever.tv.ui.movies.common.presenter.RelatedCardItemPresenter
 import io.chever.tv.ui.movies.viewModel.MovieDetailViewModel
+import io.chever.tv.ui.player.PlayerActivity
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -50,6 +59,8 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
     private lateinit var rowsPresenterSelector: ClassPresenterSelector
     private lateinit var rowsAdapter: ArrayObjectAdapter
 
+    private lateinit var loaderDialog: LoaderDialogFragment
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,6 +70,8 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
             initArguments()
             setupUI()
             setupMovieDetailExtraRows()
+
+            setupDetailBackground()
 
         } catch (ex: Exception) {
 
@@ -86,9 +99,11 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         setupDetailOverviewRowPresenter()
         adapter = rowsAdapter
 
-        setupDetailBackground()
+        //setupDetailBackground()
 
         onItemViewClickedListener = this
+
+        loaderDialog = LoaderDialogFragment.create(requireActivity())
     }
 
 
@@ -121,7 +136,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         // Trailer
         actionsAdapter.add(
             Action(
-                MovieDetailAction.Play.id,
+                MovieDetailAction.Trailer.id,
                 getString(R.string.movie_detail_action_trailer_label)
             )
         )
@@ -129,7 +144,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         // My list
         actionsAdapter.add(
             Action(
-                MovieDetailAction.Play.id,
+                MovieDetailAction.MyList.id,
                 getString(R.string.movie_detail_action_add_list_label),
                 null,
                 ContextCompat.getDrawable(requireContext(), R.drawable.ic_plus)
@@ -358,14 +373,132 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
             MovieDetailAction.Play.id -> {
                 // TODO: go to play movie
             }
-            MovieDetailAction.Trailer.id -> {
-                // TODO: go to play trailer
-            }
+            MovieDetailAction.Trailer.id -> findMovieTrailer()
+
             MovieDetailAction.MyList.id -> {
                 // TODO: add to my list
             }
         }
     }
+
+    private fun findMovieTrailer() {
+
+        lifecycleScope.launch {
+
+            viewModel.findMovieTrailer(detailMovie.id).collect { result ->
+
+                when (result) {
+
+                    Result.Loading -> loaderDialog.show()
+
+                    is Result.Success -> extractYouTubeVideoUrl(result.data)
+
+                    is Result.Empty,
+                    is Result.Error -> {
+
+                        loaderDialog.dismiss()
+                        requireContext().showLongToast("Trailer not found")
+                    }
+                }
+            }
+        }
+    }
+
+    private fun extractYouTubeVideoUrl(tmVideo: TMVideoResult) {
+
+        // TODO: refactor this function
+        lifecycleScope.launch {
+
+            val ytExtractor = @SuppressLint("StaticFieldLeak")
+            object : YouTubeExtractor(requireContext()) {
+                override fun onExtractionComplete(
+                    ytFiles: SparseArray<YtFile>?,
+                    videoMeta: VideoMeta?
+                ) {
+
+                    val preferVideoKeyTags = arrayOf(
+                        137, // mp4 | 1080p
+                        136, // mp4 | 720p
+                        248, // web | 1080p
+                        247, // web | 720p
+                        135, // mp4 | 480p
+                        244, // web | 480p
+                        134, // mp4 | 360p
+                        243, // web | 360p
+                        22,  // web | 720p
+                        18,  // mp4 | 360p
+                    )
+
+                    val preferAudioKeyTags = arrayOf(
+                        140, // m4a | 128b
+                        251, // web | 160b
+                        250, // web | 64b
+                        249, // web | 48b
+                    )
+
+                    try {
+
+                        var ytVideoFile: YtFile? = null
+
+                        for (keyTag in preferVideoKeyTags) {
+
+                            ytVideoFile = ytFiles?.get(keyTag)
+
+                            if (ytVideoFile is YtFile) break
+                        }
+
+                        // ytFile video is found & find audio
+                        if (ytVideoFile is YtFile) {
+
+                            var ytAudioFile: YtFile? = null
+
+                            for (keyTag in preferAudioKeyTags) {
+
+                                ytAudioFile = ytFiles?.get(keyTag)
+
+                                if (ytAudioFile is YtFile) break
+                            }
+
+                            if (ytAudioFile is YtFile) {
+
+                                startPlayerToPlayTrailer(ytVideoFile, ytAudioFile)
+                                return
+                            }
+                        }
+
+                        requireContext().showLongToast("Trailer not found")
+
+                    } catch (ex: Exception) {
+
+                        requireContext().showLongToast("Trailer not extract")
+
+                    } finally {
+
+                        loaderDialog.dismiss()
+                    }
+                }
+            }
+
+            ytExtractor.extract(Util.createUrlYouTubeVideo(tmVideo.key))
+        }
+    }
+
+    private fun startPlayerToPlayTrailer(ytVideoFile: YtFile, ytAudioFile: YtFile) {
+
+        val videoTrailer = YTVideoTrailer(
+            title = "Trailer: ${detailMovie.title}",
+            description = detailMovie.tagline,
+            videoSourceUrl = ytVideoFile.url,
+            audioSourceUrl = ytAudioFile.url,
+        )
+
+        val playerIntent = Intent(requireContext(), PlayerActivity::class.java)
+
+        playerIntent.putExtra(PlayerActivity.PARAM_VIDEO_ITEM, videoTrailer)
+
+        startActivity(playerIntent)
+    }
+
 
     // Listener row-items implement
 
@@ -412,19 +545,26 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         itemViewHolder: Presenter.ViewHolder?
     ) {
 
-        val dialogLoader = LoaderDialogFragment.create(requireActivity()).show()
-
         lifecycleScope.launch {
 
             viewModel.findMovieDetails(item.id).collect { result ->
 
-                if (result !is Result.Loading) dialogLoader.dismiss()
+                when (result) {
 
-                if (result is Result.Success)
-                    goToItemRecommendationDetail(result.data, itemViewHolder)
+                    Result.Loading -> loaderDialog.show()
 
-                if (result is Result.Error)
-                    requireContext().showShortToast(R.string.app_unknown_error_two)
+                    is Result.Success -> {
+
+                        loaderDialog.dismiss()
+                        goToItemRecommendationDetail(result.data, itemViewHolder)
+                    }
+
+                    else -> {
+
+                        loaderDialog.dismiss()
+                        requireContext().showShortToast(R.string.app_unknown_error_two)
+                    }
+                }
             }
         }
     }

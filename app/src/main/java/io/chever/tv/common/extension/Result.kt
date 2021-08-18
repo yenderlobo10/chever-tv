@@ -5,9 +5,10 @@ package io.chever.tv.common.extension
  */
 sealed class Result<out T> {
 
-    // TODO: check this result
-    // maybe receive data<T> param
-    object Initial : Result<Nothing>()
+    /**
+     * Indicate task result not has data.
+     */
+    object Empty : Result<Nothing>()
 
     /**
      * Indicate task result is loading.

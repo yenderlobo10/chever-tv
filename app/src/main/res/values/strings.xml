@@ -6,7 +6,7 @@
     <string name="app_button_reload">Recargar</string>
     <string name="app_unknown_error_one">¡Uy! Algo salió mal</string>
     <string name="app_unknown_error_two">¡Vaya! Algo no funciona</string>
-    <string name="app_unknown_error_three">¡Lo sentimos! Error inesperado</string>
+    <string name="app_unknown_error_three">¡Oops! Error inesperado</string>
 
     <!-- Header items -->
     <string name="header_item_home_title">Inicio</string>
@@ -25,6 +25,9 @@
     </string>
 
     <!-- Movie detail -->
+    <string name="movie_detail_title_year_format"><![CDATA[
+        %s&nbsp;&nbsp;<small><span style="color:#a8a8a8">%s</span></small>
+    ]]></string>
     <string name="movie_detail_count_votes_label">%s Votos</string>
     <string name="movie_detail_released_label">Estreno</string>
     <string name="movie_detail_runtime_label">Duración</string>

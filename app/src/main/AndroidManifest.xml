@@ -36,6 +36,7 @@
             android:name=".ui.movies.view.MovieDetailActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.Chever.Details" />
+        <activity android:name=".ui.player.PlayerActivity" />
     </application>
 
 </manifest>

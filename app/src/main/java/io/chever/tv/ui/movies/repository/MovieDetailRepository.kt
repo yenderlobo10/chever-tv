@@ -16,4 +16,8 @@ class MovieDetailRepository : BaseRepository() {
     suspend fun details(id: Long) = getResult {
         TheMovieDB.movies.details(id)
     }
+
+    suspend fun videos(id: Long, language: String = "") = getResult {
+        TheMovieDB.movies.videos(id, language)
+    }
 }

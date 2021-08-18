@@ -38,4 +38,9 @@ object Util {
             .openRawResource(R.raw.movies_browse_collections)
             .fromJson(rowType)!!
     }
+
+    /**
+     * TODO: document function
+     */
+    fun createUrlYouTubeVideo(key: String) = Constants.youtubeVideoBaseUrl.plus(key)
 }

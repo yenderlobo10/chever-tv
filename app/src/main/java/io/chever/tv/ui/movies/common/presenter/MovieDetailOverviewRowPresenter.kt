@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.leanback.widget.Presenter
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
@@ -36,8 +37,13 @@ class MovieDetailOverviewRowPresenter : Presenter() {
         val mcItem = item as TMMovieDetail
 
         // Title & Year
-        mcViewHolder.tvTitle?.text = mcItem.title
-        mcViewHolder.tvYear?.text = mcItem.releaseDate?.onlyYear()
+        val movieTitle = mcItem.title;
+        val movieYear = mcItem.releaseDate?.onlyYear()
+        val titleHtml =
+            context.getString(R.string.movie_detail_title_year_format, movieTitle, movieYear)
+        mcViewHolder.tvTitle?.text =
+            HtmlCompat.fromHtml(titleHtml, HtmlCompat.FROM_HTML_MODE_LEGACY)
+
 
         // Votes
         mcViewHolder.tvVoteAverage?.text = mcItem.voteAverage.toFormatDecimalPercent()
@@ -104,8 +110,7 @@ class MovieDetailOverviewRowPresenter : Presenter() {
      */
     inner class MovieDetailViewHolder(view: View?) {
 
-        val tvTitle = view?.findViewById<TextView>(R.id.tvTitle)
-        val tvYear = view?.findViewById<TextView>(R.id.tvYear)
+        val tvTitle = view?.findViewById<TextView>(R.id.tvTitleYear)
         val tvVoteAverage = view?.findViewById<TextView>(R.id.tvVoteAverage)
         val tvVoteCount = view?.findViewById<TextView>(R.id.tvVoteCount)
         val tvReleaseDate = view?.findViewById<TextView>(R.id.tvReleaseDate)
