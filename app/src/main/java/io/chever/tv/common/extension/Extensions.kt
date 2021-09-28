@@ -1,8 +1,10 @@
 package io.chever.tv.common.extension
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.orhanobut.logger.Logger
 import com.squareup.moshi.Moshi
@@ -140,6 +142,41 @@ object Extensions {
 
             Logger.e(ex.message!!, ex)
             null
+        }
+    }
+
+    //#endregion
+
+
+    //#region Activity extensions
+
+    /**
+     * TODO: document function
+     */
+    fun Activity.enableKeepScreenOn() {
+
+        try {
+
+            this.window?.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex.message!!, ex)
+        }
+    }
+
+    /**
+     * TODO: document function
+     */
+    fun Activity.disableKeepScreenOn() {
+
+        try {
+
+            this.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex.message!!, ex)
         }
     }
 

@@ -71,6 +71,10 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
     private fun setupVideoPlayer() {
 
+        requireActivity().window?.setBackgroundDrawableResource(
+            android.R.color.background_dark
+        )
+
         glueHost = VideoSupportFragmentGlueHost(this)
 
         simplePlayer = SimpleExoPlayer.Builder(requireContext()).build()
@@ -100,7 +104,7 @@ class VideoPlayerFragment : VideoSupportFragment() {
             })
         }
 
-        
+
         val videoSource = createMediaSourceItem(trailer.videoSourceUrl)
         val audioSource = createMediaSourceItem(trailer.audioSourceUrl)
 

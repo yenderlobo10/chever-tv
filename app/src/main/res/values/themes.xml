@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.Chever" parent="@style/Theme.Leanback">
 
@@ -26,6 +26,21 @@
         <item name="android:windowSharedElementReturnTransition">
             @transition/lb_shared_element_return_transition
         </item>
+    </style>
+
+    <!-- Theme leanback guided step -->
+    <style name="Theme.Chever.TorrentSelect" parent="Theme.Leanback.GuidedStep">
+        <item name="guidedStepBackground">@color/secondaryDarkColor</item>
+        <item name="guidedActionsBackground">@color/secondaryColor</item>
+        <item name="guidanceContainerStyle">@style/Theme.Chever.TorrentSelect.Container</item>
+        <item name="guidanceIconStyle">@style/Theme.Chever.TorrentSelect.Icon</item>
+        <item name="guidanceTitleStyle">@style/Theme.Chever.TorrentSelect.Title</item>
+        <item name="guidanceBreadcrumbStyle">@style/Theme.Chever.TorrentSelect.Breadcrumb</item>
+        <item name="guidanceDescriptionStyle">@style/Theme.Chever.TorrentSelect.Description</item>
+        <item name="guidedActionsListStyle">@style/Theme.Chever.TorrentSelect.ActionsContainer</item>
+        <item name="guidedActionItemIconStyle">@style/Theme.Chever.TorrentSelect.ActionIcon</item>
+        <item name="guidedActionItemTitleStyle">@style/Theme.Chever.TorrentSelect.ActionTitle</item>
+        <item name="guidedActionItemDescriptionStyle">@style/Theme.Chever.TorrentSelect.ActionDescription</item>
     </style>
 
     <!-- Theme loader dialog -->
@@ -139,6 +154,61 @@
         <item name="android:paddingBottom">2dp</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/lightColor</item>
+    </style>
+
+    <!-- Torrent-UI styles -->
+
+    <style name="Theme.Chever.TorrentSelect.Container" parent="Widget.Leanback.GuidanceContainerStyle">
+        <item name="android:paddingStart">24dp</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.Icon" parent="Widget.Leanback.GuidanceIconStyle">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">175dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.Title" parent="Widget.Leanback.GuidanceTitleStyle">
+        <item name="fontFamily">@font/ubuntu_light</item>
+        <item name="android:fontFamily">@font/ubuntu_light</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_below">@id/none</item>
+        <item name="android:layout_centerVertical">false</item>
+
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.Description" parent="Widget.Leanback.GuidanceDescriptionStyle">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:maxLines">12</item>
+        <item name="android:gravity">fill</item>
+        <item name="android:justificationMode" tools:targetApi="o">inter_word</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.Breadcrumb" parent="Widget.Leanback.GuidanceBreadcrumbStyle" />
+
+    <style name="Theme.Chever.TorrentSelect.ActionsContainer" parent="Widget.Leanback.GuidedActionsListStyle">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.ActionIcon" parent="Widget.Leanback.GuidedActionItemIconStyle">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.ActionTitle" parent="Widget.Leanback.GuidedActionItemTitleStyle">
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+    </style>
+
+    <style name="Theme.Chever.TorrentSelect.ActionDescription" parent="Widget.Leanback.GuidedActionItemDescriptionStyle">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+        <item name="android:alpha">0.66</item>
+        <item name="android:layout_marginTop">8dp</item>
     </style>
 
 </resources>

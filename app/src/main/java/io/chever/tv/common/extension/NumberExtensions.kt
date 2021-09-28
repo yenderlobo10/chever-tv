@@ -33,16 +33,30 @@ object NumberExtensions {
     /**
      * TODO: document function
      */
-    fun Int.toFormat(): String = toFormat(Locale.getDefault())
-
-    /**
-     * TODO: document function
-     */
-    fun Int.toFormat(locale: Locale): String {
+    fun Int.toFormat(locale: Locale = Locale.getDefault()): String {
 
         return try {
 
             NumberFormat.getNumberInstance(locale).format(this)
+
+        } catch (ex: Exception) {
+
+            Logger.e(ex, ex.message!!)
+            this.toString()
+        }
+    }
+
+    /**
+     * TODO: document function
+     */
+    fun Float.toFormat(locale: Locale = Locale.getDefault(), decimals: Int = 2): String {
+
+        return try {
+
+            NumberFormat.getNumberInstance(locale).apply {
+                minimumFractionDigits = decimals
+                maximumFractionDigits = decimals
+            }.format(this)
 
         } catch (ex: Exception) {
 
@@ -100,6 +114,30 @@ object NumberExtensions {
                     "${this.toInt()}%"
                 }
             }
+
+        } catch (ex: Exception) {
+
+            ex.printStackTrace()
+            "0%"
+        }
+    }
+
+    /**
+     * TODO: document function
+     */
+    fun Float.toFormatPercent(locale: Locale = Locale.getDefault(), decimals: Int = 0): String {
+
+        return try {
+
+            val formatter = NumberFormat.getPercentInstance(locale).apply {
+                minimumFractionDigits = decimals
+                maximumFractionDigits = decimals
+            }
+
+            if (this > 1 || this < -1)
+                formatter.format(this.div(100))
+            else
+                formatter.format(this)
 
         } catch (ex: Exception) {
 

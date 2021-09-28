@@ -24,15 +24,15 @@ import coil.request.ImageRequest
 import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
-import io.chever.tv.api.themoviedb.domain.models.TMMovie
-import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
-import io.chever.tv.api.themoviedb.domain.models.TMPersonCast
-import io.chever.tv.api.themoviedb.domain.models.TMVideoResult
+import io.chever.tv.api.themoviedb.domain.models.*
+import io.chever.tv.common.extension.DateTimeExtensions.onlyYear
 import io.chever.tv.common.extension.Extensions.showLongToast
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.NumberExtensions.dpFromPx
 import io.chever.tv.common.extension.Result
 import io.chever.tv.common.extension.Util
+import io.chever.tv.common.torrent.TorrentProviderSearcher
+import io.chever.tv.common.torrent.models.TorrentQuery
 import io.chever.tv.ui.common.models.PersonCardItem
 import io.chever.tv.ui.common.models.RelatedCardItem
 import io.chever.tv.ui.common.models.YTVideoTrailer
@@ -43,6 +43,7 @@ import io.chever.tv.ui.movies.common.presenter.PersonCardItemPresenter
 import io.chever.tv.ui.movies.common.presenter.RelatedCardItemPresenter
 import io.chever.tv.ui.movies.viewModel.MovieDetailViewModel
 import io.chever.tv.ui.player.PlayerActivity
+import io.chever.tv.ui.torrent.TorrentSelectActivity
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -58,8 +59,9 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
     private lateinit var detailMovie: TMMovieDetail
     private lateinit var rowsPresenterSelector: ClassPresenterSelector
     private lateinit var rowsAdapter: ArrayObjectAdapter
-
     private lateinit var loaderDialog: LoaderDialogFragment
+
+    private var alternativeTitles: List<TMMovieTitle> = arrayListOf()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,6 +93,8 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
     }
 
     private fun setupUI() {
+
+        postponeEnterTransition()
 
         rowsPresenterSelector = ClassPresenterSelector()
         rowsAdapter = ArrayObjectAdapter(rowsPresenterSelector)
@@ -243,10 +247,14 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
                     detailBackground.coverBitmap = result.toBitmap()
                     detailBackground.enableParallax()
                     rowsAdapter.notifyArrayItemRangeChanged(0, rowsAdapter.size())
+
+                    startPostponedEnterTransition()
                 },
                 onError = { error ->
 
                     detailBackground.coverBitmap = error?.toBitmap()
+
+                    startPostponedEnterTransition()
                 }
             )
             .build()
@@ -261,8 +269,9 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
             try {
 
-                loadMovieCast()
                 loadMovieRecommendations()
+                loadMovieCast()
+                loadAlternativeTitles()
 
             } catch (ex: Exception) {
 
@@ -279,7 +288,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         viewModel.findMovieCredits(detailMovie.id).collect { result ->
 
             if (result is Result.Success) {
-                result.data?.cast?.let {
+                result.data.cast.let {
                     createMovieCastRow(it)
                 }
             }
@@ -316,7 +325,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
             if (result is Result.Success) {
 
-                result.data?.results?.let {
+                result.data.results.let {
                     createMovieRecommendationsRow(it)
                 }
             }
@@ -348,6 +357,17 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         rowsPresenterSelector.addClassPresenter(ListRow::class.java, ListRowPresenter())
     }
 
+    // Setup movie alternative titles
+
+    private suspend fun loadAlternativeTitles() {
+
+        viewModel.findMovieAlternativeTitles(detailMovie.id).collect { result ->
+
+            if (result is Result.Success)
+                alternativeTitles = result.data
+        }
+    }
+
 
     // Listener actions implement
 
@@ -355,9 +375,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         try {
 
-            // TODO: only test
-            requireContext().showShortToast(action?.label1!!)
-            validateActionClicked(action.id)
+            validateActionClicked(action?.id!!)
 
         } catch (ex: Exception) {
 
@@ -370,16 +388,18 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         when (actionId) {
 
-            MovieDetailAction.Play.id -> {
-                // TODO: go to play movie
-            }
+            MovieDetailAction.Play.id -> findMovieTorrents()
+
             MovieDetailAction.Trailer.id -> findMovieTrailer()
 
             MovieDetailAction.MyList.id -> {
                 // TODO: add to my list
+                requireContext().showShortToast(":: PENDING ACTION ::")
             }
         }
     }
+
+    // Trailer
 
     private fun findMovieTrailer() {
 
@@ -499,6 +519,71 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
         startActivity(playerIntent)
     }
 
+    // Play
+
+    private fun findMovieTorrents() {
+
+        // TODO: refactor this function
+        loaderDialog.show()
+
+        TorrentProviderSearcher.create()
+            .startSearch(createTorrentQuery())
+            .onSearchCompleted { result ->
+
+                loaderDialog.dismiss()
+
+                // Check found torrents
+                if (result.notFound) {
+
+                    lifecycleScope.launch {
+                        requireContext().showLongToast("Not found torrents")
+                    }
+                    return@onSearchCompleted
+                }
+
+                // Go to select torrent
+                lifecycleScope.launch {
+
+                    Intent(requireContext(), TorrentSelectActivity::class.java).apply {
+
+                        putExtra(TorrentSelectActivity.PARAM_MOVIE_DETAIL, detailMovie)
+                        putExtra(TorrentSelectActivity.PARAM_TORRENT_LIST, result)
+
+                        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            requireActivity(),
+                            requireActivity().findViewById(androidx.leanback.R.id.details_overview_image),
+                            MovieDetailActivity.TRANSITION_SHARED_ELEMENT
+                        )
+
+                        startActivity(this, options.toBundle())
+                    }
+                }
+            }
+    }
+
+
+    private fun createTorrentQuery(): TorrentQuery {
+
+        val titles = mutableListOf(detailMovie.title)
+
+        val isDiffOriginalTitle = detailMovie.originalTitle != detailMovie.title
+
+        if (isDiffOriginalTitle)
+            titles.add(detailMovie.originalTitle)
+
+        if (alternativeTitles.isNotEmpty())
+            titles.addAll(alternativeTitles.map { x -> x.title })
+
+
+        return TorrentQuery(
+            queries = titles,
+            duration = detailMovie.runtime!!,
+            year = detailMovie.releaseDate?.onlyYear()?.toInt()!!,
+            idIMDB = detailMovie.imdbId,
+            idTMDB = detailMovie.id,
+        )
+    }
+
 
     // Listener row-items implement
 
@@ -595,8 +680,8 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
     companion object {
 
-        private const val DETAIL_THUMB_WIDTH = 320
-        private const val DETAIL_THUMB_HEIGHT = 420
+        const val DETAIL_THUMB_WIDTH = 320
+        const val DETAIL_THUMB_HEIGHT = 420
         private const val MAX_CAST_ITEMS_SHOW = 20
     }
 }

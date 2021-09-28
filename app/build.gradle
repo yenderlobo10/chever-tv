@@ -64,14 +64,23 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
-    // Logger
-    implementation 'com.orhanobut:logger:2.2.0'
-
-    // YouTube Extractor
-    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
-
     // Exoplayer
     def exoplayerVersion = '2.15.0'
     implementation "com.google.android.exoplayer:exoplayer:$exoplayerVersion"
     implementation "com.google.android.exoplayer:extension-leanback:$exoplayerVersion"
+
+    // Logger
+    implementation 'com.orhanobut:logger:2.2.0'
+    // YouTube Extractor
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
+    // JSoup
+    implementation 'org.jsoup:jsoup:1.14.2'
+    // Apache utils
+    implementation 'org.apache.commons:commons-text:1.8'
+    // TorrentStream
+    implementation 'com.github.se-bastiaan:TorrentStream-Android:2.7.0'
+    // CircularProgressBar
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+    // EventBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }

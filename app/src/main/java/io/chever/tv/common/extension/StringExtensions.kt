@@ -10,6 +10,25 @@ import java.util.*
  */
 object StringExtensions {
 
+    const val PATTER_HTTP_URL =
+        "^https?://(www\\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)\$"
+
+    const val PATTERN_MAGNET_URL = "^magnet:\\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+\$"
+
+
+    /**
+     * TODO: document function
+     */
+    fun String.isHttpUrl(): Boolean =
+        Regex(PATTER_HTTP_URL).matches(this)
+
+    /**
+     * TODO: document function
+     */
+    fun String.isMagnetUrl(): Boolean =
+        Regex(PATTERN_MAGNET_URL, RegexOption.IGNORE_CASE).matches(this)
+
+
     /**
      * Represent an empty ("") string by functionality.
      */
@@ -71,5 +90,15 @@ object StringExtensions {
             Logger.e(ex, ex.message!!)
             this
         }
+    }
+
+    /**
+     * TODO: document function
+     */
+    fun String.deleteShortWords(maxLength: Int = 2): String {
+
+        return this.split(" ")
+            .filter { w -> w.length > maxLength }
+            .joinToString(" ")
     }
 }
