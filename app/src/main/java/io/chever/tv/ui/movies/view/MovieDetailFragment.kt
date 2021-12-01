@@ -21,7 +21,6 @@ import at.huber.youtubeExtractor.YouTubeExtractor
 import at.huber.youtubeExtractor.YtFile
 import coil.Coil
 import coil.request.ImageRequest
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.api.themoviedb.domain.models.*
@@ -29,7 +28,7 @@ import io.chever.tv.common.extension.DateTimeExtensions.onlyYear
 import io.chever.tv.common.extension.Extensions.showLongToast
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.NumberExtensions.dpFromPx
-import io.chever.tv.common.extension.Result
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.Util
 import io.chever.tv.common.torrent.TorrentProviderSearcher
 import io.chever.tv.common.torrent.models.TorrentQuery
@@ -43,9 +42,11 @@ import io.chever.tv.ui.movies.common.presenter.PersonCardItemPresenter
 import io.chever.tv.ui.movies.common.presenter.RelatedCardItemPresenter
 import io.chever.tv.ui.movies.viewModel.MovieDetailViewModel
 import io.chever.tv.ui.player.PlayerActivity
+import io.chever.tv.ui.player.common.TestPreferenceActivity
 import io.chever.tv.ui.torrent.TorrentSelectActivity
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 /**
  * TODO: document fragment class
@@ -77,7 +78,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
     }
 
@@ -275,7 +276,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
             } catch (ex: Exception) {
 
-                Logger.e(ex.message!!, ex)
+                Timber.e(ex, ex.message)
                 requireContext().showShortToast(R.string.app_unknown_error_one)
             }
         }
@@ -287,7 +288,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         viewModel.findMovieCredits(detailMovie.id).collect { result ->
 
-            if (result is Result.Success) {
+            if (result is AppResult.Success) {
                 result.data.cast.let {
                     createMovieCastRow(it)
                 }
@@ -323,7 +324,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         viewModel.findMovieRecommendations(detailMovie.id).collect { result ->
 
-            if (result is Result.Success) {
+            if (result is AppResult.Success) {
 
                 result.data.results.let {
                     createMovieRecommendationsRow(it)
@@ -363,7 +364,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         viewModel.findMovieAlternativeTitles(detailMovie.id).collect { result ->
 
-            if (result is Result.Success)
+            if (result is AppResult.Success)
                 alternativeTitles = result.data
         }
     }
@@ -379,7 +380,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
         }
     }
@@ -395,6 +396,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
             MovieDetailAction.MyList.id -> {
                 // TODO: add to my list
                 requireContext().showShortToast(":: PENDING ACTION ::")
+                startActivity(Intent(requireContext(), TestPreferenceActivity::class.java))
             }
         }
     }
@@ -409,12 +411,12 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
                 when (result) {
 
-                    Result.Loading -> loaderDialog.show()
+                    AppResult.Loading -> loaderDialog.show()
 
-                    is Result.Success -> extractYouTubeVideoUrl(result.data)
+                    is AppResult.Success -> extractYouTubeVideoUrl(result.data)
 
-                    is Result.Empty,
-                    is Result.Error -> {
+                    is AppResult.Empty,
+                    is AppResult.Error -> {
 
                         loaderDialog.dismiss()
                         requireContext().showLongToast("Trailer not found")
@@ -437,10 +439,10 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
                 ) {
 
                     val preferVideoKeyTags = arrayOf(
-                        137, // mp4 | 1080p
+                        247, // web | 720p
                         136, // mp4 | 720p
                         248, // web | 1080p
-                        247, // web | 720p
+                        137, // mp4 | 1080p
                         135, // mp4 | 480p
                         244, // web | 480p
                         134, // mp4 | 360p
@@ -450,8 +452,8 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
                     )
 
                     val preferAudioKeyTags = arrayOf(
-                        140, // m4a | 128b
                         251, // web | 160b
+                        140, // m4a | 128b
                         250, // web | 64b
                         249, // web | 48b
                     )
@@ -524,7 +526,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
     private fun findMovieTorrents() {
 
         // TODO: refactor this function
-        loaderDialog.show()
+        loaderDialog.showCancelable()
 
         TorrentProviderSearcher.create()
             .startSearch(createTorrentQuery())
@@ -536,7 +538,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
                 if (result.notFound) {
 
                     lifecycleScope.launch {
-                        requireContext().showLongToast("Not found torrents")
+                        requireContext().showLongToast(R.string.movie_detail_not_found_torrents)
                     }
                     return@onSearchCompleted
                 }
@@ -600,7 +602,7 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
         }
     }
@@ -636,9 +638,9 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
                 when (result) {
 
-                    Result.Loading -> loaderDialog.show()
+                    AppResult.Loading -> loaderDialog.show()
 
-                    is Result.Success -> {
+                    is AppResult.Success -> {
 
                         loaderDialog.dismiss()
                         goToItemRecommendationDetail(result.data, itemViewHolder)

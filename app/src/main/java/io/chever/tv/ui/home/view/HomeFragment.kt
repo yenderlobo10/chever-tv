@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.widget.*
 import androidx.lifecycle.lifecycleScope
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.fromJson
 import io.chever.tv.ui.home.common.model.HeaderIconItem
 import io.chever.tv.ui.home.common.presenter.HeaderIconItemPresenter
 import io.chever.tv.ui.movies.view.MoviesBrowseFragment
 import kotlinx.coroutines.delay
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -37,7 +37,7 @@ class HomeFragment : BrowseSupportFragment() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
     }
 

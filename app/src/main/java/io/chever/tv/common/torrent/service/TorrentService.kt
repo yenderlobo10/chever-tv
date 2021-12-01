@@ -9,9 +9,9 @@ import com.github.se_bastiaan.torrentstream.TorrentOptions
 import com.github.se_bastiaan.torrentstream.TorrentStream
 import com.github.se_bastiaan.torrentstream.listeners.TorrentListener
 import com.google.android.exoplayer2.MediaItem
-import com.orhanobut.logger.Logger
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.io.File
 import io.chever.tv.common.torrent.models.Torrent as TorrentFile
 
@@ -44,7 +44,7 @@ class TorrentService private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
     }
 
@@ -127,7 +127,7 @@ class TorrentService private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             torrentListener?.torrentError(null, ex)
         }
     }
@@ -182,7 +182,7 @@ class TorrentService private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         return this
@@ -198,7 +198,7 @@ class TorrentService private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         return this
@@ -213,7 +213,7 @@ class TorrentService private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         return this
@@ -258,13 +258,19 @@ class TorrentService private constructor(
 
     companion object {
 
-        const val MIN_PROGRESS_TO_PLAY = 3f // 3%
+        const val MIN_PROGRESS_TO_PLAY = 0.33f // 3%
         const val MAX_SECONDS_WAIT_START_TORRENT = 16000L // 16 seg.
         const val MAX_INTENTS_START_TORRENT = 3
 
+        /**
+         * TODO: document method
+         */
         fun create(torrent: TorrentFile, activity: ComponentActivity): TorrentService =
             TorrentService(torrent, activity)
 
+        /**
+         * TODO: document method
+         */
         fun createToStartImmediately(
             torrent: TorrentFile,
             activity: ComponentActivity

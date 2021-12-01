@@ -10,7 +10,7 @@ import java.io.Serializable
 data class MovieCardItem(
 
     val title: String,
-    val year: Int,
+    val year: Int?,
     val collection: MovieCollection,
 
     var idTMDB: Long? = null,

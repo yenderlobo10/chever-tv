@@ -1,8 +1,8 @@
 package io.chever.tv.api.themoviedb
 
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import io.chever.tv.api.ApiClient
+import io.chever.tv.api.common.MultipleDateJsonAdapter
 import io.chever.tv.api.themoviedb.movies.TMDBMovies
 import java.util.*
 
@@ -27,7 +27,7 @@ open class TheMovieDB : ApiClient() {
     /** Custom [Moshi] with custom adapters. */
     protected val moshi: Moshi = with(moshi()) {
 
-        add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
+        add(Date::class.java, MultipleDateJsonAdapter().nullSafe())
         build()
     }
 

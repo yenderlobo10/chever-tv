@@ -1,7 +1,7 @@
 package io.chever.tv.common.extension
 
 import android.content.Context
-import com.orhanobut.logger.Logger
+import timber.log.Timber
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
@@ -41,7 +41,7 @@ object NumberExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message!!)
             this.toString()
         }
     }
@@ -60,7 +60,7 @@ object NumberExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message!!)
             this.toString()
         }
     }
@@ -85,7 +85,7 @@ object NumberExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message!!)
             "N/A"
         }
     }

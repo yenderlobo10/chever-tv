@@ -11,13 +11,13 @@ import coil.load
 import com.github.se_bastiaan.torrentstream.StreamStatus
 import com.github.se_bastiaan.torrentstream.Torrent
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.NumberExtensions.toFormatPercent
 import io.chever.tv.common.torrent.service.TorrentService
 import io.chever.tv.common.torrent.service.TorrentServiceListener
 import io.chever.tv.ui.common.models.PlayVideo
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -56,7 +56,7 @@ class TorrentLoadFragment(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
             requireActivity().finish()
         }
@@ -77,7 +77,7 @@ class TorrentLoadFragment(
 
         setupTorrentService()
 
-        Logger.d(":: PLAY VIDEO ::\n$playVideo")
+        Timber.d(":: PLAY VIDEO ::\n$playVideo")
     }
 
     private fun setupBackdropImage() {

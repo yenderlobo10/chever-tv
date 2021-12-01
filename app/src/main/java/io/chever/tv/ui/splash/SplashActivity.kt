@@ -14,12 +14,12 @@ import androidx.transition.ChangeTransform
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
 import androidx.transition.TransitionSet
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.ui.home.view.HomeActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class SplashActivity : FragmentActivity() {
 
@@ -133,7 +133,7 @@ class SplashActivity : FragmentActivity() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
     }
 }

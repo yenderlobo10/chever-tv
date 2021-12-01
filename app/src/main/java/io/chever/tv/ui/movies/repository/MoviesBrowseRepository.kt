@@ -3,9 +3,9 @@ package io.chever.tv.ui.movies.repository
 import io.chever.tv.api.themoviedb.TheMovieDB
 import io.chever.tv.api.trakttv.TraktTV
 import io.chever.tv.api.trakttv.domain.enums.TKPeriod
-import io.chever.tv.common.extension.BaseRepository
+import io.chever.tv.common.extension.AppBaseRepository
 
-class MoviesBrowseRepository : BaseRepository() {
+class MoviesBrowseRepository : AppBaseRepository() {
 
     suspend fun trending() = getResult {
         TraktTV.movies.trending()

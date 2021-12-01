@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/playback_fragment_root"
-    android:transitionGroup="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:transitionGroup="false">
+
+    <!-- Original place for VideoSurfaceView -->
+
+    <androidx.leanback.widget.NonOverlappingFrameLayout
+        android:id="@+id/playback_fragment_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionGroup="false" />
+
+    <androidx.leanback.widget.NonOverlappingFrameLayout
+        android:id="@+id/playback_controls_dock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionGroup="true" />
 
     <!-- Add subtitle view -->
     <com.google.android.exoplayer2.ui.AspectRatioFrameLayout
-        android:id="@+id/surface_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center">
@@ -16,23 +29,8 @@
         <com.google.android.exoplayer2.ui.SubtitleView
             android:id="@+id/leanback_subtitles"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.google.android.exoplayer2.ui.AspectRatioFrameLayout>
-
-
-    <!-- Original place for VideoSurfaceView -->
-
-    <androidx.leanback.widget.NonOverlappingFrameLayout
-        android:id="@+id/playback_fragment_background"
-        android:transitionGroup="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <androidx.leanback.widget.NonOverlappingFrameLayout
-        android:id="@+id/playback_controls_dock"
-        android:transitionGroup="true"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
 
 </FrameLayout>

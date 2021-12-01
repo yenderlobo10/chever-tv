@@ -1,15 +1,15 @@
 package io.chever.tv.ui.movies.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.orhanobut.logger.Logger
 import io.chever.tv.api.themoviedb.domain.enums.TMVideoType
 import io.chever.tv.api.themoviedb.domain.models.TMMovieTitle
 import io.chever.tv.api.themoviedb.domain.models.TMMovieTitlesResult
 import io.chever.tv.api.themoviedb.domain.models.TMVideoResult
 import io.chever.tv.api.themoviedb.domain.models.TMVideos
-import io.chever.tv.common.extension.Result
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.ui.movies.repository.MovieDetailRepository
 import kotlinx.coroutines.flow.flow
+import timber.log.Timber
 
 class MovieDetailViewModel : ViewModel() {
 
@@ -22,14 +22,14 @@ class MovieDetailViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             emit(repository.credits(id))
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
-            emit(Result.Error(ex.message, exception = ex))
+            Timber.e(ex, ex.message)
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
@@ -37,14 +37,14 @@ class MovieDetailViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             emit(repository.recommendations(id))
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
-            emit(Result.Error(ex.message, exception = ex))
+            Timber.e(ex, ex.message)
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
@@ -52,14 +52,14 @@ class MovieDetailViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             emit(repository.details(id))
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
-            emit(Result.Error(ex.message, exception = ex))
+            Timber.e(ex, ex.message)
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
@@ -68,25 +68,25 @@ class MovieDetailViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             val result = repository.videos(id)
 
-            if (result is Result.Success)
+            if (result is AppResult.Success)
                 emit(tryFilterTrailerOfficialYouTubeVideo(result.data))
             else
-                emit(Result.Empty)
+                emit(AppResult.Empty)
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
-            emit(Result.Error(ex.message, exception = ex))
+            Timber.e(ex, ex.message)
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
     private fun tryFilterTrailerOfficialYouTubeVideo(
         tmVideos: TMVideos
-    ): Result<TMVideoResult> {
+    ): AppResult<TMVideoResult> {
 
         // TODO: check filter site constant?
         val ytVideos = tmVideos.results.filter { x ->
@@ -98,9 +98,9 @@ class MovieDetailViewModel : ViewModel() {
         if (ytVideo == null) ytVideo = ytVideos.firstOrNull()
 
         return if (ytVideo is TMVideoResult)
-            Result.Success(ytVideo)
+            AppResult.Success(ytVideo)
         else
-            Result.Empty
+            AppResult.Empty
     }
 
 
@@ -108,25 +108,25 @@ class MovieDetailViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             val result = repository.alternativeTitles(id)
 
-            if (result is Result.Success)
+            if (result is AppResult.Success)
                 emit(tryFilterAlternativeTitles(result.data))
             else
-                emit(Result.Empty)
+                emit(AppResult.Empty)
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
-            emit(Result.Error(ex.message, exception = ex))
+            Timber.e(ex, ex.message)
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
     private fun tryFilterAlternativeTitles(
         titles: TMMovieTitlesResult
-    ): Result<List<TMMovieTitle>> {
+    ): AppResult<List<TMMovieTitle>> {
 
 
         val filter = titles.titles.filter { x ->
@@ -134,9 +134,9 @@ class MovieDetailViewModel : ViewModel() {
         }
 
         return if (filter.isNotEmpty())
-            Result.Success(filter)
+            AppResult.Success(filter)
         else
-            Result.Empty
+            AppResult.Empty
 
     }
 }

@@ -6,11 +6,11 @@ import android.content.res.Resources
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import com.orhanobut.logger.Logger
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.chever.tv.common.extension.StringExtensions.empty
 import io.chever.tv.common.extension.StringExtensions.fromJson
+import timber.log.Timber
 import java.io.InputStream
 import java.util.*
 
@@ -79,7 +79,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
 
         return Properties()
@@ -101,7 +101,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
             ""
         }
     }
@@ -140,7 +140,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
             null
         }
     }
@@ -161,7 +161,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
     }
 
@@ -176,7 +176,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
     }
 
@@ -193,7 +193,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
     }
 
@@ -205,7 +205,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
     }
 
@@ -217,7 +217,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
         }
     }
 
@@ -234,7 +234,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
             String.empty()
         }
     }
@@ -247,7 +247,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
             null
         }
     }
@@ -263,7 +263,7 @@ object Extensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message!!)
             null
         }
     }

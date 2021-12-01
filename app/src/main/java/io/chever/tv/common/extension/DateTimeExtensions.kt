@@ -1,6 +1,6 @@
 package io.chever.tv.common.extension
 
-import com.orhanobut.logger.Logger
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,7 +32,7 @@ object DateTimeExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message!!)
             this.toString()
         }
     }

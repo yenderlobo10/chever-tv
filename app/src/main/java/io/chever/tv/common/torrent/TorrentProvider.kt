@@ -1,14 +1,16 @@
 package io.chever.tv.common.torrent
 
-import com.orhanobut.logger.Logger
 import io.chever.tv.common.torrent.enums.TorrentSite
 import io.chever.tv.common.torrent.models.Torrent
 import io.chever.tv.common.torrent.models.TorrentQuery
-import io.chever.tv.common.torrent.providers.SitorrentProvider
+import io.chever.tv.common.torrent.providers.MiTorrentProvider
+import io.chever.tv.common.torrent.providers.TorrentGalaxyProvider
+import io.chever.tv.common.torrent.providers.TorrentPelisProvider
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.io.IOException
 
 /**
@@ -18,7 +20,17 @@ abstract class TorrentProvider(open val site: TorrentSite) {
 
     protected lateinit var query: TorrentQuery
     protected var result = mutableListOf<Torrent>()
+
+    /**
+     * Invoke when finished search torrents success.
+     * -- NOTE --
+     * Require calling so if $result empty.
+     */
     protected lateinit var successCallback: (List<Torrent>) -> Unit
+
+    /**
+     * Invoke when finished search torrents with error.
+     */
     protected lateinit var errorCallback: (Exception) -> Unit
 
 
@@ -38,7 +50,7 @@ abstract class TorrentProvider(open val site: TorrentSite) {
         } catch (ex: Exception) {
 
             errorCallback.invoke(ex)
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         return this
@@ -71,8 +83,8 @@ abstract class TorrentProvider(open val site: TorrentSite) {
 
         } catch (ex: Exception) {
 
+            Timber.e(ex, ex.message)
             errorCallback.invoke(ex)
-            Logger.e(ex.message!!, ex)
         }
     }
 
@@ -92,12 +104,15 @@ abstract class TorrentProvider(open val site: TorrentSite) {
 
         /**
          * Default list of torrent providers.
-         * +++ Add more providers if needed +++.
+         *
+         * ```
+         * * Add more providers if needed.
          */
         val listDefaultProviders: List<TorrentProvider> =
             listOf(
 
-                SitorrentProvider(),
+                TorrentGalaxyProvider(),
+                TorrentPelisProvider(),
 
                 /// add more providers here ...
             )

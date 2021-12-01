@@ -1,8 +1,8 @@
 package io.chever.tv.common.extension
 
-import com.orhanobut.logger.Logger
 import com.squareup.moshi.Moshi
 import io.chever.tv.common.extension.Extensions.fromJson
+import timber.log.Timber
 import java.util.*
 
 /**
@@ -14,6 +14,8 @@ object StringExtensions {
         "^https?://(www\\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)\$"
 
     const val PATTERN_MAGNET_URL = "^magnet:\\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+\$"
+
+    const val PATTERN_IMDB_ID = "^tt[\\d]*\$"
 
 
     /**
@@ -28,6 +30,11 @@ object StringExtensions {
     fun String.isMagnetUrl(): Boolean =
         Regex(PATTERN_MAGNET_URL, RegexOption.IGNORE_CASE).matches(this)
 
+    /**
+     * TODO: document function
+     */
+    fun String.isIMDBID(): Boolean =
+        Regex(PATTERN_IMDB_ID).matches(this)
 
     /**
      * Represent an empty ("") string by functionality.
@@ -45,7 +52,7 @@ object StringExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             null
         }
     }
@@ -65,7 +72,7 @@ object StringExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message)
             this
         }
     }
@@ -87,7 +94,7 @@ object StringExtensions {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message)
             this
         }
     }

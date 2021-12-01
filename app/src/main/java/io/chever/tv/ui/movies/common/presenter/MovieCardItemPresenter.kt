@@ -56,7 +56,7 @@ class MovieCardItemPresenter(context: Context) :
 
         // Setup year =>
         val tvMovieYear = cardView.findViewById<TextView>(R.id.tvItemYear)
-        tvMovieYear.text = cardModel.year.toString()
+        tvMovieYear.text = cardModel.year?.toString()
     }
 
     override fun onUnbindViewHolder(cardView: BaseCardView) {

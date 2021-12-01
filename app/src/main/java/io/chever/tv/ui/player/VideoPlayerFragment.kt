@@ -6,16 +6,16 @@ import androidx.leanback.app.VideoSupportFragment
 import androidx.leanback.app.VideoSupportFragmentGlueHost
 import androidx.leanback.media.PlaybackGlue
 import androidx.leanback.media.PlaybackTransportControlGlue
+import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.leanback.LeanbackPlayerAdapter
 import com.google.android.exoplayer2.source.MergingMediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.orhanobut.logger.Logger
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.ui.common.models.YTVideoTrailer
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -24,7 +24,7 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
     private lateinit var trailer: YTVideoTrailer
 
-    private lateinit var simplePlayer: SimpleExoPlayer
+    private lateinit var simplePlayer: ExoPlayer
     private lateinit var playerAdapter: LeanbackPlayerAdapter
     private lateinit var playerGlue: PlaybackTransportControlGlue<LeanbackPlayerAdapter>
     private lateinit var glueHost: VideoSupportFragmentGlueHost
@@ -39,7 +39,7 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_three)
         }
     }
@@ -53,7 +53,7 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
         }
     }
@@ -77,7 +77,7 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
         glueHost = VideoSupportFragmentGlueHost(this)
 
-        simplePlayer = SimpleExoPlayer.Builder(requireContext()).build()
+        simplePlayer = ExoPlayer.Builder(requireContext()).build()
 
         playerAdapter =
             LeanbackPlayerAdapter(requireActivity(), simplePlayer, PLAYER_ADAPTER_UPDATE_DELAY)
@@ -118,7 +118,9 @@ class VideoPlayerFragment : VideoSupportFragment() {
 
     private fun createMediaSourceItem(url: String): ProgressiveMediaSource {
 
-        return ProgressiveMediaSource.Factory(DefaultDataSourceFactory(requireContext()))
+        val dsFactory = DefaultHttpDataSource.Factory()
+
+        return ProgressiveMediaSource.Factory(dsFactory)
             .createMediaSource(MediaItem.fromUri(url))
     }
 

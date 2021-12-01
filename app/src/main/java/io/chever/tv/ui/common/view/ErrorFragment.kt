@@ -7,10 +7,10 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.leanback.app.ErrorSupportFragment
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.isResourceExist
 import io.chever.tv.ui.common.models.ErrorBuilder
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -55,7 +55,7 @@ class ErrorFragment(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         return this
@@ -71,7 +71,7 @@ class ErrorFragment(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
     }
 

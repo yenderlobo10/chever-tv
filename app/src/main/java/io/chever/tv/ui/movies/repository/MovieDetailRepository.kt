@@ -1,9 +1,9 @@
 package io.chever.tv.ui.movies.repository
 
 import io.chever.tv.api.themoviedb.TheMovieDB
-import io.chever.tv.common.extension.BaseRepository
+import io.chever.tv.common.extension.AppBaseRepository
 
-class MovieDetailRepository : BaseRepository() {
+class MovieDetailRepository : AppBaseRepository() {
 
     suspend fun credits(id: Long) = getResult {
         TheMovieDB.movies.credits(id)

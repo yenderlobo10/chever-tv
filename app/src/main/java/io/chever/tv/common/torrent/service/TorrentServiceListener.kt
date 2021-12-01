@@ -2,9 +2,9 @@ package io.chever.tv.common.torrent.service
 
 import com.github.se_bastiaan.torrentstream.StreamStatus
 import com.github.se_bastiaan.torrentstream.Torrent
-import com.orhanobut.logger.Logger
 import io.chever.tv.common.extension.NumberExtensions.toFormat
 import io.chever.tv.common.extension.NumberExtensions.toFormatPercent
+import timber.log.Timber
 
 /**
  * TODO: document interface
@@ -12,11 +12,11 @@ import io.chever.tv.common.extension.NumberExtensions.toFormatPercent
 interface TorrentServiceListener {
 
     fun torrentStarted(torrent: Torrent) {
-        Logger.i(":: TORRENT STARTED ::")
+        Timber.i(":: TORRENT STARTED ::")
     }
 
     fun torrentPrepared(torrent: Torrent) {
-        Logger.i(":: TORRENT PREPARED ::")
+        Timber.i(":: TORRENT PREPARED ::")
     }
 
     fun torrentProgress(torrent: Torrent, status: StreamStatus) {
@@ -34,7 +34,7 @@ interface TorrentServiceListener {
     }
 
     fun torrentReady(torrent: Torrent) {
-        Logger.i(":: TORRENT READY ::")
+        Timber.i(":: TORRENT READY ::")
     }
 
     fun torrentReadyToPlay(torrent: Torrent, status: StreamStatus) {
@@ -42,14 +42,14 @@ interface TorrentServiceListener {
     }
 
     fun torrentStopped() {
-        Logger.i(":: TORRENT STOPPED ::")
+        Timber.i(":: TORRENT STOPPED ::")
     }
 
     fun torrentError(torrent: Torrent?, ex: Exception) {
-        Logger.e(":: TORRENT ERROR ::", ex)
+        Timber.w(":: TORRENT ERROR ::", ex)
     }
 
     fun torrentTimeout() {
-        Logger.e(":: TORRENT TIMEOUT ::")
+        Timber.w(":: TORRENT TIMEOUT ::")
     }
 }

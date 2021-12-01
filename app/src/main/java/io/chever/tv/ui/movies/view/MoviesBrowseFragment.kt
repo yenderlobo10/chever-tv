@@ -10,11 +10,10 @@ import androidx.leanback.app.ProgressBarManager
 import androidx.leanback.app.RowsSupportFragment
 import androidx.leanback.widget.*
 import androidx.lifecycle.lifecycleScope
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.getResStringByName
 import io.chever.tv.common.extension.Extensions.showShortToast
-import io.chever.tv.common.extension.Result
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.Util
 import io.chever.tv.ui.common.models.ErrorBuilder
 import io.chever.tv.ui.common.models.MovieCardItem
@@ -24,6 +23,7 @@ import io.chever.tv.ui.home.view.HomeFragment
 import io.chever.tv.ui.movies.common.presenter.MovieCardItemPresenter
 import io.chever.tv.ui.movies.viewModel.MoviesBrowseViewModel
 import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -49,7 +49,7 @@ class MoviesBrowseFragment : RowsSupportFragment(), OnItemViewClickedListener {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
         }
     }
@@ -85,7 +85,7 @@ class MoviesBrowseFragment : RowsSupportFragment(), OnItemViewClickedListener {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_one)
         }
 
@@ -119,12 +119,12 @@ class MoviesBrowseFragment : RowsSupportFragment(), OnItemViewClickedListener {
 
                 when (result) {
 
-                    is Result.Loading -> {
+                    is AppResult.Loading -> {
 
                         progressManager.show()
                     }
 
-                    is Result.Success -> {
+                    is AppResult.Success -> {
 
                         progressManager.hide()
                         createRowsByMoviesCollection(result.data)
@@ -135,7 +135,8 @@ class MoviesBrowseFragment : RowsSupportFragment(), OnItemViewClickedListener {
                         progressManager.hide()
                         ErrorFragment.create(errorBuilder).show()
 
-                        Logger.e((result as Result.Error).message!!, result)
+                        result as AppResult.Error
+                        Timber.e(result.exception, result.message)
                     }
                 }
             }

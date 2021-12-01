@@ -3,10 +3,8 @@ package io.chever.tv
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import com.orhanobut.logger.AndroidLogAdapter
-import com.orhanobut.logger.Logger
-import com.orhanobut.logger.PrettyFormatStrategy
-import io.chever.tv.common.extension.Constants
+import io.chever.tv.common.extension.TimberReleaseTree
+import timber.log.Timber
 
 class CheverApp : Application() {
 
@@ -15,30 +13,27 @@ class CheverApp : Application() {
 
         initProperties()
 
-        setupLogger()
+        setupTimber()
+
+        Timber.i(">> CREATE APP <<")
     }
 
 
-    private fun initProperties(){
+    private fun initProperties() {
 
         context = this.applicationContext
     }
 
-    private fun setupLogger() {
+    private fun setupTimber() {
 
-        Logger.addLogAdapter(
-            AndroidLogAdapter(
-                PrettyFormatStrategy.newBuilder()
-                    .tag(Constants.loggerTag)
-                    .build()
-            )
-        )
-
-        Logger.i(">> CREATE APP <<")
+        if (BuildConfig.DEBUG)
+            Timber.plant(Timber.DebugTree())
+        else
+            Timber.plant(TimberReleaseTree())
     }
 
 
-    companion object{
+    companion object {
 
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context

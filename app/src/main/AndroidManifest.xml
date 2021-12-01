@@ -23,6 +23,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,10 +41,9 @@
         <activity android:name=".ui.player.PlayerActivity" />
         <activity android:name=".ui.torrent.TorrentSelectActivity" />
         <activity android:name=".ui.player.TorrentPlayerActivity" />
-
-        <service
-            android:name=".common.torrent.service.TorrentService"
-            android:exported="false" />
+        <activity
+            android:name=".ui.player.common.TestPreferenceActivity"
+            android:theme="@style/Theme.Chever.LeanbackPreferences" />
     </application>
 
 </manifest>

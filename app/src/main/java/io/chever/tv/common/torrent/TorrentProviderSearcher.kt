@@ -1,9 +1,9 @@
 package io.chever.tv.common.torrent
 
-import com.orhanobut.logger.Logger
 import io.chever.tv.common.torrent.models.Torrent
 import io.chever.tv.common.torrent.models.TorrentQuery
 import io.chever.tv.common.torrent.models.TorrentSearcherResult
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -54,7 +54,7 @@ class TorrentProviderSearcher private constructor(
                     errorCount++
                     emmitSearchCompletedIfRequired()
 
-                    Logger.w(it.message!!, it)
+                    Timber.w(it, it.message)
                 }
         }
 
@@ -73,6 +73,8 @@ class TorrentProviderSearcher private constructor(
     private fun emmitSearchCompletedIfRequired() {
 
         if (isSearchCompleted) {
+
+            Timber.i("SUCCESS TORRENT SEARCH | Found (${resultListTorrents.size})")
 
             completedCallback.invoke(
                 TorrentSearcherResult(

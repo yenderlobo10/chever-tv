@@ -12,7 +12,6 @@ import androidx.leanback.widget.GuidanceStylist
 import androidx.leanback.widget.GuidedAction
 import coil.Coil
 import coil.request.ImageRequest
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
@@ -27,6 +26,7 @@ import io.chever.tv.ui.common.models.PlayVideo
 import io.chever.tv.ui.movies.view.MovieDetailActivity
 import io.chever.tv.ui.movies.view.MovieDetailFragment
 import io.chever.tv.ui.player.TorrentPlayerActivity
+import timber.log.Timber
 
 class TorrentSelectFragment : GuidedStepSupportFragment() {
 
@@ -44,7 +44,7 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireContext().showShortToast(R.string.app_unknown_error_three)
             requireActivity().finish()
         }
@@ -113,7 +113,7 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             requireActivity().showShortToast(R.string.app_unknown_error_one)
         }
 
@@ -183,18 +183,25 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
     private fun createGuidedActionTorrent(torrent: Torrent, index: Int): GuidedAction {
 
-        val resIcon = getResIconByQuality(torrent.quality!!)
-        val title = getLanguageWithFlagSymbol(torrent.language!!) ?: "Opción ${index + 1}"
+        val resQualityIcon = getResIconByQuality(torrent.quality)
+
+        val flagSymbol = getFlagSymbolByLanguage(torrent.language)
+
+        var title = "Opción ${index + 1}"
+        torrent.title?.let {
+            title = "$flagSymbol $it"
+        }
+
         var description = ""
 
 
         if (torrent.site.name.isNotBlank())
             description += "${FSymbols.web} ${torrent.site.name}"
 
-        if (torrent.size?.isNotBlank()!!)
+        if (torrent.size?.isNotBlank() == true)
             description += "  ${FSymbols.disk} ${torrent.size}"
 
-        if (torrent.downloads > 0)
+        if (torrent.downloads?.isNotBlank() == true)
             description += "  ${FSymbols.downArrow} ${torrent.downloads}"
 
 
@@ -202,38 +209,42 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
             .id(torrent.id)
             .title(title)
             .description(description)
-            .icon(resIcon)
+            .icon(resQualityIcon)
             .build()
     }
 
-    private fun getResIconByQuality(qa: String): Int {
+    private fun getResIconByQuality(qa: String?): Int {
+
+        if(qa == null) return R.drawable.ic_sd
 
         return when {
 
             qa.contains("1080") -> R.drawable.ic_1080
             qa.contains("720") -> R.drawable.ic_720
             qa.contains("480") -> R.drawable.ic_480
-            qa.contains("4k") -> R.drawable.ic_4k
-            qa.contains("hd") -> R.drawable.ic_hd
-            qa.contains("sd") -> R.drawable.ic_sd
+            qa.contains("4k", true) -> R.drawable.ic_4k
+            qa.contains("hd", true) -> R.drawable.ic_hd
+            qa.contains("sd", true) -> R.drawable.ic_sd
 
-            else -> R.drawable.ic_hd
+            else -> R.drawable.ic_sd
         }
     }
 
-    private fun getLanguageWithFlagSymbol(language: String): String? {
+    private fun getFlagSymbolByLanguage(language: String?): String {
+
+        if(language == null) return "???"
 
         val lg = language.lowercase().trim()
 
         return when {
 
             arrayOf("latino", "mexico").any { x -> lg.contains(x) } ->
-                "${FSymbols.flagMexico}  Latino"
+                FSymbols.flagMexico
 
             arrayOf("español", "spanish").any { x -> lg.contains(x) } ->
-                "${FSymbols.flagSpain}  Español"
+                FSymbols.flagSpain
 
-            else -> null
+            else -> FSymbols.flagEnglish
         }
     }
 

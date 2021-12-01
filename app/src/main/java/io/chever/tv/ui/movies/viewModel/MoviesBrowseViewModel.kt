@@ -1,19 +1,20 @@
 package io.chever.tv.ui.movies.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.orhanobut.logger.Logger
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.api.trakttv.domain.models.TKMovie
 import io.chever.tv.common.extension.DateTimeExtensions
 import io.chever.tv.common.extension.DateTimeExtensions.toFormat
 import io.chever.tv.common.extension.NumberExtensions.toFormat
-import io.chever.tv.common.extension.Result
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.StringExtensions.capitalize
 import io.chever.tv.ui.common.models.MovieCardItem
-import io.chever.tv.ui.movies.repository.MoviesBrowseRepository
 import io.chever.tv.ui.movies.common.enums.MovieCollection
+import io.chever.tv.ui.movies.repository.MoviesBrowseRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
+import org.jetbrains.annotations.TestOnly
+import timber.log.Timber
 
 class MoviesBrowseViewModel : ViewModel() {
 
@@ -26,13 +27,13 @@ class MoviesBrowseViewModel : ViewModel() {
 
         try {
 
-            emit(Result.Loading)
+            emit(AppResult.Loading)
 
             when {
 
                 // Emit saved movies collection
                 moviesByCollection.value.isNotEmpty() ->
-                    emit(Result.Success(moviesByCollection.value))
+                    emit(AppResult.Success(moviesByCollection.value))
 
                 else -> {
 
@@ -41,30 +42,30 @@ class MoviesBrowseViewModel : ViewModel() {
 
                         val result = getMoviesByCollection(collection)
 
-                        if (result is Result.Success)
+                        if (result is AppResult.Success)
                             moviesByCollection.value.addAll(result.data)
                         else
-                            Logger.w(result.toString())
+                            Timber.w(result.toString())
                     }
 
                     // Check results
                     if (moviesByCollection.value.isNotEmpty())
-                        emit(Result.Success(moviesByCollection.value))
+                        emit(AppResult.Success(moviesByCollection.value))
                     else
-                        emit(Result.Error("Not found results"))
+                        emit(AppResult.Error("Not found results"))
                 }
             }
 
         } catch (ex: Exception) {
 
-            Logger.e(ex, ex.message!!)
+            Timber.e(ex, ex.message)
 
-            emit(Result.Error(ex.message, exception = ex))
+            emit(AppResult.Error(ex.message, exception = ex))
         }
     }
 
 
-    private suspend fun getMoviesByCollection(collection: MovieCollection): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesByCollection(collection: MovieCollection): AppResult<List<MovieCardItem>> {
 
         return when (collection) {
 
@@ -82,11 +83,24 @@ class MoviesBrowseViewModel : ViewModel() {
         }
     }
 
-    private suspend fun getMoviesTrending(): Result<List<MovieCardItem>> {
+    @TestOnly
+    private suspend fun getMoviesByCollectionTest(collection: MovieCollection): AppResult<List<MovieCardItem>> {
+
+        return when (collection) {
+
+            MovieCollection.Recommended -> getMoviesRecommended()
+
+            MovieCollection.Popular -> getMoviesPopular()
+
+            else -> AppResult.Empty
+        }
+    }
+
+    private suspend fun getMoviesTrending(): AppResult<List<MovieCardItem>> {
 
         val result = repository.trending()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data.map { x -> x.movie }
 
@@ -102,17 +116,17 @@ class MoviesBrowseViewModel : ViewModel() {
                 return@mapIndexed item
             }
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Trending movies")
+        return AppResult.Error(message = "Error loading @Trending movies")
     }
 
-    private suspend fun getMoviesRecommended(): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesRecommended(): AppResult<List<MovieCardItem>> {
 
         val result = repository.recommended()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data.map { x -> x.movie }
 
@@ -128,17 +142,17 @@ class MoviesBrowseViewModel : ViewModel() {
                 return@mapIndexed item
             }
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Recommended movies")
+        return AppResult.Error(message = "Error loading @Recommended movies")
     }
 
-    private suspend fun getMoviesPlayed(): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesPlayed(): AppResult<List<MovieCardItem>> {
 
         val result = repository.played()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data.map { x -> x.movie }
 
@@ -155,17 +169,17 @@ class MoviesBrowseViewModel : ViewModel() {
                 return@mapIndexed item
             }
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Played movies")
+        return AppResult.Error(message = "Error loading @Played movies")
     }
 
-    private suspend fun getMoviesCollected(): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesCollected(): AppResult<List<MovieCardItem>> {
 
         val result = repository.collected()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data.map { x -> x.movie }
 
@@ -181,17 +195,17 @@ class MoviesBrowseViewModel : ViewModel() {
                 return@mapIndexed item
             }
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Collected movies")
+        return AppResult.Error(message = "Error loading @Collected movies")
     }
 
-    private suspend fun getMoviesPopular(): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesPopular(): AppResult<List<MovieCardItem>> {
 
         val result = repository.popular()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data
 
@@ -200,17 +214,17 @@ class MoviesBrowseViewModel : ViewModel() {
                 collection = MovieCollection.Popular
             )
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Popular movies")
+        return AppResult.Error(message = "Error loading @Popular movies")
     }
 
-    private suspend fun getMoviesAnticipated(): Result<List<MovieCardItem>> {
+    private suspend fun getMoviesAnticipated(): AppResult<List<MovieCardItem>> {
 
         val result = repository.anticipated()
 
-        if (result is Result.Success) {
+        if (result is AppResult.Success) {
 
             val listTKMovies = result.data.map { x -> x.movie }
 
@@ -232,10 +246,10 @@ class MoviesBrowseViewModel : ViewModel() {
                 return@mapIndexed item
             }
 
-            return Result.Success(movieCardItems)
+            return AppResult.Success(movieCardItems)
         }
 
-        return Result.Error(message = "Error loading @Anticipated movies")
+        return AppResult.Error(message = "Error loading @Anticipated movies")
     }
 
 
@@ -273,7 +287,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
         return when (val result = repository.tmMovieDetail(movieId)) {
 
-            is Result.Success -> result.data
+            is AppResult.Success -> result.data
 
             else -> null
         }

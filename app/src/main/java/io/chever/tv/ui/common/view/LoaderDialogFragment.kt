@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.FragmentActivity
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -47,7 +47,22 @@ class LoaderDialogFragment private constructor(
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
+        }
+
+        return this
+    }
+
+    fun showCancelable(): LoaderDialogFragment {
+
+        try {
+
+            isCancelable = true
+            show()
+
+        } catch (ex: Exception) {
+
+            Timber.e(ex, ex.message)
         }
 
         return this

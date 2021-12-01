@@ -1,7 +1,6 @@
 package io.chever.tv.common.torrent.providers
 
 import androidx.core.text.isDigitsOnly
-import com.orhanobut.logger.Logger
 import io.chever.tv.common.extension.StringExtensions.deleteShortWords
 import io.chever.tv.common.extension.StringExtensions.isHttpUrl
 import io.chever.tv.common.extension.StringExtensions.isMagnetUrl
@@ -21,6 +20,7 @@ import kotlin.math.min
 /**
  * TODO: document class
  */
+@Deprecated("Required captcha resolution.")
 class SitorrentProvider : TorrentProvider(site = TorrentSite.Sitorrent) {
 
     private var isFound = false
@@ -28,8 +28,6 @@ class SitorrentProvider : TorrentProvider(site = TorrentSite.Sitorrent) {
 
 
     override fun startSearchTorrentInSite() {
-
-        Logger.i("Torrent Search in [${site.name}] -> [$query]")
 
         for (q in query.queries) {
 
@@ -278,7 +276,7 @@ class SitorrentProvider : TorrentProvider(site = TorrentSite.Sitorrent) {
             quality = tdQuality,
             language = tdLanguage,
             size = tdSize,
-            downloads = tdDownloads.toInt()
+            downloads = tdDownloads
         )
 
         // Add torrent to $result of search

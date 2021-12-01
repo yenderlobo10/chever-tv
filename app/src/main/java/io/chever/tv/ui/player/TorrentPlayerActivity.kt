@@ -2,11 +2,11 @@ package io.chever.tv.ui.player
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import com.orhanobut.logger.Logger
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.torrent.service.TorrentService
 import io.chever.tv.ui.common.models.PlayVideo
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -26,7 +26,7 @@ class TorrentPlayerActivity : FragmentActivity() {
 
         } catch (ex: Exception) {
 
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
             showShortToast(R.string.app_unknown_error_one)
         }
     }
@@ -74,7 +74,7 @@ class TorrentPlayerActivity : FragmentActivity() {
             torrentService.stop()
 
         } catch (ex: Exception) {
-            Logger.e(ex.message!!, ex)
+            Timber.e(ex, ex.message)
         }
 
         super.onDestroy()

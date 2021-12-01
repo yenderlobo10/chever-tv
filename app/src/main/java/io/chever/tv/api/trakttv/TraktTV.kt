@@ -22,6 +22,7 @@ open class TraktTV : ApiClient() {
     /** API value version identifier. */
     protected val apiVersion = getAppProperty("traktTVApiVersion")
 
+    /** Default API headers to all end-points */
     protected val defaultHeaders = mapOf(
         "trakt-api-version" to apiVersion,
         "trakt-api-key" to apiKey,

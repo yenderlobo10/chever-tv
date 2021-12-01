@@ -1,9 +1,9 @@
 package io.chever.tv.ui.home.common.model
 
 import androidx.leanback.widget.HeaderItem
-import com.orhanobut.logger.Logger
 import com.squareup.moshi.Json
 import io.chever.tv.R
+import timber.log.Timber
 
 /**
  * TODO: document class
@@ -45,7 +45,7 @@ data class HeaderIconItem(
 
                 } catch (ex: Exception) {
 
-                    Logger.e(ex.message!!, ex)
+                    Timber.e(ex, ex.message)
                     None
                 }
             }

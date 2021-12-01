@@ -6,6 +6,6 @@ package io.chever.tv.api.trakttv.domain.models
 data class TKMovie(
 
     val title: String,
-    val year: Int,
+    val year: Int?,
     val ids: TKMovieIds,
 )

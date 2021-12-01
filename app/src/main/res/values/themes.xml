@@ -37,10 +37,13 @@
         <item name="guidanceTitleStyle">@style/Theme.Chever.TorrentSelect.Title</item>
         <item name="guidanceBreadcrumbStyle">@style/Theme.Chever.TorrentSelect.Breadcrumb</item>
         <item name="guidanceDescriptionStyle">@style/Theme.Chever.TorrentSelect.Description</item>
-        <item name="guidedActionsListStyle">@style/Theme.Chever.TorrentSelect.ActionsContainer</item>
+        <item name="guidedActionsListStyle">@style/Theme.Chever.TorrentSelect.ActionsContainer
+        </item>
         <item name="guidedActionItemIconStyle">@style/Theme.Chever.TorrentSelect.ActionIcon</item>
         <item name="guidedActionItemTitleStyle">@style/Theme.Chever.TorrentSelect.ActionTitle</item>
-        <item name="guidedActionItemDescriptionStyle">@style/Theme.Chever.TorrentSelect.ActionDescription</item>
+        <item name="guidedActionItemDescriptionStyle">
+            @style/Theme.Chever.TorrentSelect.ActionDescription
+        </item>
     </style>
 
     <!-- Theme loader dialog -->
@@ -53,6 +56,21 @@
         <item name="colorAccent">@color/primaryColor</item>
     </style>
 
+    <!-- Theme leanback preference -->
+
+    <style name="Theme.Chever.LeanbackPreferences">
+        <item name="preferenceTheme">@style/CheverPreferenceTheme</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="CheverPreferenceTheme" parent="PreferenceThemeOverlayLeanback">
+        <item name="defaultBrandColor">@color/secondaryColor</item>
+        <item name="android:windowBackground">@color/darkColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
+        <item name="android:colorAccent">@color/primaryColor</item>
+    </style>
 
     <!--#region Text styles -->
 

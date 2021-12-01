@@ -22,6 +22,8 @@ data class Torrent(
     var quality: String? = null,
     var language: String? = null,
     var size: String? = null,
-    var downloads: Int = 0,
+    var downloads: String? = null,
+    var rate: String? = null,
+    var date: String? = null,
 
     ) : Serializable

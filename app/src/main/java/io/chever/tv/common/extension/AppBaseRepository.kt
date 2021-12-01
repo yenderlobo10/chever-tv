@@ -1,11 +1,11 @@
 package io.chever.tv.common.extension
 
-import com.orhanobut.logger.Logger
 import retrofit2.Response
+import timber.log.Timber
 
-abstract class BaseRepository {
+abstract class AppBaseRepository {
 
-    protected suspend fun <T> getResult(call: suspend () -> Response<T>): Result<T> {
+    protected suspend fun <T> getResult(call: suspend () -> Response<T>): AppResult<T> {
 
         return try {
 
@@ -22,11 +22,11 @@ abstract class BaseRepository {
 
     //#region Private methods
 
-    private fun <T> createResponse(response: Response<T>): Result<T> {
+    private fun <T> createResponse(response: Response<T>): AppResult<T> {
 
         return if (response.isSuccessful) {
 
-            Result.Success(response.body()!!)
+            AppResult.Success(response.body()!!)
 
         } else {
 
@@ -41,11 +41,11 @@ abstract class BaseRepository {
         message: String,
         code: Int? = 0,
         ex: Exception? = null,
-    ): Result<T> {
+    ): AppResult<T> {
 
-        Logger.e(ex, "API Request Error ::\n$message \t $code")
+        Timber.e(ex, "API Request Error ::\n$message \t $code")
 
-        return Result.Error(
+        return AppResult.Error(
             message,
             exception = ex,
             code = code

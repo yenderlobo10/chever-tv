@@ -3,24 +3,24 @@ package io.chever.tv.common.extension
 /**
  * Represent the different types of a task result.
  */
-sealed class Result<out T> {
+sealed class AppResult<out T> {
 
     /**
      * Indicate task result not has data.
      */
-    object Empty : Result<Nothing>()
+    object Empty : AppResult<Nothing>()
 
     /**
      * Indicate task result is loading.
      */
-    object Loading : Result<Nothing>()
+    object Loading : AppResult<Nothing>()
 
     /**
      * Indicate task has finished successfully.
      *
      * @param data Result<[T]> returned by task.
      */
-    data class Success<out T>(val data: T) : Result<T>()
+    data class Success<out T>(val data: T) : AppResult<T>()
 
     /**
      * Indicate task has produced exceptions.
@@ -33,5 +33,5 @@ sealed class Result<out T> {
         val message: String?,
         val code: Int? = null,
         val exception: Exception? = null
-    ) : Result<Nothing>()
+    ) : AppResult<Nothing>()
 }
