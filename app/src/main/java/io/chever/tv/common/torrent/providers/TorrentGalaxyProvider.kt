@@ -1,5 +1,6 @@
 package io.chever.tv.common.torrent.providers
 
+import io.chever.tv.common.extension.AppConstants
 import io.chever.tv.common.extension.StringExtensions.isIMDBID
 import io.chever.tv.common.extension.StringExtensions.isMagnetUrl
 import io.chever.tv.common.torrent.TorrentProvider
@@ -30,6 +31,7 @@ class TorrentGalaxyProvider : TorrentProvider(site = TorrentSite.TorrentGalaxy) 
         Language.values().forEach { language ->
 
             val document = Jsoup.connect(site.url)
+                .header("User-Agent", AppConstants.userAgentHeader)
                 .data("lang", "${language.id}")
                 .data("search", q)
                 .get()

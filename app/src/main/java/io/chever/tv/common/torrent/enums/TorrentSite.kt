@@ -12,11 +12,11 @@ enum class TorrentSite(val url: String) {
     MiTorrent("https://mitorrent.org/"),
 
     /**
-     * TorrentPelis only ES.
+     * TorrentLatino only ES.
      * @see
      * <a href="https://torrentpelis.com/">https://torrentpelis.com/</a>
      */
-    TorrentPelis("https://torrentpelis.com/"),
+    TorrentLatino("https://torrentlatino.cc/"),
 
     /**
      * Torrents EN/ES.
@@ -26,8 +26,6 @@ enum class TorrentSite(val url: String) {
     TorrentGalaxy("https://torrentgalaxy.to/torrents.php?c3=1&c42=1&c1=1&nox=2&nox=1"),
 
     YTSYify("https://yts.mx/browse-movies/{q}/all/all/0/latest/{y}/all"),
-
-    // torrentlatino.cc headers
 
     // Add more sites ...
 }

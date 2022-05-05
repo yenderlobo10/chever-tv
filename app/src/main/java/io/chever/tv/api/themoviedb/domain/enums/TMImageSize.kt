@@ -1,7 +1,7 @@
 package io.chever.tv.api.themoviedb.domain.enums
 
 import android.content.Context
-import io.chever.tv.common.extension.Constants
+import io.chever.tv.common.extension.AppConstants
 import io.chever.tv.common.extension.Extensions.getPropertyFromFile
 
 /**
@@ -29,7 +29,7 @@ enum class TMImageSize(val value: String) {
     fun createImageUrl(context: Context, urlPath: String?): String {
 
         return context.getPropertyFromFile(
-            Constants.appPropertiesFileName,
+            AppConstants.appPropertiesFileName,
             "theMovieDBImagesUrl"
         )
             .plus(this.value)

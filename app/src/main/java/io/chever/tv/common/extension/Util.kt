@@ -42,5 +42,5 @@ object Util {
     /**
      * TODO: document function
      */
-    fun createUrlYouTubeVideo(key: String) = Constants.youtubeVideoBaseUrl.plus(key)
+    fun createUrlYouTubeVideo(key: String) = AppConstants.youtubeVideoBaseUrl.plus(key)
 }

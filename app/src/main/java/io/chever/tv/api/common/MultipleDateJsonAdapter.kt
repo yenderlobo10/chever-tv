@@ -13,34 +13,54 @@ class MultipleDateJsonAdapter : JsonAdapter<Date>() {
 
         try {
 
-            if (reader.peek() == JsonReader.Token.NULL)
-                return reader.nextNull()
+            return when (reader.peek()) {
 
-            val dateString = reader.nextString()
+                JsonReader.Token.STRING -> parseStringFormat(reader)
 
-            val dLocale = Locale.getDefault()
+                JsonReader.Token.NUMBER -> parseNumberFormat(reader)
 
-            listOf(
-                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", dLocale),
-                SimpleDateFormat("yyyy-MM-dd", dLocale),
-                SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'UTC'", dLocale)
-            ).forEach { formatter ->
-
-                try {
-                    return formatter.parse(dateString)
-                } catch (ex: Exception) {
-
-                }
+                else -> reader.nextNull()
             }
-
-            return null
 
         } catch (ex: Exception) {
 
-            Timber.e(ex, ex.message!!)
+            Timber.e(ex)
             return null
         }
     }
+
+
+    /**
+     * Try convert date in number format to [Date].
+     */
+    private fun parseNumberFormat(reader: JsonReader) = Date(reader.nextLong())
+
+    /**
+     * Try convert date in string format to [Date].
+     */
+    private fun parseStringFormat(reader: JsonReader): Date? {
+
+        val dateString = reader.nextString()
+
+        val dLocale = Locale.getDefault()
+
+        listOf(
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", dLocale),
+            SimpleDateFormat("yyyy-MM-dd", dLocale),
+            SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'UTC'", dLocale)
+        ).forEach { formatter ->
+
+            return try {
+                formatter.parse(dateString)
+            } catch (ex: Exception) {
+                Timber.e(ex)
+                null
+            }
+        }
+
+        return null
+    }
+
 
     override fun toJson(writer: JsonWriter, value: Date?) {
         throw NotImplementedError()

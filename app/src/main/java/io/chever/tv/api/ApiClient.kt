@@ -4,7 +4,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.chever.tv.BuildConfig
 import io.chever.tv.CheverApp
-import io.chever.tv.common.extension.Constants
+import io.chever.tv.common.extension.AppConstants
 import io.chever.tv.common.extension.Extensions.loadProperties
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -65,7 +65,7 @@ open class ApiClient {
      */
     protected fun getAppProperty(name: String) =
         CheverApp.context
-            .loadProperties(Constants.appPropertiesFileName)
+            .loadProperties(AppConstants.appPropertiesFileName)
 
             .getProperty(name, "")!!
 
@@ -75,7 +75,7 @@ open class ApiClient {
      */
     protected fun getApiKey(keyName: String) =
         CheverApp.context
-            .loadProperties(Constants.appKeysPropertiesFileName)
+            .loadProperties(AppConstants.appKeysPropertiesFileName)
             .getProperty(keyName, "")!!
 
 

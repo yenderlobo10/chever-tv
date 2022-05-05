@@ -6,7 +6,7 @@ import io.chever.tv.common.torrent.enums.TorrentSite
 /**
  * TODO: document class
  */
-class TorrentPelisProvider : TorrentProvider(site = TorrentSite.TorrentPelis) {
+class TorrentLatinoProvider : TorrentProvider(site = TorrentSite.TorrentLatino) {
 
     override fun startSearchTorrentInSite() {
         // TODO("Not yet implemented")
