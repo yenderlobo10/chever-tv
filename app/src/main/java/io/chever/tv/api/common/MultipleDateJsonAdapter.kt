@@ -50,11 +50,10 @@ class MultipleDateJsonAdapter : JsonAdapter<Date>() {
             SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'UTC'", dLocale)
         ).forEach { formatter ->
 
-            return try {
-                formatter.parse(dateString)
+            try {
+                return formatter.parse(dateString)
             } catch (ex: Exception) {
-                Timber.e(ex)
-                null
+                return@forEach
             }
         }
 

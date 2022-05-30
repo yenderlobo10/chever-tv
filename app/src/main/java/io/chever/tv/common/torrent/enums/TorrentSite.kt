@@ -14,9 +14,9 @@ enum class TorrentSite(val url: String) {
     /**
      * TorrentLatino only ES.
      * @see
-     * <a href="https://torrentpelis.com/">https://torrentpelis.com/</a>
+     * <a href="https://ww5.cinecalidad.link/">https://ww5.cinecalidad.link/</a>
      */
-    TorrentLatino("https://torrentlatino.cc/"),
+    CineCalidad("https://ww5.cinecalidad.link/"),
 
     /**
      * Torrents EN/ES.

@@ -9,8 +9,10 @@ import com.github.se_bastiaan.torrentstream.TorrentOptions
 import com.github.se_bastiaan.torrentstream.TorrentStream
 import com.github.se_bastiaan.torrentstream.listeners.TorrentListener
 import com.google.android.exoplayer2.MediaItem
+import io.chever.tv.common.extension.AppConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jsoup.Connection
 import timber.log.Timber
 import java.io.File
 import io.chever.tv.common.torrent.models.Torrent as TorrentFile
@@ -258,7 +260,7 @@ class TorrentService private constructor(
 
     companion object {
 
-        const val MIN_PROGRESS_TO_PLAY = 0.33f // 3%
+        const val MIN_PROGRESS_TO_PLAY = 3f // 3%
         const val MAX_SECONDS_WAIT_START_TORRENT = 16000L // 16 seg.
         const val MAX_INTENTS_START_TORRENT = 3
 
@@ -276,5 +278,13 @@ class TorrentService private constructor(
             activity: ComponentActivity
         ): TorrentService =
             TorrentService(torrent, activity, isAutoStart = true)
+
+        /**
+         * TODO: document method
+         */
+        fun Connection.withBrowserHeader(): Connection = this.header(
+            "User-Agent",
+            AppConstants.userAgentHeader
+        )
     }
 }
