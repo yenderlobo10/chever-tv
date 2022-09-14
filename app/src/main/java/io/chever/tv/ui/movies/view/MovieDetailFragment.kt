@@ -24,11 +24,11 @@ import coil.request.ImageRequest
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.api.themoviedb.domain.models.*
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.DateTimeExtensions.onlyYear
 import io.chever.tv.common.extension.Extensions.showLongToast
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.NumberExtensions.dpFromPx
-import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.Util
 import io.chever.tv.common.torrent.TorrentProviderSearcher
 import io.chever.tv.common.torrent.models.TorrentQuery
@@ -44,7 +44,6 @@ import io.chever.tv.ui.movies.viewModel.MovieDetailViewModel
 import io.chever.tv.ui.player.PlayerActivity
 import io.chever.tv.ui.player.common.TestPreferenceActivity
 import io.chever.tv.ui.torrent.TorrentSelectActivity
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -230,8 +229,6 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
 
     private fun setupDetailBackground() {
 
-        detailBackground.enableParallax()
-
         val imageUrl = TMImageSize.Original.createImageUrl(
             requireContext(),
             detailMovie.backdropPath
@@ -245,9 +242,9 @@ class MovieDetailFragment : DetailsSupportFragment(), OnItemViewClickedListener,
             .target(
                 onSuccess = { result ->
 
-                    detailBackground.coverBitmap = result.toBitmap()
                     detailBackground.enableParallax()
-                    rowsAdapter.notifyArrayItemRangeChanged(0, rowsAdapter.size())
+                    detailBackground.coverBitmap = result.toBitmap()
+                    rowsAdapter.notifyItemRangeChanged(0, rowsAdapter.size())
 
                     startPostponedEnterTransition()
                 },

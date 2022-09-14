@@ -9,8 +9,12 @@ import androidx.leanback.media.PlaybackGlue
 import androidx.leanback.media.PlaybackTransportControlGlue
 import com.github.se_bastiaan.torrentstream.StreamStatus
 import com.github.se_bastiaan.torrentstream.Torrent
-import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.ext.ffmpeg.FfmpegLibrary
+import com.google.android.exoplayer2.C
+import com.google.android.exoplayer2.DefaultRenderersFactory
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.Format
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ext.leanback.LeanbackPlayerAdapter
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.ui.SubtitleView
@@ -21,12 +25,13 @@ import io.chever.tv.common.extension.Extensions.disableKeepScreenOn
 import io.chever.tv.common.extension.Extensions.enableKeepScreenOn
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.FSymbols
+import io.chever.tv.common.extension.NumberExtensions.toFormat
 import io.chever.tv.common.extension.NumberExtensions.toFormatPercent
 import io.chever.tv.common.torrent.service.TorrentService
 import io.chever.tv.common.torrent.service.TorrentServiceListener
 import io.chever.tv.ui.common.models.PlayVideo
+import java.util.Locale
 import timber.log.Timber
-import java.util.*
 
 /**
  * TODO: document class
@@ -410,7 +415,10 @@ class TorrentVideoPlayerFragment(
         super.torrentProgress(torrent, status)
 
         val percent = status.progress.toFormatPercent(decimals = 1)
-        val progress = "  ${FSymbols.downArrow}  $percent"
+        val speed = (status.downloadSpeed.toFloat() / 1024 / 1024).toFormat(decimals = 1)
+
+        val progress =
+            "  ${FSymbols.downArrow}  $percent | $speed MB/s | ${FSymbols.eyes} ${status.seeds}"
         playerGlue.subtitle = playVideo.description + progress
     }
 

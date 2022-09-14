@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import coil.load
+import coil.size.Scale
 import com.github.se_bastiaan.torrentstream.StreamStatus
 import com.github.se_bastiaan.torrentstream.Torrent
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
 import io.chever.tv.R
 import io.chever.tv.common.extension.Extensions.showShortToast
+import io.chever.tv.common.extension.NumberExtensions.toFormat
 import io.chever.tv.common.extension.NumberExtensions.toFormatPercent
 import io.chever.tv.common.torrent.service.TorrentService
 import io.chever.tv.common.torrent.service.TorrentServiceListener
@@ -31,6 +33,7 @@ class TorrentLoadFragment(
     private lateinit var tvVideoTitle: TextView
     private lateinit var pbTorrent: CircularProgressBar
     private lateinit var tvTorrentPercent: TextView
+    private lateinit var tvTorrentStatus: TextView
     private lateinit var tvTorrentHelp: TextView
 
 
@@ -69,6 +72,7 @@ class TorrentLoadFragment(
         tvVideoTitle = view.findViewById(R.id.tvVideoTitle)
         pbTorrent = view.findViewById(R.id.pbTorrent)
         tvTorrentPercent = view.findViewById(R.id.tvTorrentPercent)
+        tvTorrentStatus = view.findViewById(R.id.tvTorrentStatus)
         tvTorrentHelp = view.findViewById(R.id.tvTorrentHelp)
 
         tvVideoTitle.text = playVideo.title
@@ -89,6 +93,7 @@ class TorrentLoadFragment(
             crossfade(true)
             placeholder(R.drawable.g_background_primary)
             error(R.drawable.g_background_primary)
+            scale(Scale.FILL)
         }
     }
 
@@ -104,26 +109,42 @@ class TorrentLoadFragment(
 
     override fun torrentPrepared(torrent: Torrent) {
         super.torrentPrepared(torrent)
-        requireContext().showShortToast(":: PREPARED ::")
+
+        pbTorrent.indeterminateMode = false
+        tvTorrentHelp.text = "Redactando el guión ..."
     }
 
     override fun torrentReady(torrent: Torrent) {
         super.torrentReady(torrent)
 
-        pbTorrent.indeterminateMode = false
+        tvTorrentHelp.text = "Grabando escenas ..."
     }
 
     override fun torrentProgress(torrent: Torrent, status: StreamStatus) {
         super.torrentProgress(torrent, status)
 
-        if (torrentService.isReady) {
+        updateTorrentStatusInfo(status)
 
-            val progress = (status.progress / TorrentService.MIN_PROGRESS_TO_PLAY) * 100
+        val progress = when {
 
-            pbTorrent.progress = progress
+            torrentService.isReady ->
+                (status.progress / TorrentService.MIN_PROGRESS_TO_PLAY) * 100
 
-            tvTorrentPercent.text = progress.toFormatPercent()
+            else -> status.bufferProgress.toFloat()
         }
+
+        pbTorrent.progress = progress
+
+        if (progress <= 100f)
+            tvTorrentPercent.text = progress.toFormatPercent()
+    }
+
+    private fun updateTorrentStatusInfo(status: StreamStatus) {
+
+        val speed = (status.downloadSpeed.toFloat() / 1024 / 1024).toFormat(decimals = 1)
+        val progress = status.progress.toFormatPercent(decimals = 1)
+
+        tvTorrentStatus.text = "$speed MB/s  |  $progress  |  (${status.seeds})"
     }
 
     override fun torrentReadyToPlay(torrent: Torrent, status: StreamStatus) {

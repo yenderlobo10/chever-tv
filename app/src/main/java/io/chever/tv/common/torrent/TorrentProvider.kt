@@ -4,6 +4,7 @@ import io.chever.tv.common.torrent.enums.TorrentSite
 import io.chever.tv.common.torrent.models.Torrent
 import io.chever.tv.common.torrent.models.TorrentQuery
 import io.chever.tv.common.torrent.providers.CineCalidadProvider
+import io.chever.tv.common.torrent.providers.HackTorrentProvider
 import io.chever.tv.common.torrent.providers.TorrentGalaxyProvider
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -111,6 +112,7 @@ abstract class TorrentProvider(open val site: TorrentSite) {
             listOf(
 
                 CineCalidadProvider(),
+                HackTorrentProvider(),
                 TorrentGalaxyProvider(),
                 /// add more providers here ...
             )

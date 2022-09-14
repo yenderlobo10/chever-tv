@@ -9,7 +9,6 @@
         android:id="@+id/ivBackdropImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
         android:src="@drawable/g_background_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,13 +42,13 @@
             android:layout_width="76dp"
             android:layout_height="76dp"
             android:layout_marginBottom="20dp"
+            app:cpb_background_progressbar_color="#34FAFAFA"
+            app:cpb_background_progressbar_width="12dp"
             app:cpb_indeterminate_mode="true"
             app:cpb_progressbar_color="?colorAccent"
             app:cpb_progressbar_width="6dp"
-            app:cpb_background_progressbar_color="#34FAFAFA"
-            app:cpb_background_progressbar_width="12dp"
             app:cpb_round_border="true"
-            app:layout_constraintBottom_toTopOf="@+id/tvTorrentHelp"
+            app:layout_constraintBottom_toTopOf="@+id/tvTorrentStatus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,6 +63,18 @@
             app:layout_constraintStart_toStartOf="@+id/pbTorrent"
             app:layout_constraintTop_toTopOf="@+id/pbTorrent"
             tools:text="33%" />
+
+        <TextView
+            android:id="@+id/tvTorrentStatus"
+            style="@style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="12dp"
+            android:textColor="@color/grayColor"
+            app:layout_constraintBottom_toTopOf="@+id/tvTorrentHelp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="torrent status" />
 
         <TextView
             android:id="@+id/tvTorrentHelp"

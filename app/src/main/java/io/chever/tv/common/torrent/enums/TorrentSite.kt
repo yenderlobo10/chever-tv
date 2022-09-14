@@ -25,7 +25,12 @@ enum class TorrentSite(val url: String) {
      */
     TorrentGalaxy("https://torrentgalaxy.to/torrents.php?c3=1&c42=1&c1=1&nox=2&nox=1"),
 
-    YTSYify("https://yts.mx/browse-movies/{q}/all/all/0/latest/{y}/all"),
+    /**
+     * HackTorrent dual EN/ES.
+     * @see
+     * <a href="https://hacktorrent.org">https://hacktorrent.org</a>
+     */
+    HackTorrent("https://hacktorrent.org/"),
 
     // Add more sites ...
 }

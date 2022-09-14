@@ -12,4 +12,5 @@ object FSymbols {
     const val downArrow = "⬇️"
     const val disk = "\uD83D\uDCBE"
     const val web = "\uD83C\uDF10"
+    const val eyes = "\uD83D\uDC40"
 }

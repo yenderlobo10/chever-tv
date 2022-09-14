@@ -114,7 +114,6 @@ class CineCalidadProvider : TorrentProvider(site = TorrentSite.CineCalidad) {
 
             val titleLink = element.selectFirst(CssQuery.CatalogItemTitleLink.query)
 
-            Timber.d(titleLink?.attr("href"))
             val isItemMatched = (titleText == activeQuery).or(
                 activeQuery.deleteShortWords().split(' ').any { word ->
                     titleText.contains(word)
@@ -163,7 +162,6 @@ class CineCalidadProvider : TorrentProvider(site = TorrentSite.CineCalidad) {
             val magnetLink = docHtml.selectFirst(CssQuery.ItemOptionTorrentMagnet.query)
             val magnetHref = magnetLink?.attr("href")
 
-            Timber.d(magnetHref)
             magnetHref?.let {
 
                 val title = docHtml.selectFirst(CssQuery.ItemOptionTorrentTitle.query)
