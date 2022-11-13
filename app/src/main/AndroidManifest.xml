@@ -42,6 +42,9 @@
         <activity android:name=".ui.torrent.TorrentSelectActivity" />
         <activity android:name=".ui.player.TorrentPlayerActivity" />
         <activity
+        android:name=".ui.player.subtitles.SubtitlesActivity"
+        android:theme="@style/Theme.Chever.LeanbackPreferences" />
+        <activity
             android:name=".ui.player.common.TestPreferenceActivity"
             android:theme="@style/Theme.Chever.LeanbackPreferences" />
     </application>

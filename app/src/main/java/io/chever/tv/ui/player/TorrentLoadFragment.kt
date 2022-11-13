@@ -1,5 +1,6 @@
 package io.chever.tv.ui.player
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -75,7 +76,7 @@ class TorrentLoadFragment(
         tvTorrentStatus = view.findViewById(R.id.tvTorrentStatus)
         tvTorrentHelp = view.findViewById(R.id.tvTorrentHelp)
 
-        tvVideoTitle.text = playVideo.title
+        tvVideoTitle.text = playVideo.title + " (${playVideo.year})"
 
         setupBackdropImage()
 

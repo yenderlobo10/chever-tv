@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivBackdropImage">
+        app:layout_constraintTop_toBottomOf="@+id/ivPosterImage">
 
         <TextView
             android:id="@+id/tvReleaseDate"
@@ -49,7 +49,8 @@
             android:layout_marginEnd="2dp"
             android:src="@drawable/ic_heart"
             android:tint="@color/primaryColor"
-            app:tint="@color/primaryColor" />
+            app:tint="@color/primaryColor"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:id="@+id/tvVoteAverage"

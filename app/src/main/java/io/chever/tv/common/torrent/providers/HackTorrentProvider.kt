@@ -229,7 +229,7 @@ class HackTorrentProvider : TorrentProvider(site = TorrentSite.HackTorrent) {
             // Search | Set torrent magnet
             val magnet = when {
 
-                tokenUrl.isMagnetUrl() -> tokenUrl
+                tokenUrl.trim().isMagnetUrl() -> tokenUrl.trim()
 
                 else -> ""
             }

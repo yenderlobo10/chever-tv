@@ -15,4 +15,8 @@ data class PlayVideo(
     val description: String?,
     val backdropUrl: String?,
 
-    ) : Serializable
+    val year: Int = 0,
+    val imdbId: String? = null,
+    val tmdbId: Long? = null
+
+) : Serializable

@@ -3,10 +3,10 @@ package io.chever.tv.ui.movies.viewModel
 import androidx.lifecycle.ViewModel
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
 import io.chever.tv.api.trakttv.domain.models.TKMovie
+import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.DateTimeExtensions
 import io.chever.tv.common.extension.DateTimeExtensions.toFormat
 import io.chever.tv.common.extension.NumberExtensions.toFormat
-import io.chever.tv.common.extension.AppResult
 import io.chever.tv.common.extension.StringExtensions.capitalize
 import io.chever.tv.ui.common.models.MovieCardItem
 import io.chever.tv.ui.movies.common.enums.MovieCollection
@@ -19,6 +19,7 @@ import timber.log.Timber
 class MoviesBrowseViewModel : ViewModel() {
 
     private val repository = MoviesBrowseRepository()
+    private val paginationLimit = 16
 
     private val moviesByCollection = MutableStateFlow<MutableList<MovieCardItem>>(mutableListOf())
 
@@ -98,7 +99,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesTrending(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.trending()
+        val result = repository.trending(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 
@@ -124,7 +125,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesRecommended(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.recommended()
+        val result = repository.recommended(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 
@@ -150,7 +151,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesPlayed(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.played()
+        val result = repository.played(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 
@@ -177,7 +178,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesCollected(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.collected()
+        val result = repository.collected(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 
@@ -203,7 +204,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesPopular(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.popular()
+        val result = repository.popular(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 
@@ -222,7 +223,7 @@ class MoviesBrowseViewModel : ViewModel() {
 
     private suspend fun getMoviesAnticipated(): AppResult<List<MovieCardItem>> {
 
-        val result = repository.anticipated()
+        val result = repository.anticipated(limit = paginationLimit)
 
         if (result is AppResult.Success) {
 

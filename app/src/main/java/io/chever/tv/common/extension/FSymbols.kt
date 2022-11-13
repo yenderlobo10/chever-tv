@@ -13,4 +13,5 @@ object FSymbols {
     const val disk = "\uD83D\uDCBE"
     const val web = "\uD83C\uDF10"
     const val eyes = "\uD83D\uDC40"
+    const val calendar = "\uD83D\uDCC5"
 }

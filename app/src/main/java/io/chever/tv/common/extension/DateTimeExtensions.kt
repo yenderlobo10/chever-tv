@@ -1,8 +1,11 @@
+@file:Suppress("unused")
+
 package io.chever.tv.common.extension
 
-import timber.log.Timber
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
+import timber.log.Timber
 
 
 /**
@@ -41,6 +44,11 @@ object DateTimeExtensions {
      * TODO: Document function
      */
     fun Date.onlyYear(): String = this.toFormat(Pattern.Year)
+
+    /**
+     * TODO: Document function
+     */
+    fun Date.year(): Int = this.toFormat(Pattern.Year).toInt()
 
     /**
      * TODO: Document function

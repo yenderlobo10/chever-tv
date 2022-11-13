@@ -15,7 +15,7 @@ import coil.request.ImageRequest
 import io.chever.tv.R
 import io.chever.tv.api.themoviedb.domain.enums.TMImageSize
 import io.chever.tv.api.themoviedb.domain.models.TMMovieDetail
-import io.chever.tv.common.extension.DateTimeExtensions.onlyYear
+import io.chever.tv.common.extension.DateTimeExtensions.year
 import io.chever.tv.common.extension.Extensions.showShortToast
 import io.chever.tv.common.extension.FSymbols
 import io.chever.tv.common.extension.NumberExtensions.dpFromPx
@@ -123,10 +123,10 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
         val torrent = torrentResult.listTorrent.find { x -> x.id == action?.id }
 
-        val title = detailMovie.title + " (${detailMovie.releaseDate?.onlyYear()})"
-
         val playVideo = PlayVideo(
-            title = title,
+            title = detailMovie.title,
+            year = detailMovie.releaseDate?.year() ?: 0,
+            tmdbId = detailMovie.id,
             type = VideoType.Movie,
             torrent = torrent!!,
             description = detailMovie.tagline ?: detailMovie.overview?.take(90),
@@ -215,7 +215,7 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
     private fun getResIconByQuality(qa: String?): Int {
 
-        if(qa == null) return R.drawable.ic_sd
+        if (qa == null) return R.drawable.ic_sd
 
         return when {
 
@@ -232,7 +232,7 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
 
     private fun getFlagSymbolByLanguage(language: String?): String {
 
-        if(language == null) return "???"
+        if (language == null) return "???"
 
         val lg = language.lowercase().trim()
 

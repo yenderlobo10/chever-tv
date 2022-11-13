@@ -4,6 +4,7 @@ import io.chever.tv.api.trakttv.domain.models.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * TODO: document service
@@ -11,29 +12,43 @@ import retrofit2.http.Path
 interface TKTVMoviesService {
 
     @GET("trending")
-    suspend fun trending(): Response<List<TKMovieTrending>>
+    suspend fun trending(
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMovieTrending>>
 
     @GET("popular")
-    suspend fun popular(): Response<List<TKMovie>>
+    suspend fun popular(
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMovie>>
 
     @GET("recommended/{period}")
-    suspend fun recommended(@Path("period") period: String)
-            : Response<List<TKMovieRecommended>>
+    suspend fun recommended(
+        @Path("period") period: String,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMovieRecommended>>
 
     @GET("watched/{period}")
-    suspend fun watched(@Path("period") period: String)
-            : Response<List<TKMoviePlayed>>
+    suspend fun watched(
+        @Path("period") period: String,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviePlayed>>
 
     @GET("played/{period}")
-    suspend fun played(@Path("period") period: String)
-            : Response<List<TKMoviePlayed>>
+    suspend fun played(
+        @Path("period") period: String,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviePlayed>>
 
     @GET("collected/{period}")
-    suspend fun collected(@Path("period") period: String)
-            : Response<List<TKMoviePlayed>>
+    suspend fun collected(
+        @Path("period") period: String,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviePlayed>>
 
     @GET("anticipated")
-    suspend fun anticipated(): Response<List<TKMovieAnticipated>>
+    suspend fun anticipated(
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMovieAnticipated>>
 
     @GET("{id}/comments/{sort}")
     suspend fun comments(

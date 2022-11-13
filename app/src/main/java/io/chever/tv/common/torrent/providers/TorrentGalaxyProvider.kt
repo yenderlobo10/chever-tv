@@ -68,7 +68,7 @@ class TorrentGalaxyProvider : TorrentProvider(site = TorrentSite.TorrentGalaxy) 
                 val aMagnet = it.children().last()
                 val url = aMagnet?.attr("href") ?: ""
 
-                if (url.isMagnetUrl()) {
+                if (url.trim().isMagnetUrl()) {
 
                     row.createTorrentByRow(url).let { torrent ->
 
@@ -100,7 +100,7 @@ class TorrentGalaxyProvider : TorrentProvider(site = TorrentSite.TorrentGalaxy) 
 
         // TODO: limit add by torrent size
         return Torrent(
-            magnet = url,
+            magnet = url.trim(),
             site = TorrentSite.TorrentGalaxy,
             title = tTitle,
             language = tLang,
