@@ -27,6 +27,7 @@ class SubtitlesPreferenceScreen(
     private val keyLoadingPreference = "preference-loading"
     private val loadingPreference by lazy { createLoadingPreference() }
     private val viewModel by viewModels<SubtitlesViewModel>()
+    private var isTryRecursiveFind = false
 
     override fun onCreatePreferences(
         savedInstanceState: Bundle?,
@@ -44,19 +45,21 @@ class SubtitlesPreferenceScreen(
         findSubtitles()
     }
 
-    private fun findSubtitles() {
+    private fun findSubtitles(
+        query: String = playVideo.title
+    ) {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.findSubtitles(playVideo).collect {
+            viewModel.findSubtitles(
+                year = playVideo.year,
+                query = query
+            ).collect {
 
                 when (it) {
 
                     is AppResult.Loading -> showLoadingPreference()
 
-                    is AppResult.Success -> {
-                        screen.removePreference(loadingPreference)
-                        createSubtitlesListFromResult(it.data)
-                    }
+                    is AppResult.Success -> whenFindSubtitlesSuccess(it.data)
 
                     else -> {
                         requireContext().showShortToast(R.string.app_unknown_error_three)
@@ -67,9 +70,31 @@ class SubtitlesPreferenceScreen(
         }
     }
 
+    private fun whenFindSubtitlesSuccess(
+        result: OSSubtitlesResult
+    ) {
+
+        screen.removePreference(loadingPreference)
+
+        if (result.data.isEmpty().and(isTryRecursiveFind.not())) {
+
+            isTryRecursiveFind = true
+
+            findSubtitles(
+                query = playVideo.title.split(" ").first()
+            )
+
+        } else {
+
+            createSubtitlesListFromResult(result)
+        }
+    }
+
     private fun createSubtitlesListFromResult(
         result: OSSubtitlesResult
     ) {
+
+        isTryRecursiveFind = false
 
         if (result.data.isEmpty()) {
             screen.addPreference(createEmptyPreference())

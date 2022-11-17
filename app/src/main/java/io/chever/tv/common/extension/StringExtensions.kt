@@ -2,8 +2,9 @@ package io.chever.tv.common.extension
 
 import com.squareup.moshi.Moshi
 import io.chever.tv.common.extension.Extensions.fromJson
+import java.text.Normalizer
+import java.util.Locale
 import timber.log.Timber
-import java.util.*
 
 /**
  * TODO: document object
@@ -107,5 +108,27 @@ object StringExtensions {
         return this.split(" ")
             .filter { w -> w.length > maxLength }
             .joinToString(" ")
+    }
+
+    /**
+     * TODO: document function
+     */
+    fun String.normalize(
+        form: Normalizer.Form = Normalizer.Form.NFD
+    ): String {
+
+        return try {
+
+            Normalizer
+                .normalize(this, form)
+                .replace("[^\\p{ASCII}]".toRegex(), "")
+                .trim()
+                .lowercase()
+
+        } catch (ex: Exception) {
+
+            Timber.e(ex, ex.message)
+            this
+        }
     }
 }

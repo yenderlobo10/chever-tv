@@ -127,6 +127,7 @@ class TorrentSelectFragment : GuidedStepSupportFragment() {
             title = detailMovie.title,
             year = detailMovie.releaseDate?.year() ?: 0,
             tmdbId = detailMovie.id,
+            imdbId = detailMovie.imdbId,
             type = VideoType.Movie,
             torrent = torrent!!,
             description = detailMovie.tagline ?: detailMovie.overview?.take(90),

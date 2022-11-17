@@ -3,6 +3,7 @@ package io.chever.tv.ui.player.subtitles
 import io.chever.tv.api.opensubtitles.OpenSubtitles
 import io.chever.tv.api.opensubtitles.domain.models.OSSubtitleFile
 import io.chever.tv.common.extension.AppBaseRepository
+import io.chever.tv.common.extension.StringExtensions.normalize
 
 class SubtitlesRepository : AppBaseRepository() {
 
@@ -17,7 +18,7 @@ class SubtitlesRepository : AppBaseRepository() {
         OpenSubtitles.api.subtitles(
             year = year,
             languages = languages.joinToString(","),
-            query = query,
+            query = query?.normalize(),
             imdbId = imdbId,
             tmdbId = tmdbId
         )

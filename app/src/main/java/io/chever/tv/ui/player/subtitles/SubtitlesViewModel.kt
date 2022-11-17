@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import io.chever.tv.api.opensubtitles.domain.models.OSSubtitleFile
 import io.chever.tv.api.opensubtitles.domain.models.OSSubtitlesResult
 import io.chever.tv.common.extension.AppResult
-import io.chever.tv.ui.common.models.PlayVideo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
 import timber.log.Timber
@@ -18,7 +17,10 @@ class SubtitlesViewModel : ViewModel() {
         MutableStateFlow<AppResult<OSSubtitlesResult>>(AppResult.Empty)
 
 
-    fun findSubtitles(playVideo: PlayVideo) = flow {
+    fun findSubtitles(
+        year: Int,
+        query: String
+    ) = flow {
 
         try {
 
@@ -27,16 +29,13 @@ class SubtitlesViewModel : ViewModel() {
             if (subtitlesList.value is AppResult.Success)
                 emit(subtitlesList.value)
             else
-                with(playVideo) {
-                    emit(
-                        repository.subtitles(
-                            year = year,
-                            languages = languages,
-                            query = title,
-                            tmdbId = tmdbId
-                        )
+                emit(
+                    repository.subtitles(
+                        year = year,
+                        languages = languages,
+                        query = query
                     )
-                }
+                )
 
         } catch (ex: Exception) {
 
