@@ -1,0 +1,94 @@
+{
+  "adult": false,
+  "backdrop_path": "/Yc9q6QuWrMp9nuDm5R8ExNqbEq.jpg",
+  "belongs_to_collection": {
+    "id": 87096,
+    "name": "Avatar - Colección",
+    "poster_path": "/uO2yU3QiGHvVp0L5e5IatTVRkYk.jpg",
+    "backdrop_path": "/iaEsDbQPE45hQU2EGiNjXD2KWuF.jpg"
+  },
+  "budget": 237000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "Acción"
+    },
+    {
+      "id": 12,
+      "name": "Aventura"
+    },
+    {
+      "id": 14,
+      "name": "Fantasía"
+    },
+    {
+      "id": 878,
+      "name": "Ciencia ficción"
+    }
+  ],
+  "homepage": "",
+  "id": 19995,
+  "imdb_id": "tt0499549",
+  "original_language": "en",
+  "original_title": "Avatar",
+  "overview": "Jake Sully, un ex-marine condenado a vivir en una silla de ruedas, sigue siendo, un auténtico guerrero. Precisamente por ello ha sido designado para ir a Pandora, donde algunas empresas están extrayendo un mineral extraño que podría resolver la crisis energética de la Tierra. Para contrarrestar la toxicidad de la atmósfera de Pandora, se ha creado el programa Avatar, gracias al cual los seres humanos mantienen sus conciencias unidas a un avatar: un cuerpo biológico controlado de forma remota.",
+  "popularity": 968.722,
+  "poster_path": "/tXmTHdrZgNsULqCbThK2Dt2X9Wt.jpg",
+  "production_companies": [
+    {
+      "id": 25,
+      "logo_path": "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
+      "name": "20th Century Fox",
+      "origin_country": "US"
+    },
+    {
+      "id": 290,
+      "logo_path": "/Q8mw2AOQQc8Qg0uNwLWq86DVZv.png",
+      "name": "Ingenious Media",
+      "origin_country": "GB"
+    },
+    {
+      "id": 444,
+      "logo_path": null,
+      "name": "Dune Entertainment",
+      "origin_country": "US"
+    },
+    {
+      "id": 574,
+      "logo_path": "/iB6GjNVHs5hOqcEYt2rcjBqIjki.png",
+      "name": "Lightstorm Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    },
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    }
+  ],
+  "release_date": "2009-12-15",
+  "revenue": 2920357254,
+  "runtime": 162,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "Entra a un nuevo mundo.",
+  "title": "Avatar",
+  "video": false,
+  "vote_average": 7.536,
+  "vote_count": 26772
+}

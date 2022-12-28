@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="Theme.Chever" parent="@style/Theme.Leanback">
+
+        <item name="android:colorPrimary">@color/secondaryColor</item>
+        <item name="android:colorPrimaryDark">@color/secondaryDarkColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+
+        <item name="android:colorAccent">@color/primaryColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
+
+        <item name="android:colorBackground">@color/darkColor</item>
+        <item name="colorOnBackground">@color/secondaryTextColor</item>
+
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <!-- Splash-UI styles -->
+    <style name="SplashTextViewLogoLetter" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:visibility">invisible</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+    </style>
+
+</resources>

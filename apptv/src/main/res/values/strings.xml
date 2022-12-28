@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Chever</string>
+    <string-array name="app_name_letters">
+        <item>C</item>
+        <item>h</item>
+        <item>e</item>
+        <item>v</item>
+        <item>e</item>
+        <item>r</item>
+    </string-array>
+
+    <!-- App common -->
+    <string name="app_button_reload">Recargar</string>
+    <string name="app_unknown_error_one">¡Uy! Algo salió mal</string>
+    <string name="app_unknown_error_two">¡Vaya! Algo no funciona</string>
+    <string name="app_unknown_error_three">¡Oops! Error inesperado</string>
+    <string name="app_symbol_percent">%</string>
+
+    <!-- Header items -->
+    <string name="menu_item_home_title">Inicio</string>
+    <string name="menu_item_movies_title">Peliculas</string>
+    <string name="menu_item_shows_title">Series</string>
+
+    <!-- Home browse -->
+    <string name="home_browse_row_trending_day_title">Tendencias - HOY</string>
+    <string name="home_browse_row_trending_week_title">Tendencias - ESTA SEMANA</string>
+    <string name="home_browse_row_watched_title">Más vistas</string>
+    <string name="home_browse_row_recommended_title">Recomendadas</string>
+    <string name="home_browse_row_collected_title">Coleccionadas</string>
+    <string name="home_browse_row_popular_title">Populares</string>
+    <string name="home_browse_row_anticipated_title">Próximos estrenos</string>
+
+</resources>
