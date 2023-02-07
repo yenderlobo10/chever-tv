@@ -16,12 +16,104 @@
         <item name="android:fontFamily">@font/ubuntu</item>
     </style>
 
+    <!--Text override styles -->
+
+    <style name="TextAppearance" />
+
+    <style name="TextAppearance.Leanback">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Display1" parent="TextAppearance.AppCompat.Display1">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Display2" parent="TextAppearance.AppCompat.Display2">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Display3" parent="TextAppearance.AppCompat.Display3">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Display4" parent="TextAppearance.AppCompat.Display4">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Subhead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Body2" parent="TextAppearance.AppCompat.Body2">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Button" parent="TextAppearance.AppCompat.Button">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Small">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextAppearance.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
     <!-- Splash-UI styles -->
     <style name="SplashTextViewLogoLetter" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:visibility">invisible</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+    </style>
+
+    <!-- Movies-UI styles -->
+    <style name="MediaItemLabelChip" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/lightColor</item>
         <item name="fontFamily">@font/ubuntu_medium</item>
         <item name="android:fontFamily">@font/ubuntu_medium</item>
     </style>

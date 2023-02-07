@@ -5,12 +5,15 @@ import androidx.leanback.widget.ArrayObjectAdapter
 import androidx.leanback.widget.HeaderItem
 import androidx.leanback.widget.ListRow
 import androidx.lifecycle.lifecycleScope
+import io.chever.apptv.R
 import io.chever.apptv.common.view.AppRowsBrowseFragment
 import io.chever.apptv.ui.home.enums.HomeCollection
 import io.chever.apptv.ui.home.model.MediaCardItem
-import io.chever.apptv.ui.home.presenter.HomeMediaItemCardPresenter
+import io.chever.apptv.ui.home.presenter.HomeCardDefaultItemPresenter
+import io.chever.apptv.ui.home.presenter.HomeCardTrendingItemPresenter
+import io.chever.apptv.ui.main.MainState
 import io.chever.apptv.ui.main.MainViewModel
-import io.chever.apptv.ui.main.state.MainState
+import io.chever.shared.extension.showLongToast
 
 class HomeBrowseFragment : AppRowsBrowseFragment() {
 
@@ -27,13 +30,22 @@ class HomeBrowseFragment : AppRowsBrowseFragment() {
 
         lifecycleScope.launchWhenStarted {
 
-            mainViewModel.mainState.collect {
+            mainViewModel.loadHomeCollections().collect {
 
                 when (it) {
 
-                    is MainState.Success -> createRowsByCollection(it)
+                    is MainState.Loading -> showProgress()
 
-                    else -> throw IllegalStateException(it.toString())
+                    is MainState.Success -> {
+                        hideProgress()
+                        createRowsByCollection(it)
+                    }
+
+                    // TODO: show error dialog
+                    else -> {
+                        hideProgress()
+                        requireContext().showLongToast(R.string.app_unknown_error_two)
+                    }
                 }
             }
         }
@@ -49,7 +61,10 @@ class HomeBrowseFragment : AppRowsBrowseFragment() {
 
                 val listRow = ListRow(
                     createRowCollectionHeader(item.key),
-                    createRowCollectionAdapter(item.value)
+                    createRowCollectionAdapter(
+                        collection = item.key,
+                        listItems = item.value
+                    )
                 )
 
                 rowsCollectionsAdapter.add(listRow)
@@ -64,16 +79,24 @@ class HomeBrowseFragment : AppRowsBrowseFragment() {
     )
 
     private fun createRowCollectionAdapter(
+        collection: HomeCollection,
         listItems: List<MediaCardItem>
     ): ArrayObjectAdapter {
 
         val adapter = ArrayObjectAdapter(
-            HomeMediaItemCardPresenter(requireContext())
+            when (collection) {
+
+                HomeCollection.TrendingDay,
+                HomeCollection.TrendingWeek ->
+                    HomeCardTrendingItemPresenter(requireContext())
+
+                else ->
+                    HomeCardDefaultItemPresenter(requireContext())
+            }
         )
 
         adapter.addAll(0, listItems)
 
         return adapter
     }
-
 }

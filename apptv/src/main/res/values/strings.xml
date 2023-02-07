@@ -30,4 +30,12 @@
     <string name="home_browse_row_popular_title">Populares</string>
     <string name="home_browse_row_anticipated_title">Próximos estrenos</string>
 
+    <!-- Media items meta-data -->
+    <string name="metadata_label_watchers">%s visitas</string>
+    <string name="metadata_label_plays">%s reproducciones</string>
+    <string name="metadata_label_recommended">%s usuarios recomiendan</string>
+    <string name="metadata_label_collected">%s propietarios</string>
+    <string name="metadata_label_collector">%s episodios</string>
+    <string name="metadata_label_list">%s listas</string>
+
 </resources>

@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.chever.data.api.themoviedb.TMDBApiClient
 import io.chever.data.api.themoviedb.service.TMDBMoviesService
+import io.chever.data.api.themoviedb.service.TMDBShowsService
 import io.chever.data.api.themoviedb.service.TMDBTrendingService
 
 @Module
@@ -17,6 +18,12 @@ object TMDBApiServicesModule {
         apiClient: TMDBApiClient
     ): TMDBMoviesService =
         apiClient.retrofit().create(TMDBMoviesService::class.java)
+
+    @Provides
+    fun provideShowsService(
+        apiClient: TMDBApiClient
+    ): TMDBShowsService =
+        apiClient.retrofit().create(TMDBShowsService::class.java)
 
     @Provides
     fun provideTrendingService(

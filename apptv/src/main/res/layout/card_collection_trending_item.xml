@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCollectionTrendingItem"
+    android:layout_width="176dp"
+    android:layout_height="280dp"
+    android:background="@drawable/g_background_primary_alt"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/ivPoster"
+        android:layout_width="176dp"
+        android:layout_height="210dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/g_background_primary"
+        tools:padding="64dp"
+        tools:scaleType="fitCenter"
+        tools:src="@drawable/logo_foreground" />
+
+    <FrameLayout
+        android:id="@+id/flRating"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/bg_circle_shape"
+        android:backgroundTint="@color/darkColor"
+        android:translationY="-24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPoster"
+        tools:ignore="SmallSp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:translationX="-2dp">
+
+            <TextView
+                android:id="@+id/tvRatingPercent"
+                style="@style/TextAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="75" />
+
+            <TextView
+                android:id="@+id/tvRatingPercentSymbol"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/app_symbol_percent"
+                android:textSize="6sp"
+                app:layout_constraintStart_toEndOf="@id/tvRatingPercent"
+                app:layout_constraintTop_toTopOf="@id/tvRatingPercent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/pbRating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            app:cpb_background_progressbar_color="#3EEF4E50"
+            app:cpb_progress_max="100"
+            app:cpb_progressbar_color="@color/primaryColor"
+            app:cpb_progressbar_width="2dp"
+            tools:cpb_progress="75" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextAppearance.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:translationX="-4dp"
+        android:translationY="-16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/flRating"
+        app:layout_constraintTop_toBottomOf="@+id/flRating"
+        tools:text="Avatar: El camino del agua" />
+
+    <TextView
+        android:id="@+id/tvRelease"
+        style="@style/TextAppearance.Caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:translationX="-4dp"
+        android:translationY="-12dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:text="14 dic 2022" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,182 @@
+[
+  {
+    "watcher_count": 37384,
+    "play_count": 78041,
+    "collected_count": 15873,
+    "collector_count": 11396,
+    "show": {
+      "title": "The Last of Us",
+      "year": 2023,
+      "ids": {
+        "trakt": 158947,
+        "slug": "the-last-of-us",
+        "tvdb": 392256,
+        "imdb": "tt3581920",
+        "tmdb": 100088,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 8560,
+    "play_count": 12164,
+    "collected_count": 2233,
+    "collector_count": 10,
+    "show": {
+      "title": "Gintama",
+      "year": 2006,
+      "ids": {
+        "trakt": 56675,
+        "slug": "gintama",
+        "tvdb": 79895,
+        "imdb": "tt0988818",
+        "tmdb": 57041,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 7420,
+    "play_count": 50739,
+    "collected_count": 20172,
+    "collector_count": 2490,
+    "show": {
+      "title": "That '90s Show",
+      "year": 2023,
+      "ids": {
+        "trakt": 189509,
+        "slug": "that-90s-show",
+        "tvdb": 411173,
+        "imdb": "tt15591076",
+        "tmdb": 135959,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 7412,
+    "play_count": 40007,
+    "collected_count": 23345,
+    "collector_count": 2989,
+    "show": {
+      "title": "The Rookie",
+      "year": 2018,
+      "ids": {
+        "trakt": 134421,
+        "slug": "the-rookie-2018",
+        "tvdb": 350665,
+        "imdb": "tt7587890",
+        "tmdb": 79744,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 6740,
+    "play_count": 37335,
+    "collected_count": 29300,
+    "collector_count": 2575,
+    "show": {
+      "title": "Chicago Fire",
+      "year": 2012,
+      "ids": {
+        "trakt": 43764,
+        "slug": "chicago-fire",
+        "tvdb": 258541,
+        "imdb": "tt2261391",
+        "tmdb": 44006,
+        "tvrage": 30748
+      }
+    }
+  },
+  {
+    "watcher_count": 6708,
+    "play_count": 37093,
+    "collected_count": 26901,
+    "collector_count": 2336,
+    "show": {
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "ids": {
+        "trakt": 58454,
+        "slug": "chicago-p-d",
+        "tvdb": 269641,
+        "imdb": "tt2805096",
+        "tmdb": 58841,
+        "tvrage": 35802
+      }
+    }
+  },
+  {
+    "watcher_count": 6331,
+    "play_count": 20844,
+    "collected_count": 11100,
+    "collector_count": 3387,
+    "show": {
+      "title": "Your Honor",
+      "year": 2020,
+      "ids": {
+        "trakt": 144121,
+        "slug": "your-honor-2020",
+        "tvdb": 359579,
+        "imdb": "tt7440726",
+        "tmdb": 86430,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 6142,
+    "play_count": 24108,
+    "collected_count": 12032,
+    "collector_count": 3602,
+    "show": {
+      "title": "Mayor of Kingstown",
+      "year": 2021,
+      "ids": {
+        "trakt": 165410,
+        "slug": "mayor-of-kingstown",
+        "tvdb": 386630,
+        "imdb": "tt11712058",
+        "tmdb": 97951,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 5880,
+    "play_count": 85725,
+    "collected_count": 59053,
+    "collector_count": 2467,
+    "show": {
+      "title": "Criminal Minds",
+      "year": 2005,
+      "ids": {
+        "trakt": 4033,
+        "slug": "criminal-minds",
+        "tvdb": 75710,
+        "imdb": "tt0452046",
+        "tmdb": 4057,
+        "tvrage": 3171
+      }
+    }
+  },
+  {
+    "watcher_count": 5768,
+    "play_count": 13925,
+    "collected_count": 6224,
+    "collector_count": 3004,
+    "show": {
+      "title": "Anne Rice's Mayfair Witches",
+      "year": 2023,
+      "ids": {
+        "trakt": 197457,
+        "slug": "anne-rice-s-mayfair-witches",
+        "tvdb": 413074,
+        "imdb": "tt15428778",
+        "tmdb": 207863,
+        "tvrage": null
+      }
+    }
+  }
+]

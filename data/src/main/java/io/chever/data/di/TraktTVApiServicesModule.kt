@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.chever.data.api.trakttv.TraktTVApiClient
 import io.chever.data.api.trakttv.service.TKTVMoviesService
+import io.chever.data.api.trakttv.service.TKTVShowsService
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -16,4 +17,10 @@ object TraktTVApiServicesModule {
         apiClient: TraktTVApiClient
     ): TKTVMoviesService =
         apiClient.retrofit().create(TKTVMoviesService::class.java)
+
+    @Provides
+    fun provideShowsService(
+        apiClient: TraktTVApiClient
+    ): TKTVShowsService =
+        apiClient.retrofit().create(TKTVShowsService::class.java)
 }

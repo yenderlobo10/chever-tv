@@ -21,4 +21,6 @@ enum class TMMovieStatusEnum(val value: String) {
 
     @Json(name = "Canceled")
     Canceled("Canceled"),
+
+    Unknown("None")
 }

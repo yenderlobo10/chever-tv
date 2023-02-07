@@ -13,7 +13,7 @@ import io.chever.shared.observability.AppLogger
 
 abstract class AppRowsBrowseFragment : RowsSupportFragment() {
 
-    protected lateinit var progressManager: ProgressBarManager
+    private lateinit var progressManager: ProgressBarManager
     protected val rowsCollectionsAdapter = ArrayObjectAdapter(ListRowPresenter())
 
 
@@ -46,6 +46,10 @@ abstract class AppRowsBrowseFragment : RowsSupportFragment() {
 
         setupUI()
     }
+
+    protected fun showProgress() = progressManager.show()
+
+    protected fun hideProgress() = progressManager.hide()
 
     abstract fun setupUI()
 }

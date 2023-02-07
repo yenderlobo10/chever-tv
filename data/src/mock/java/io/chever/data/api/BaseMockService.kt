@@ -3,11 +3,10 @@ package io.chever.data.api
 import android.content.Context
 import androidx.annotation.RawRes
 import com.squareup.moshi.Types
-import io.chever.data.extension.MockUtil.parseRawJsonString
+import io.chever.data.extension.parseRawJsonString
 import io.chever.data.model.MockFailure
-import io.chever.domain.model.result.AppFailure
-import io.chever.domain.model.result.AppResult
-import java.lang.reflect.ParameterizedType
+import io.chever.domain.model.resource.AppFailure
+import io.chever.domain.model.resource.AppResult
 import java.lang.reflect.Type
 
 open class BaseMockService(
@@ -17,22 +16,12 @@ open class BaseMockService(
     protected fun <T> readJsonToMockResponse(
         @RawRes rawJsonId: Int,
         errorMessage: String = "Mock failed",
-        responseType: Type
-    ): AppResult<AppFailure, T> = readJsonToMockResponse(
-        rawJsonId = rawJsonId,
-        errorMessage = errorMessage,
-        responseTypes = arrayOf(responseType)
-    )
-
-    protected fun <T> readJsonToMockResponse(
-        @RawRes rawJsonId: Int,
-        errorMessage: String = "Mock failed",
-        vararg responseTypes: Type
+        responseType: Class<T>
     ): AppResult<AppFailure, T> {
 
-        val mockResponse = context.parseRawJsonString<T>(
+        val mockResponse = context.parseRawJsonString(
             rawJsonId = rawJsonId,
-            type = createParameterizedType(*responseTypes)
+            type = responseType
         )
 
         mockResponse?.let {
@@ -44,14 +33,26 @@ open class BaseMockService(
         }
     }
 
-    private fun createParameterizedType(
-        vararg types: Type
-    ): ParameterizedType =
-        if (types.size == 1) Types.newParameterizedType(
-            types.first()
+    protected fun <T> readJsonToMockResponse(
+        @RawRes rawJsonId: Int,
+        errorMessage: String = "Mock failed",
+        vararg responseTypes: Type
+    ): AppResult<AppFailure, T> {
+
+        val mockResponse = context.parseRawJsonString<T>(
+            rawJsonId = rawJsonId,
+            type = Types.newParameterizedType(
+                responseTypes.first(),
+                *responseTypes.copyOfRange(1, responseTypes.size)
+            )
         )
-        else Types.newParameterizedType(
-            types.first(),
-            *types.copyOfRange(1, types.size)
-        )
+
+        mockResponse?.let {
+            return AppResult.Success(value = mockResponse)
+        } ?: run {
+            return AppResult.Failure(
+                MockFailure(message = errorMessage)
+            )
+        }
+    }
 }

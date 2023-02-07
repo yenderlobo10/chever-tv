@@ -13,6 +13,7 @@ import io.chever.apptv.R
 import io.chever.apptv.databinding.FragmentLaunchBinding
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -32,6 +33,8 @@ class LaunchLogoAnimate(
     private val resLogoLetters =
         binding.root.context.resources.getStringArray(R.array.app_name_letters)
 
+    private val lifecycleScope = binding.root.findViewTreeLifecycleOwner()?.lifecycleScope
+
     private val logoTransitionScene = TransitionSet().apply {
         duration = 600
         addTransition(ChangeTransform())
@@ -46,8 +49,7 @@ class LaunchLogoAnimate(
 
     fun runAnimate() {
 
-        binding.root.findViewTreeLifecycleOwner()
-            ?.lifecycleScope?.launch {
+        lifecycleScope?.launch {
                 runLogoTransitionScene()
                 runLettersTransitionScene()
             }
@@ -56,8 +58,7 @@ class LaunchLogoAnimate(
     @Suppress("DeferredResultUnused")
     fun runLoadingAnimate() {
 
-        binding.root.findViewTreeLifecycleOwner()
-            ?.lifecycleScope?.launch {
+        lifecycleScope?.launch {
                 async { runLogoLoadingTransitionScene() }
                 runLettersLoadingTransitionScene()
             }
@@ -83,7 +84,7 @@ class LaunchLogoAnimate(
 
         var toggle = true
 
-        while (true) {
+        while (lifecycleScope?.isActive == true) {
 
             TransitionManager.beginDelayedTransition(
                 binding.root,
@@ -135,7 +136,7 @@ class LaunchLogoAnimate(
         }
         var toggle = true
 
-        while (true) {
+        while (lifecycleScope?.isActive == true) {
 
             listOfLetters.forEach {
 

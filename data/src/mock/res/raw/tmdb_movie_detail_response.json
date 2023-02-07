@@ -1,10 +1,10 @@
 {
   "adult": false,
-  "backdrop_path": "/Yc9q6QuWrMp9nuDm5R8ExNqbEq.jpg",
+  "backdrop_path": "/8I37NtDffNV7AZlDa7uDvvqhovU.jpg",
   "belongs_to_collection": {
     "id": 87096,
     "name": "Avatar - Colección",
-    "poster_path": "/uO2yU3QiGHvVp0L5e5IatTVRkYk.jpg",
+    "poster_path": "/1Y8Khr8lyBw6Tatxlmkqs0UUOWw.jpg",
     "backdrop_path": "/iaEsDbQPE45hQU2EGiNjXD2KWuF.jpg"
   },
   "budget": 237000000,
@@ -32,7 +32,7 @@
   "original_language": "en",
   "original_title": "Avatar",
   "overview": "Jake Sully, un ex-marine condenado a vivir en una silla de ruedas, sigue siendo, un auténtico guerrero. Precisamente por ello ha sido designado para ir a Pandora, donde algunas empresas están extrayendo un mineral extraño que podría resolver la crisis energética de la Tierra. Para contrarrestar la toxicidad de la atmósfera de Pandora, se ha creado el programa Avatar, gracias al cual los seres humanos mantienen sus conciencias unidas a un avatar: un cuerpo biológico controlado de forma remota.",
-  "popularity": 968.722,
+  "popularity": 1280.718,
   "poster_path": "/tXmTHdrZgNsULqCbThK2Dt2X9Wt.jpg",
   "production_companies": [
     {
@@ -89,6 +89,24 @@
   "tagline": "Entra a un nuevo mundo.",
   "title": "Avatar",
   "video": false,
-  "vote_average": 7.536,
-  "vote_count": 26772
+  "vote_average": 7.564,
+  "vote_count": 28011,
+  "releases": {
+    "countries": [
+      {
+        "certification": "7",
+        "descriptors": [],
+        "iso_3166_1": "ES",
+        "primary": false,
+        "release_date": "2009-12-18"
+      },
+      {
+        "certification": "PG-13",
+        "descriptors": [],
+        "iso_3166_1": "US",
+        "primary": false,
+        "release_date": "2009-12-18"
+      }
+    ]
+  }
 }

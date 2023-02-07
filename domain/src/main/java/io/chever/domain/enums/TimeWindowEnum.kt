@@ -2,12 +2,22 @@ package io.chever.domain.enums
 
 @Suppress("unused")
 enum class TimeWindowEnum(
-    val value: String
+    val value: String,
+    val period: String
 ) {
 
-    Day("day"),
+    Day(
+        value = "day",
+        period = "daily"
+    ),
 
-    Week("week"),
+    Week(
+        value = "week",
+        period = "weekly"
+    ),
 
-    Month("month")
+    Month(
+        value = "month",
+        period = "monthly"
+    )
 }

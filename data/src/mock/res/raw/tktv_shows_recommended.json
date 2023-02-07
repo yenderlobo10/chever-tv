@@ -1,0 +1,152 @@
+[
+  {
+    "user_count": 189,
+    "show": {
+      "title": "The Last of Us",
+      "year": 2023,
+      "ids": {
+        "trakt": 158947,
+        "slug": "the-last-of-us",
+        "tvdb": 392256,
+        "imdb": "tt3581920",
+        "tmdb": 100088,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 39,
+    "show": {
+      "title": "Breaking Bad",
+      "year": 2008,
+      "ids": {
+        "trakt": 1388,
+        "slug": "breaking-bad",
+        "tvdb": 81189,
+        "imdb": "tt0903747",
+        "tmdb": 1396,
+        "tvrage": 18164
+      }
+    }
+  },
+  {
+    "user_count": 30,
+    "show": {
+      "title": "Poker Face",
+      "year": 2023,
+      "ids": {
+        "trakt": 187032,
+        "slug": "poker-face-2023",
+        "tvdb": 398822,
+        "imdb": "tt14269590",
+        "tmdb": 120998,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 29,
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399,
+        "tvrage": 24493
+      }
+    }
+  },
+  {
+    "user_count": 29,
+    "show": {
+      "title": "Wednesday",
+      "year": 2022,
+      "ids": {
+        "trakt": 173996,
+        "slug": "wednesday",
+        "tvdb": 397060,
+        "imdb": "tt13443470",
+        "tmdb": 119051,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 21,
+    "show": {
+      "title": "Chernobyl",
+      "year": 2019,
+      "ids": {
+        "trakt": 145186,
+        "slug": "chernobyl",
+        "tvdb": 360893,
+        "imdb": "tt7366338",
+        "tmdb": 87108,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 21,
+    "show": {
+      "title": "Star Wars: Andor",
+      "year": 2022,
+      "ids": {
+        "trakt": 170649,
+        "slug": "star-wars-andor",
+        "tvdb": 393189,
+        "imdb": "tt9253284",
+        "tmdb": 83867,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 18,
+    "show": {
+      "title": "Yellowstone",
+      "year": 2018,
+      "ids": {
+        "trakt": 126995,
+        "slug": "yellowstone-2018",
+        "tvdb": 341164,
+        "imdb": "tt4236770",
+        "tmdb": 73586,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 16,
+    "show": {
+      "title": "Severance",
+      "year": 2022,
+      "ids": {
+        "trakt": 154997,
+        "slug": "severance",
+        "tvdb": 371980,
+        "imdb": "tt11280740",
+        "tmdb": 95396,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "user_count": 15,
+    "show": {
+      "title": "Better Call Saul",
+      "year": 2015,
+      "ids": {
+        "trakt": 59660,
+        "slug": "better-call-saul",
+        "tvdb": 273181,
+        "imdb": "tt3032476",
+        "tmdb": 60059,
+        "tvrage": 37780
+      }
+    }
+  }
+]

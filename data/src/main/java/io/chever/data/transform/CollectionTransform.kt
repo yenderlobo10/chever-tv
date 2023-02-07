@@ -1,22 +1,18 @@
 package io.chever.data.transform
 
 import io.chever.data.api.themoviedb.enums.TMMediaTypeEnum
-import io.chever.data.api.themoviedb.model.TMTrending
+import io.chever.data.api.themoviedb.model.TMTrendingResponse
 import io.chever.domain.enums.MediaTypeEnum
 import io.chever.domain.model.collection.MediaItem
 
 /**
- * Transform a **List<[TMTrending]>** into **List<[MediaItem]>**.
+ * Transform a **List<[TMTrendingResponse]>** into **List<[MediaItem]>**.
  */
-fun List<TMTrending>.mapToMediaItemList(): List<MediaItem> =
+fun List<TMTrendingResponse>.mapToMediaItemList(): List<MediaItem> =
     this.map { x ->
         MediaItem(
             id = x.id,
             title = x.title ?: x.name ?: "",
-            release = x.releaseDate ?: x.firstAirDate,
-            posterPath = x.posterPath,
-            backdropPath = x.backdropPath,
-            rating = x.voteAverage,
             type = x.mediaType.mapToMediaTypeEnum()
         )
     }

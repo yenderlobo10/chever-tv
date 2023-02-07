@@ -1,7 +1,7 @@
 package io.chever.domain.usecase.base
 
-import io.chever.domain.model.result.AppFailure
-import io.chever.domain.model.result.AppResult
+import io.chever.domain.model.resource.AppFailure
+import io.chever.domain.model.resource.AppResult
 
 /**
  * Abstract class to represent a Use Case that takes no params.

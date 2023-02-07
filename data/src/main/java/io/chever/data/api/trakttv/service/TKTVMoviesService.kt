@@ -1,14 +1,14 @@
 package io.chever.data.api.trakttv.service
 
-import io.chever.data.api.trakttv.enums.TKExtendedInfo
-import io.chever.data.api.trakttv.model.TKComment
-import io.chever.data.api.trakttv.model.TKMovie
-import io.chever.data.api.trakttv.model.TKMovieAnticipatedResult
-import io.chever.data.api.trakttv.model.TKMoviePlayedResult
-import io.chever.data.api.trakttv.model.TKMovieRating
-import io.chever.data.api.trakttv.model.TKMovieRecommendedResult
-import io.chever.data.api.trakttv.model.TKMovieStats
-import io.chever.data.api.trakttv.model.TKMovieTrendingResult
+import io.chever.data.api.trakttv.enums.TKPeriodEnum
+import io.chever.data.api.trakttv.model.TKCommentResponse
+import io.chever.data.api.trakttv.model.movies.TKMovieRatingResponse
+import io.chever.data.api.trakttv.model.movies.TKMovieResponse
+import io.chever.data.api.trakttv.model.movies.TKMovieStatsResponse
+import io.chever.data.api.trakttv.model.movies.TKMoviesAnticipatedResponse
+import io.chever.data.api.trakttv.model.movies.TKMoviesCollectionResponse
+import io.chever.data.api.trakttv.model.movies.TKMoviesRecommendedResponse
+import io.chever.data.api.trakttv.model.movies.TKMoviesTrendingResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,71 +22,63 @@ import retrofit2.http.Query
 @Suppress("unused")
 interface TKTVMoviesService {
 
-    @GET("trending")
+    @GET("movies/trending")
     suspend fun trending(
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMovieTrendingResult>>
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesTrendingResponse>>
 
-    @GET("popular")
+    @GET("movies/popular")
     suspend fun popular(
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMovie>>
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMovieResponse>>
 
-    @GET("recommended/{period}")
+    @GET("movies/recommended/{period}")
     suspend fun recommended(
-        @Path("period") period: String,
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMovieRecommendedResult>>
+        @Path("period") period: String = TKPeriodEnum.Weekly.value,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesRecommendedResponse>>
 
-    @GET("watched/{period}")
+    @GET("movies/watched/{period}")
     suspend fun watched(
-        @Path("period") period: String,
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMoviePlayedResult>>
+        @Path("period") period: String = TKPeriodEnum.Weekly.value,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesCollectionResponse>>
 
-    @GET("played/{period}")
+    @GET("movies/played/{period}")
     suspend fun played(
-        @Path("period") period: String,
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMoviePlayedResult>>
+        @Path("period") period: String = TKPeriodEnum.Weekly.value,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesCollectionResponse>>
 
-    @GET("collected/{period}")
+    @GET("movies/collected/{period}")
     suspend fun collected(
-        @Path("period") period: String,
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMoviePlayedResult>>
+        @Path("period") period: String = TKPeriodEnum.Weekly.value,
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesCollectionResponse>>
 
-    @GET("anticipated")
+    @GET("movies/anticipated")
     suspend fun anticipated(
-        @Query("limit") limit: Int = 10,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMovieAnticipatedResult>>
+        @Query("limit") limit: Int = 10
+    ): Response<List<TKMoviesAnticipatedResponse>>
 
-    @GET("{id}/comments/{sort}")
+    @GET("movies/{id}/comments/{sort}")
     suspend fun comments(
         @Path("id") id: String,
         @Path("sort") sort: String,
-    ): Response<List<TKComment>>
+    ): Response<List<TKCommentResponse>>
 
-    @GET("{id}/related")
+    @GET("movies/{id}/related")
     suspend fun related(
-        @Path("id") id: String,
-        @Query("extended") extended: String = TKExtendedInfo.Full.value
-    ): Response<List<TKMovie>>
+        @Path("id") id: String
+    ): Response<List<TKMovieResponse>>
 
-    @GET("{id}/ratings")
+    @GET("movies/{id}/ratings")
     suspend fun ratings(
         @Path("id") id: String
-    ): Response<TKMovieRating>
+    ): Response<TKMovieRatingResponse>
 
-    @GET("{id}/stats")
+    @GET("movies/{id}/stats")
     suspend fun stats(
         @Path("id") id: String
-    ): Response<TKMovieStats>
+    ): Response<TKMovieStatsResponse>
 }

@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import io.chever.apptv.R
 import io.chever.apptv.databinding.FragmentLaunchBinding
 import io.chever.apptv.ui.main.MainFragmentView
+import io.chever.apptv.ui.main.MainState
 import io.chever.apptv.ui.main.MainViewModel
-import io.chever.apptv.ui.main.state.MainState
 import io.chever.data.BuildConfig
+import io.chever.shared.extension.showLongToast
 import io.chever.shared.observability.AppLogger
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class LaunchFragment : Fragment() {
 
@@ -60,33 +61,15 @@ class LaunchFragment : Fragment() {
     @Suppress("KotlinConstantConditions")
     private fun loadHomeCollections() {
 
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenStarted {
 
-            try {
+            if (BuildConfig.FLAVOR == "mock") delay(3.seconds)
 
-                mainViewModel.loadHomeCollections()
-                if (BuildConfig.FLAVOR == "mock") delay(3.seconds)
-                observeMainUiState()
-
-            } catch (ex: Exception) {
-
-                AppLogger.error(ex)
-            }
-        }
-    }
-
-    private suspend fun observeMainUiState() {
-
-        mainViewModel.mainState.collect {
-
-            when (it) {
-
-                is MainState.Loading ->
-                    AppLogger.info("MainState loading ...")
-
-                is MainState.Success -> whenMainStateSuccess()
-
-                is MainState.Error -> throw Exception()
+            mainViewModel.loadHomeCollections().collect {
+                if (it is MainState.Success)
+                    whenMainStateSuccess()
+                else if (it is MainState.Error) // TODO: show error dialog
+                    requireContext().showLongToast(R.string.app_unknown_error_two)
             }
         }
     }
@@ -96,7 +79,7 @@ class LaunchFragment : Fragment() {
         with((MainFragmentView.Home)) {
             parentFragmentManager.beginTransaction()
                 .replace(android.R.id.content, this.fragment, this.tag)
-                .commit()
+                .commitAllowingStateLoss()
         }
     }
 

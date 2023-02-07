@@ -1,0 +1,132 @@
+[
+  {
+    "user_count": 32,
+    "movie": {
+      "title": "Black Panther: Wakanda Forever",
+      "year": 2022,
+      "ids": {
+        "trakt": 352796,
+        "slug": "black-panther-wakanda-forever-2022",
+        "imdb": "tt9114286",
+        "tmdb": 505642
+      }
+    }
+  },
+  {
+    "user_count": 26,
+    "movie": {
+      "title": "Everything Everywhere All at Once",
+      "year": 2022,
+      "ids": {
+        "trakt": 396092,
+        "slug": "everything-everywhere-all-at-once-2022",
+        "imdb": "tt6710474",
+        "tmdb": 545611
+      }
+    }
+  },
+  {
+    "user_count": 25,
+    "movie": {
+      "title": "M3GAN",
+      "year": 2022,
+      "ids": {
+        "trakt": 388074,
+        "slug": "m3gan-2022",
+        "imdb": "tt8760708",
+        "tmdb": 536554
+      }
+    }
+  },
+  {
+    "user_count": 25,
+    "movie": {
+      "title": "Puss in Boots: The Last Wish",
+      "year": 2022,
+      "ids": {
+        "trakt": 197298,
+        "slug": "puss-in-boots-the-last-wish-2022",
+        "imdb": "tt3915174",
+        "tmdb": 315162
+      }
+    }
+  },
+  {
+    "user_count": 18,
+    "movie": {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "ids": {
+        "trakt": 56580,
+        "slug": "avatar-the-way-of-water-2022",
+        "imdb": "tt1630029",
+        "tmdb": 76600
+      }
+    }
+  },
+  {
+    "user_count": 18,
+    "movie": {
+      "title": "Top Gun: Maverick",
+      "year": 2022,
+      "ids": {
+        "trakt": 297485,
+        "slug": "top-gun-maverick-2022",
+        "imdb": "tt1745960",
+        "tmdb": 361743
+      }
+    }
+  },
+  {
+    "user_count": 16,
+    "movie": {
+      "title": "Babylon",
+      "year": 2022,
+      "ids": {
+        "trakt": 459051,
+        "slug": "babylon-2022",
+        "imdb": "tt10640346",
+        "tmdb": 615777
+      }
+    }
+  },
+  {
+    "user_count": 13,
+    "movie": {
+      "title": "Bullet Train",
+      "year": 2022,
+      "ids": {
+        "trakt": 561702,
+        "slug": "bullet-train-2022",
+        "imdb": "tt12593682",
+        "tmdb": 718930
+      }
+    }
+  },
+  {
+    "user_count": 13,
+    "movie": {
+      "title": "The Menu",
+      "year": 2022,
+      "ids": {
+        "trakt": 439843,
+        "slug": "the-menu-2022",
+        "imdb": "tt9764362",
+        "tmdb": 593643
+      }
+    }
+  },
+  {
+    "user_count": 11,
+    "movie": {
+      "title": "Fight Club",
+      "year": 1999,
+      "ids": {
+        "trakt": 432,
+        "slug": "fight-club-1999",
+        "imdb": "tt0137523",
+        "tmdb": 550
+      }
+    }
+  }
+]

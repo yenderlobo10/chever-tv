@@ -1,17 +1,17 @@
 package io.chever.data.repository
 
-import io.chever.data.api.themoviedb.TMDBTrendingService
+import io.chever.data.api.themoviedb.TMDBTrendingMockService
 import io.chever.data.transform.mapToMediaItemList
 import io.chever.domain.enums.MediaTypeEnum
 import io.chever.domain.enums.TimeWindowEnum
 import io.chever.domain.model.collection.MediaItem
-import io.chever.domain.model.result.AppFailure
-import io.chever.domain.model.result.AppResult
+import io.chever.domain.model.resource.AppFailure
+import io.chever.domain.model.resource.AppResult
 import io.chever.domain.repository.CollectionRepository
 import javax.inject.Inject
 
 class CollectionRepositoryImpl @Inject constructor(
-    private val trendingService: TMDBTrendingService
+    private val trendingService: TMDBTrendingMockService
 ) : CollectionRepository {
 
     override suspend fun trending(

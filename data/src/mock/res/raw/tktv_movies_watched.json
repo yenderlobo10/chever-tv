@@ -1,0 +1,152 @@
+[
+  {
+    "watcher_count": 8568,
+    "play_count": 11424,
+    "collected_count": 3808,
+    "movie": {
+      "title": "M3GAN",
+      "year": 2022,
+      "ids": {
+        "trakt": 388074,
+        "slug": "m3gan-2022",
+        "imdb": "tt8760708",
+        "tmdb": 536554
+      }
+    }
+  },
+  {
+    "watcher_count": 5605,
+    "play_count": 7474,
+    "collected_count": 857,
+    "movie": {
+      "title": "Puss in Boots: The Last Wish",
+      "year": 2022,
+      "ids": {
+        "trakt": 197298,
+        "slug": "puss-in-boots-the-last-wish-2022",
+        "imdb": "tt3915174",
+        "tmdb": 315162
+      }
+    }
+  },
+  {
+    "watcher_count": 5280,
+    "play_count": 7041,
+    "collected_count": 849,
+    "movie": {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "ids": {
+        "trakt": 56580,
+        "slug": "avatar-the-way-of-water-2022",
+        "imdb": "tt1630029",
+        "tmdb": 76600
+      }
+    }
+  },
+  {
+    "watcher_count": 5034,
+    "play_count": 6713,
+    "collected_count": 800,
+    "movie": {
+      "title": "The Menu",
+      "year": 2022,
+      "ids": {
+        "trakt": 439843,
+        "slug": "the-menu-2022",
+        "imdb": "tt9764362",
+        "tmdb": 593643
+      }
+    }
+  },
+  {
+    "watcher_count": 2691,
+    "play_count": 3588,
+    "collected_count": 687,
+    "movie": {
+      "title": "Devotion",
+      "year": 2022,
+      "ids": {
+        "trakt": 488476,
+        "slug": "devotion-2022",
+        "imdb": "tt7693316",
+        "tmdb": 653851
+      }
+    }
+  },
+  {
+    "watcher_count": 2511,
+    "play_count": 3349,
+    "collected_count": 309,
+    "movie": {
+      "title": "Glass Onion: A Knives Out Mystery",
+      "year": 2022,
+      "ids": {
+        "trakt": 495668,
+        "slug": "glass-onion-a-knives-out-mystery-2022",
+        "imdb": "tt11564570",
+        "tmdb": 661374
+      }
+    }
+  },
+  {
+    "watcher_count": 2332,
+    "play_count": 3110,
+    "collected_count": 1181,
+    "movie": {
+      "title": "JUNG_E",
+      "year": 2023,
+      "ids": {
+        "trakt": 674116,
+        "slug": "jung_e-2023",
+        "imdb": "tt22352848",
+        "tmdb": 843794
+      }
+    }
+  },
+  {
+    "watcher_count": 2157,
+    "play_count": 2877,
+    "collected_count": 345,
+    "movie": {
+      "title": "Black Adam",
+      "year": 2022,
+      "ids": {
+        "trakt": 288212,
+        "slug": "black-adam-2022",
+        "imdb": "tt6443346",
+        "tmdb": 436270
+      }
+    }
+  },
+  {
+    "watcher_count": 2112,
+    "play_count": 2817,
+    "collected_count": 598,
+    "movie": {
+      "title": "The Pale Blue Eye",
+      "year": 2022,
+      "ids": {
+        "trakt": 635822,
+        "slug": "the-pale-blue-eye-2022",
+        "imdb": "tt14138650",
+        "tmdb": 800815
+      }
+    }
+  },
+  {
+    "watcher_count": 1958,
+    "play_count": 2611,
+    "collected_count": 250,
+    "movie": {
+      "title": "Black Panther: Wakanda Forever",
+      "year": 2022,
+      "ids": {
+        "trakt": 352796,
+        "slug": "black-panther-wakanda-forever-2022",
+        "imdb": "tt9114286",
+        "tmdb": 505642
+      }
+    }
+  }
+]
