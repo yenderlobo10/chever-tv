@@ -12,11 +12,11 @@ import io.chever.domain.model.resource.AppResult
  */
 abstract class UseCaseNoParams<out T> where T : Any {
 
-    abstract suspend fun run(): AppResult<AppFailure, T>
-
     suspend operator fun invoke(
         onResult: (AppResult<AppFailure, T>) -> Unit = {}
     ) = onResult(
         run()
     )
+
+    abstract suspend fun run(): AppResult<AppFailure, T>
 }

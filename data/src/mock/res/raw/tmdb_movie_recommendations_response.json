@@ -1,0 +1,450 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/4bsz75kSdeVQm9u5aD87ciRpYVW.jpg",
+      "id": 1010821,
+      "title": "Groot se da un baño",
+      "original_language": "en",
+      "original_title": "Groot Takes a Bath",
+      "overview": "Todos necesitamos bañarnos, pero las cosas son algo distintas cuando eres un bebé de Flora Colossi.",
+      "poster_path": "/lACWuNlnydtamogzgyTgSPmOCiN.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        16,
+        10751,
+        35,
+        878
+      ],
+      "popularity": 73.142,
+      "release_date": "2022-08-10",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 253
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rHzoz94bRfyfNLjiIB26Wt5KDHE.jpg",
+      "id": 773867,
+      "title": "Seúl Efervescente",
+      "original_language": "ko",
+      "original_title": "서울대작전",
+      "overview": "Park Dong‑wook es un piloto talentoso, con algunos problemas judiciales, que se suma a una investigación secreta a cambio de limpiar su historial y un pase a la libertad. Con la ayuda de cuatro amigos, emprende la proeza más arriesgada de su vida.",
+      "poster_path": "/t22p3S4eViY3DE5269kUzOPrAlg.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        80,
+        35,
+        12
+      ],
+      "popularity": 101.444,
+      "release_date": "2022-08-26",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 125
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fSQt65QtG0hmhXT6eEtKKxh7sTA.jpg",
+      "id": 572261,
+      "title": "Hello",
+      "original_language": "en",
+      "original_title": "Hola",
+      "overview": "Through his computer Hilo finds a lover. Decomposes on the fissures of the machine to go to meet him.",
+      "poster_path": "/ejFAzwkFu0o7q89KexWb1SsMKul.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10749
+      ],
+      "popularity": 0.6,
+      "release_date": "2014-03-01",
+      "video": false,
+      "vote_average": 5.5,
+      "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+      "id": 24428,
+      "title": "The Avengers: Los Vengadores",
+      "original_language": "en",
+      "original_title": "The Avengers",
+      "overview": "Cuando un enemigo inesperado surge como una gran amenaza para la seguridad mundial, Nick Fury, director de la Agencia SHIELD, decide reclutar a un equipo para salvar al mundo de un desastre casi seguro. Adaptación del cómic de Marvel \"Los Vengadores\", el legendario grupo de superhéroes formado por Ironman, Hulk, Thor y el Capitán América entre otros.",
+      "poster_path": "/ugX4WZJO3jEvTOerctAWJLinujo.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        878,
+        28,
+        12
+      ],
+      "popularity": 152.131,
+      "release_date": "2012-04-25",
+      "video": false,
+      "vote_average": 7.707,
+      "vote_count": 28239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3kz6mLESBmdxAJwoHMS5YYfoWLE.jpg",
+      "id": 70160,
+      "title": "Los Juegos Del Hambre",
+      "original_language": "en",
+      "original_title": "The Hunger Games",
+      "overview": "Cada año, en las ruinas de lo que en su día fue Norteamérica, el Capitolio de la nación de Panem obliga a cada uno de sus doce distritos a enviar un chico o chica adolescente a competir en los Juegos del Hambre. Los Juegos del Hambre, un retorcido castigo por un levantamiento que tuvo lugar en el pasado y una táctica de intimidación gubernamental continuada, son un acontecimiento retransmitido por televisión en todo el país en el que los \"Tributos\" deben luchar entre sí hasta que sólo quede un superviviente.",
+      "poster_path": "/jJUB1AXsHTZoGyN7CIagZh9JwiN.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        878,
+        12,
+        14
+      ],
+      "popularity": 39.163,
+      "release_date": "2012-03-12",
+      "video": false,
+      "vote_average": 7.188,
+      "vote_count": 19989
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xyXmtuvsoM5J3yNad0nvcetpBdY.jpg",
+      "id": 49051,
+      "title": "El Hobbit: Un viaje inesperado",
+      "original_language": "en",
+      "original_title": "The Hobbit: An Unexpected Journey",
+      "overview": "Un reacio Hobbit, Bilbo Bolsón, parte hacia la Montaña Solitaria con un animado grupo de enanos para reclamar al dragón Smaug su hogar en la montaña y el oro que contiene.",
+      "poster_path": "/2Also6fDCjczi6xEFYFOqiau3f7.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        14,
+        28
+      ],
+      "popularity": 96.599,
+      "release_date": "2012-11-26",
+      "video": false,
+      "vote_average": 7.322,
+      "vote_count": 16751
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Yrpb32j3eMpMVX7ND3TnOkHnbl.jpg",
+      "id": 49026,
+      "title": "Batman: El caballero de la noche asciende",
+      "original_language": "en",
+      "original_title": "The Dark Knight Rises",
+      "overview": "Ocho años después del reinado de anarquía del Joker, Batman, con la ayuda de la enigmática Gatúbela, se ve obligado a salir de su exilio para salvar a Ciudad Gótica del brutal terrorista guerrillero Bane.",
+      "poster_path": "/rrS7K8tXVFUBliIKWaRuSq65nWr.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        80,
+        18,
+        53
+      ],
+      "popularity": 67.385,
+      "release_date": "2012-07-16",
+      "video": false,
+      "vote_average": 7.775,
+      "vote_count": 20541
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+      "id": 27205,
+      "title": "El origen",
+      "original_language": "en",
+      "original_title": "Inception",
+      "overview": "Dom Cobb es un ladrón y prófugo de la justicia que comete espionaje corporativo al infiltrarse en el subconsciente de sus objetivos.  Cobb y su equipo son contratados por Ingeniería Cobol para extraer el plan de expansión de Proclus Global, liderada por el magnate japonés Saito, pero para lograr esto, primero deberá implantar la idea de otra persona dentro del subconsciente del empresario.",
+      "poster_path": "/tXQvtRWfkUUnWJAn2tN3jERIUG.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "popularity": 91.997,
+      "release_date": "2010-07-15",
+      "video": false,
+      "vote_average": 8.362,
+      "vote_count": 33239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cyecB7godJ6kNHGONFjUyVN9OX5.jpg",
+      "id": 1726,
+      "title": "Iron man - El hombre de hierro",
+      "original_language": "en",
+      "original_title": "Iron Man",
+      "overview": "El multimillonario fabricante de armas Tony Stark (Robert Downey Jr.) debe enfrentarse a su turbio pasado después de sufrir un accidente con una de sus armas. Equipado con una armadura de última generación tecnológica, se convierte en “El hombre de hierro”, un héroe que se dedica a combatir el mal en todo el mundo",
+      "poster_path": "/tFCTNx7foAsUQpgu2x1KjAJD1wT.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "popularity": 101.717,
+      "release_date": "2008-04-30",
+      "video": false,
+      "vote_average": 7.631,
+      "vote_count": 23991
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tdmlSbLl84hfHx635AqHLB8Qh8M.jpg",
+      "id": 120,
+      "title": "El señor de los anillos: La comunidad del anillo",
+      "original_language": "en",
+      "original_title": "The Lord of the Rings: The Fellowship of the Ring",
+      "overview": "En la Tierra Media, el Señor Oscuro Saurón creó los Grandes Anillos de Poder, forjados por los herreros Elfos. Tres para los reyes Elfos, siete para los Señores Enanos, y nueve para los Hombres Mortales. Secretamente, Saurón también forjó un anillo maestro, el Anillo Único, que contiene en sí el poder para esclavizar a toda la Tierra Media. Con la ayuda de un grupo de amigos y de valientes aliados, Frodo emprende un peligroso viaje con la misión de destruir el Anillo Único. Pero el Señor Oscuro Sauron, quien creara el Anillo, envía a sus servidores para perseguir al grupo. Si Sauron lograra recuperar el Anillo, sería el final de la Tierra Media. EXTENDIDA",
+      "poster_path": "/p6QjtBmO6U105l44U0qMDSLxT0L.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        14,
+        28
+      ],
+      "popularity": 127.887,
+      "release_date": "2001-12-18",
+      "video": false,
+      "vote_average": 8.394,
+      "vote_count": 22314
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hoQhlAskVNgLQhArnH7reWP4pUp.jpg",
+      "id": 37724,
+      "title": "007: Operación Skyfall",
+      "original_language": "en",
+      "original_title": "Skyfall",
+      "overview": "La lealtad de James Bond a M se pone a prueba cuando su pasado vuelve para atormentarla. Cuando el MI6 es atacado, 007 debe rastrear y destruir la amenaza, sin importar cuán personal sea el costo.",
+      "poster_path": "/xtQatL6ZJMsYEP9krYs9IHp4yDD.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        53
+      ],
+      "popularity": 53.439,
+      "release_date": "2012-10-24",
+      "video": false,
+      "vote_average": 7.218,
+      "vote_count": 14084
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/uRNgkJSkNBFbbn9fPsEjDIy8Sh3.jpg",
+      "id": 22,
+      "title": "Piratas del Caribe: La maldición de la Perla Negra",
+      "original_language": "en",
+      "original_title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "overview": "Mar Caribe, siglo XVIII. El aventurero capitán Jack Sparrow piratea en aguas caribeñas, pero su andanzas terminan cuando su enemigo, el Capitán Barbossa, después de robarle su barco, el Perla Negra, ataca la ciudad de Port Royal y secuestra a Elizabeth Swann, la hija del Gobernador. Will Turner, amigo de la infancia de Elizabeth, se une a Jack para rescatarla y recuperar el Perla Negra. Pero Barbossa y su tripulación son víctimas de un conjuro que los condena a vivir eternamente y a transformarse cada noche en esqueletos vivientes. El conjuro sólo puede romperse si devuelven una pieza de oro azteca y saldan una deuda de sangre. El rescate de la bella Elizabeth será una tarea difícil, pues la maldición es real y será difícil enfrentarse con quienes no pueden morir.",
+      "poster_path": "/bVG48kmXuLaZYgPfSCmhs6EYFbX.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        14,
+        28
+      ],
+      "popularity": 122.327,
+      "release_date": "2003-07-09",
+      "video": false,
+      "vote_average": 7.782,
+      "vote_count": 18458
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tKa1gmGKAUVYnflYcadipeL3d9h.jpg",
+      "id": 68721,
+      "title": "Iron Man 3",
+      "original_language": "en",
+      "original_title": "Iron Man 3",
+      "overview": "El descarado y brillante empresario Tony Stark/Iron Man se enfrentará a un enemigo cuyo poder no conoce límites. Cuando Stark comprende que su enemigo ha destruido su universo personal, se embarca en una angustiosa búsqueda para encontrar a los responsables. Este viaje pondrá a prueba su entereza una y otra vez. Acorralado, Stark tendrá que sobrevivir por sus propios medios, confiando en su ingenio y su instinto para proteger a las personas que quiere.",
+      "poster_path": "/cW0fOIZONkgeiMJDYzqUcgl4MUn.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "popularity": 85.877,
+      "release_date": "2013-04-18",
+      "video": false,
+      "vote_average": 6.927,
+      "vote_count": 20385
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rzdPqYx7Um4FUZeD8wpXqjAUcEm.jpg",
+      "id": 597,
+      "title": "Titanic",
+      "original_language": "en",
+      "original_title": "Titanic",
+      "overview": "Jack, un joven artista, gana en una partida de cartas un pasaje para viajar a América en el Titanic, el transatlántico más grande y seguro jamás construido. A bordo conoce a Rose, una joven de una buena familia venida a menos que va a contraer un matrimonio de conveniencia con Cal, un millonario engreído a quien sólo interesa el prestigioso apellido de su prometida. Jack y Rose se enamoran, pero el prometido y la madre de ella ponen todo tipo de trabas a su relación. Mientras, el gigantesco y lujoso transatlántico se aproxima hacia un inmenso iceberg.",
+      "poster_path": "/rBTJZrf5UWaxzg5YJd2eqpeaSvm.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "popularity": 226.211,
+      "release_date": "1997-11-18",
+      "video": false,
+      "vote_average": 7.889,
+      "vote_count": 22446
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pbEkjhdfP7yuDcMB78YEZwgD4IN.jpg",
+      "id": 155,
+      "title": "Batman: El caballero de la noche",
+      "original_language": "en",
+      "original_title": "The Dark Knight",
+      "overview": "Cuando la amenaza conocida como el Joker causa estragos y caos en la gente de Ciudad Gótica, Batman debe aceptar una de las mayores pruebas psicológicas y físicas de su capacidad para luchar contra la injusticia.",
+      "poster_path": "/8QDQExnfNFOtabLDKqfDQuHDsIg.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18,
+        28,
+        80,
+        53
+      ],
+      "popularity": 87.053,
+      "release_date": "2008-07-14",
+      "video": false,
+      "vote_average": 8.506,
+      "vote_count": 29251
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/v4W554WRfWdWn1P9WJ9XYbXz36l.jpg",
+      "id": 20352,
+      "title": "Mi villano favorito",
+      "original_language": "en",
+      "original_title": "Despicable Me",
+      "overview": "En una alegre urbanización con cuidados jardines rodeados por verjas de madera pintadas de blanco y llenos de rosales, sobresale una casa negra con el césped amarillento. Los vecinos ignoran que debajo de la vivienda hay un enorme escondite secreto. Allí está Gru, rodeado por un pequeño ejército de lacayos, planeando el mayor robo de toda la historia. ¡Va a robarse con la luna!",
+      "poster_path": "/AsaaPLSfisdFDeasEd9r0GiZVss.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10751,
+        16,
+        35,
+        80
+      ],
+      "popularity": 65.028,
+      "release_date": "2010-07-08",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 13750
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pvxmYJcgrLiYC6G2IQTn1PPNems.jpg",
+      "id": 14161,
+      "title": "2012",
+      "original_language": "en",
+      "original_title": "2012",
+      "overview": "El geólogo Adrian Helmsley, descubre de que el núcleo de la Tierra se está calentando. Teme que la corteza se vuelva inestable, coincidiendo con las predicciones mayas del fin del mundo. Entre tanto, los líderes del mundo \"venden\" plazas para escapar del cataclismo. El escritor Curtis Jackson tropieza con esa información... y luchará por salvar a su familia mientras el suelo se hunde bajo sus pies; y los terremotos y las erupciones volcánicas destruyen el mundo tal y como lo conocemos.",
+      "poster_path": "/hJhjEpSlKGOIuaZg6sPJB9I75RV.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "popularity": 75.733,
+      "release_date": "2009-10-10",
+      "video": false,
+      "vote_average": 5.807,
+      "vote_count": 10952
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kWYfW2Re0rUDE6IHhy4CRuKWeFr.jpg",
+      "id": 121,
+      "title": "El señor de los anillos: Las dos torres",
+      "original_language": "en",
+      "original_title": "The Lord of the Rings: The Two Towers",
+      "overview": "La Compañía del Anillo se ha disuelto. El portador del anillo Frodo y su fiel amigo Sam se dirigen hacia Mordor para destruir el Anillo Único y acabar con el poder de Sauron. Mientras, y tras la dura batalla contra los orcos donde cayó Boromir, el hombre Aragorn, el elfo Legolas y el enano Gimli intentan rescatar a los medianos Merry y Pipin, secuestrados por los ogros de Mordor. Por su parte, Saurón y el traidor Sarumán continúan con sus planes en Mordor, en espera de la guerra contra las razas libres de la Tierra Media.",
+      "poster_path": "/qHEU9067PL8iIZULg7q58NvoWlS.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        14,
+        28
+      ],
+      "popularity": 107.256,
+      "release_date": "2002-12-18",
+      "video": false,
+      "vote_average": 8.375,
+      "vote_count": 19391
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
+      "id": 122,
+      "title": "El señor de los anillos: El retorno del rey",
+      "original_language": "en",
+      "original_title": "The Lord of the Rings: The Return of the King",
+      "overview": "Las fuerzas de Saruman han sido destruidas, y su fortaleza sitiada. Ha llegado el momento de que se decida el destino de la Tierra Media, y por primera vez en mucho tiempo, parece que hay una pequeña esperanza. La atención del señor oscuro Sauron se centra ahora en Gondor, el último reducto de los hombres, y del cual Aragorn tendrá que reclamar el trono para ocupar su puesto de rey. Pero las fuerzas de Sauron ya se preparan para lanzar el último y definitivo ataque contra el reino de Gondor, la batalla que decidirá el destino de todos. Mientras tanto, Frodo y Sam continuan su camino hacia Mordor, a la espera de que Sauron no repare en que dos pequeños Hobbits se acercan cada día más al final de su camino, el Monte del Destino.",
+      "poster_path": "/mWuFbQrXyLk2kMBKF9TUPtDwuPx.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        14,
+        28
+      ],
+      "popularity": 92.878,
+      "release_date": "2003-12-01",
+      "video": false,
+      "vote_average": 8.474,
+      "vote_count": 21200
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/sLWUtbrpiLp23a0XDSiUiltdFPJ.jpg",
+      "id": 1930,
+      "title": "El Sorprendente Hombre Araña",
+      "original_language": "en",
+      "original_title": "The Amazing Spider-Man",
+      "overview": "Peter Parker es un estudiante que fue abandonado por sus padres cuando era niño, quedando a cargo de su tío Ben y su tía May. Cuando Peter descubre un misterioso maletín perteneciente a su padre, comienza la búsqueda para entender la desaparición de sus padres, que lo lleva directamente al laboratorio en Oscorp del Dr. Curt Connors , ex compañero de trabajo de su padre.",
+      "poster_path": "/4cw1Vpp68ec518BHiS6gfa3yDoU.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        14
+      ],
+      "popularity": 122.56,
+      "release_date": "2012-06-23",
+      "video": false,
+      "vote_average": 6.682,
+      "vote_count": 15763
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg",
+      "id": 10138,
+      "title": "Iron Man 2",
+      "original_language": "en",
+      "original_title": "Iron Man 2",
+      "overview": "El mundo ya sabe que el multimillonario Tony Stark (Robert Downey Jr.) es Iron Man, el superhéroe enmascarado. A pesar de las presiones del gobierno, la prensa y la opinión pública para que comparta su tecnología con el ejército, Tony es reacio a desvelar los secretos de la armadura de Iron Man, porque teme que esa información caiga en en manos de irresponsables. Con Pepper Potts (Gwyneth Paltrow) y James “Rhodey” Rhodes (Don Cheadle) a su lado, Tony forja alianzas nuevas y se enfrenta a nuevas y poderosas fuerzas.",
+      "poster_path": "/3TVd7B5JFB8MtVQ2CvWnOQ3HKem.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        12,
+        28,
+        878
+      ],
+      "popularity": 116.944,
+      "release_date": "2010-04-28",
+      "video": false,
+      "vote_average": 6.831,
+      "vote_count": 18982
+    }
+  ],
+  "total_pages": 2,
+  "total_results": 40
+}

@@ -2,8 +2,8 @@ package io.chever.shared.enums
 
 /**
  * Represent available date-time formats to use.
- * ```
- * * Add more if required.
+ *
+ * **Add more if required*.
  */
 @Suppress("unused")
 enum class DateTimePattern(

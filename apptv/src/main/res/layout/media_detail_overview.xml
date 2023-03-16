@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mediaDetailOverview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Row 1: Title + Year -->
+    <LinearLayout
+        android:id="@+id/layoutRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Leanback.DetailsDescriptionTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="0dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            tools:text="Avatar" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            style="@style/Widget.Leanback.DetailsDescriptionTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="2dp"
+            android:textColor="@color/grayColor"
+            android:textSize="26sp"
+            tools:text="2009" />
+
+    </LinearLayout>
+
+    <!-- Row 2: Details -->
+    <LinearLayout
+        android:id="@+id/layoutRow2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutRow1">
+
+        <!-- Votes -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapVotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivVotesIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_heart_fill"
+                android:tint="@color/primaryDarkColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primaryDarkColor"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:id="@+id/tvVoteAverage"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivVotesIcon"
+                app:layout_constraintTop_toTopOf="@id/ivVotesIcon"
+                tools:text="78%" />
+
+            <TextView
+                android:id="@+id/tvVoteCount"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@id/tvVoteAverage"
+                app:layout_constraintTop_toBottomOf="@id/tvVoteAverage"
+                tools:text="51.7k Votes" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Release date -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapReleaseAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp">
+
+            <ImageView
+                android:id="@+id/ivReleaseAtIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_schedule"
+                android:tint="@color/lightColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/lightColor"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:id="@+id/tvReleaseAt"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivReleaseAtIcon"
+                app:layout_constraintTop_toTopOf="@id/ivReleaseAtIcon"
+                tools:text="December 18, 2009" />
+
+            <TextView
+                android:id="@+id/tvReleaseAtLabel"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/media_detail_released_label"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="@id/tvReleaseAt"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseAt"
+                tools:text="Released" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Runtime -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapRuntime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp">
+
+            <ImageView
+                android:id="@+id/ivRuntimeIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_time"
+                android:tint="@color/lightColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/lightColor"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:id="@+id/tvRuntime"
+                style="@style/TextAppearance.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/ivRuntimeIcon"
+                app:layout_constraintTop_toTopOf="@id/ivRuntimeIcon"
+                tools:text="2h 41m" />
+
+            <TextView
+                android:id="@+id/tvRuntimeLabel"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/media_detail_runtime_label"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="@id/tvRuntime"
+                app:layout_constraintTop_toBottomOf="@id/tvRuntime"
+                tools:text="Runtime" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Certification -->
+        <TextView
+            android:id="@+id/tvCertification"
+            style="@style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:layout_gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:background="@drawable/bg_square_4x_outline_shape"
+            tools:text="PG-13" />
+
+
+    </LinearLayout>
+
+    <!-- Genres -->
+    <TextView
+        android:id="@+id/tvGenres"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="24dp"
+        android:maxLines="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutRow2"
+        tools:text="Action · Adventure · Fantasy · Science Fiction" />
+
+    <!-- Tagline -->
+    <TextView
+        android:id="@+id/tvTagline"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/grayColor"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenres"
+        tools:text="Enter the World of Pandora." />
+
+    <!-- Overview -->
+    <TextView
+        android:id="@+id/tvOverview"
+        style="@style/TextAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="fill"
+        android:justificationMode="inter_word"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTagline"
+        tools:targetApi="o"
+        tools:text="In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

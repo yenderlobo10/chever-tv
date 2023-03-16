@@ -11,13 +11,13 @@ import io.chever.apptv.common.presenter.BaseCardPresenter
 import io.chever.apptv.databinding.CardCollectionTrendingItemBinding
 import io.chever.apptv.ui.home.model.MediaCardItem
 import io.chever.data.api.themoviedb.enums.TMImageSizeEnum
-import io.chever.domain.model.collection.MediaItemDetail
+import io.chever.domain.model.media.MediaItemDetail
 import io.chever.shared.enums.DateTimePattern
 import io.chever.shared.extension.pxFromDp
 import io.chever.shared.extension.toFormat
 import kotlin.math.roundToInt
 
-class HomeCardTrendingItemPresenter(
+internal class HomeCardTrendingItemPresenter(
     context: Context
 ) : BaseCardPresenter<BaseCardView, MediaCardItem>(context) {
 

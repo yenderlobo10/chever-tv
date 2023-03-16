@@ -4,47 +4,56 @@ import androidx.fragment.app.activityViewModels
 import androidx.leanback.widget.ArrayObjectAdapter
 import androidx.leanback.widget.HeaderItem
 import androidx.leanback.widget.ListRow
+import androidx.leanback.widget.OnItemViewClickedListener
+import androidx.leanback.widget.Presenter
+import androidx.leanback.widget.Row
+import androidx.leanback.widget.RowPresenter
 import androidx.lifecycle.lifecycleScope
 import io.chever.apptv.R
-import io.chever.apptv.common.view.AppRowsBrowseFragment
+import io.chever.apptv.common.view.RowsBrowseFragment
+import io.chever.apptv.model.ResourceState
 import io.chever.apptv.ui.home.enums.HomeCollection
 import io.chever.apptv.ui.home.model.MediaCardItem
 import io.chever.apptv.ui.home.presenter.HomeCardDefaultItemPresenter
 import io.chever.apptv.ui.home.presenter.HomeCardTrendingItemPresenter
-import io.chever.apptv.ui.main.MainState
 import io.chever.apptv.ui.main.MainViewModel
+import io.chever.apptv.ui.media.MediaDetailActivity
 import io.chever.shared.extension.showLongToast
+import io.chever.shared.extension.showShortToast
+import io.chever.shared.observability.AppLogger
+import kotlinx.coroutines.launch
 
-class HomeBrowseFragment : AppRowsBrowseFragment() {
+class HomeBrowseFragment : RowsBrowseFragment(), OnItemViewClickedListener {
 
     private val mainViewModel by activityViewModels<MainViewModel>()
     private lateinit var listCollections: Array<HomeCollection>
 
     override fun setupUI() {
 
-        listCollections = HomeCollection.values()
+        this.listCollections = HomeCollection.values()
         loadMediaItemsByCollection()
+        this.onItemViewClickedListener = this
     }
 
     private fun loadMediaItemsByCollection() {
 
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
 
             mainViewModel.loadHomeCollections().collect {
 
                 when (it) {
 
-                    is MainState.Loading -> showProgress()
+                    is ResourceState.Loading -> showProgress()
 
-                    is MainState.Success -> {
+                    is ResourceState.Success -> {
                         hideProgress()
-                        createRowsByCollection(it)
+                        createRowsByCollection(it.data)
                     }
 
-                    // TODO: show error dialog
                     else -> {
                         hideProgress()
                         requireContext().showLongToast(R.string.app_unknown_error_two)
+                        // TODO: show error dialog
                     }
                 }
             }
@@ -52,10 +61,10 @@ class HomeBrowseFragment : AppRowsBrowseFragment() {
     }
 
     private fun createRowsByCollection(
-        state: MainState.Success
+        homeCollections: List<MediaCardItem>
     ) {
 
-        state.homeCollections
+        homeCollections
             .groupBy { x -> x.collection }
             .forEach { item ->
 
@@ -98,5 +107,28 @@ class HomeBrowseFragment : AppRowsBrowseFragment() {
         adapter.addAll(0, listItems)
 
         return adapter
+    }
+
+
+    override fun onItemClicked(
+        itemViewHolder: Presenter.ViewHolder?,
+        item: Any?,
+        rowViewHolder: RowPresenter.ViewHolder?,
+        row: Row?
+    ) {
+
+        try {
+
+            MediaDetailActivity.InstanceParams(
+                mediaItem = (item as MediaCardItem).mediaItem
+            ).run {
+                launch(requireActivity())
+            }
+
+        } catch (ex: Exception) {
+
+            AppLogger.error(ex)
+            requireContext().showShortToast(R.string.app_unknown_error_one)
+        }
     }
 }

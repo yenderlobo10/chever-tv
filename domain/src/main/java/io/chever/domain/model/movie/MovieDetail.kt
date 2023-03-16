@@ -1,5 +1,6 @@
 package io.chever.domain.model.movie
 
+import java.io.Serializable
 import java.util.Date
 
 data class MovieDetail(
@@ -26,4 +27,5 @@ data class MovieDetail(
     val hasVideo: Boolean = false,
     val certification: String? = null,
     val imdbId: String? = null
-)
+
+) : Serializable

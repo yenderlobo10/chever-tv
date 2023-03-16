@@ -22,9 +22,25 @@ fun Int.dpFromPx(context: Context): Int {
 /**
  * TODO: document function
  */
+fun Float.dpFromPx(context: Context): Float {
+    val density = context.resources.displayMetrics.density
+    return (this * density)
+}
+
+/**
+ * TODO: document function
+ */
 fun Int.pxFromDp(context: Context): Int {
     val density = context.resources.displayMetrics.density
     return (this.toFloat() / density).roundToInt()
+}
+
+/**
+ * TODO: document function
+ */
+fun Float.pxFromDp(context: Context): Float {
+    val density = context.resources.displayMetrics.density
+    return (this / density)
 }
 
 /**

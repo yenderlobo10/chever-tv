@@ -23,6 +23,7 @@ import kotlin.math.min
 /**
  * TODO: document class
  */
+@Deprecated("Required captcha resolution.")
 class HackTorrentProvider : TorrentProvider(site = TorrentSite.HackTorrent) {
 
     private var isFound = false

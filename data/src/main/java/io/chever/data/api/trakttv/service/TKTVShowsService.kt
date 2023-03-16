@@ -1,11 +1,11 @@
 package io.chever.data.api.trakttv.service
 
 import io.chever.data.api.trakttv.enums.TKPeriodEnum
-import io.chever.data.api.trakttv.model.shows.TKShowResponse
-import io.chever.data.api.trakttv.model.shows.TKShowsAnticipatedResponse
-import io.chever.data.api.trakttv.model.shows.TKShowsCollectionResponse
-import io.chever.data.api.trakttv.model.shows.TKShowsRecommendedResponse
-import io.chever.data.api.trakttv.model.shows.TKShowsTrendingResponse
+import io.chever.data.api.trakttv.model.show.TKShowResponse
+import io.chever.data.api.trakttv.model.show.TKShowsAnticipatedResponse
+import io.chever.data.api.trakttv.model.show.TKShowsCollectionResponse
+import io.chever.data.api.trakttv.model.show.TKShowsRecommendedResponse
+import io.chever.data.api.trakttv.model.show.TKShowsTrendingResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,7 +1,8 @@
 package io.chever.domain.repository
 
 import io.chever.domain.enums.TimeWindowEnum
-import io.chever.domain.model.collection.MediaItem
+import io.chever.domain.model.detail.PersonCast
+import io.chever.domain.model.media.MediaItem
 import io.chever.domain.model.movie.MovieDetail
 import io.chever.domain.model.resource.AppFailure
 import io.chever.domain.model.resource.AppResult
@@ -37,4 +38,11 @@ interface MovieRepository {
         id: Long
     ): AppResult<AppFailure, MovieDetail>
 
+    suspend fun credits(
+        id: Long
+    ): AppResult<AppFailure, List<PersonCast>>
+
+    suspend fun recommendations(
+        id: Long
+    ): AppResult<AppFailure, List<MediaItem>>
 }

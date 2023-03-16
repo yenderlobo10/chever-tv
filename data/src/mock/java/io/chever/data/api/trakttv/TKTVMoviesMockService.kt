@@ -4,10 +4,10 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import io.chever.data.R
 import io.chever.data.api.BaseMockService
-import io.chever.data.api.trakttv.model.movies.TKMovieResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesAnticipatedResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesCollectionResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesRecommendedResponse
+import io.chever.data.api.trakttv.model.movie.TKMovieResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesAnticipatedResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesCollectionResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesRecommendedResponse
 import io.chever.domain.model.resource.AppFailure
 import io.chever.domain.model.resource.AppResult
 import javax.inject.Inject

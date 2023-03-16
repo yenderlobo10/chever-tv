@@ -10,7 +10,7 @@ import java.lang.reflect.ParameterizedType
 import java.util.Date
 
 
-fun <T> Context.parseRawJsonString(
+internal fun <T> Context.parseRawJsonString(
     @RawRes rawJsonId: Int,
     type: Class<T>
 ): T? {
@@ -23,7 +23,7 @@ fun <T> Context.parseRawJsonString(
     )
 }
 
-fun <T> Context.parseRawJsonString(
+internal fun <T> Context.parseRawJsonString(
     @RawRes rawJsonId: Int,
     type: ParameterizedType
 ): T? {
@@ -37,7 +37,7 @@ fun <T> Context.parseRawJsonString(
 }
 
 @Throws(JsonDataException::class)
-fun <T> parseJsonString(
+internal fun <T> parseJsonString(
     json: String,
     type: ParameterizedType
 ): T? {
@@ -49,7 +49,7 @@ fun <T> parseJsonString(
 }
 
 @Throws(JsonDataException::class)
-fun <T> parseJsonString(
+internal fun <T> parseJsonString(
     json: String,
     type: Class<T>
 ): T? {

@@ -1,5 +1,6 @@
 package io.chever.domain.model.show
 
+import java.io.Serializable
 import java.util.Date
 
 data class ShowDetail(
@@ -29,4 +30,5 @@ data class ShowDetail(
     val tagline: String = "",
     val inProduction: Boolean = false,
     val certification: String? = null
-)
+
+) : Serializable

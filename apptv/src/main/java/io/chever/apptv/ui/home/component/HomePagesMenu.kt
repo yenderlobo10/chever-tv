@@ -9,8 +9,9 @@ import io.chever.apptv.ui.home.enums.HomePagesMenuItem
 import io.chever.apptv.ui.home.presenter.HomeMenuItemPresenterSelector
 import io.chever.apptv.ui.home.screen.HomeFragment
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class HomePagesMenu(
+internal class HomePagesMenu(
     private val homeFragment: HomeFragment
 ) {
 
@@ -52,7 +53,7 @@ class HomePagesMenu(
 
         if (adapter.size() > 0) adapter.clear()
 
-        homeFragment.lifecycleScope.launchWhenStarted {
+        homeFragment.lifecycleScope.launch {
             delay(300)
             homeFragment.startHeadersTransition(false)
         }

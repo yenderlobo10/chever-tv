@@ -112,7 +112,6 @@ abstract class TorrentProvider(open val site: TorrentSite) {
             listOf(
 
                 CineCalidadProvider(),
-                HackTorrentProvider(),
                 TorrentGalaxyProvider(),
                 /// add more providers here ...
             )

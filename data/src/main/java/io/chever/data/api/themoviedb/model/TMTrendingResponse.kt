@@ -2,7 +2,6 @@ package io.chever.data.api.themoviedb.model
 
 import com.squareup.moshi.Json
 import io.chever.data.api.themoviedb.enums.TMMediaTypeEnum
-import java.io.Serializable
 import java.util.Date
 
 data class TMTrendingResponse(
@@ -44,5 +43,4 @@ data class TMTrendingResponse(
 
     @Json(name = "genre_ids")
     val genreIds: List<Int>?
-
-) : Serializable
+)

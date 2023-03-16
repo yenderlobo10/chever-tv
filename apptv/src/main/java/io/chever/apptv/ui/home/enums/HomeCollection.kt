@@ -107,6 +107,10 @@ enum class HomeCollection(
                 keyValue = "listCount",
                 resColor = R.color.labelBlue,
                 resLabel = R.string.metadata_label_list
+            ),
+            MediaItemMetadata(
+                keyValue = "anticipated",
+                resColor = R.color.labelRed
             )
         )
     )

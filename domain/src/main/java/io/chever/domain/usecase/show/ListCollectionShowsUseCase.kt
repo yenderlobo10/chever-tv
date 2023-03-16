@@ -1,13 +1,13 @@
 package io.chever.domain.usecase.show
 
 import io.chever.domain.enums.ListCollection
-import io.chever.domain.model.collection.MediaItem
-import io.chever.domain.model.common.ListCollectionParams
+import io.chever.domain.model.media.MediaItem
+import io.chever.domain.model.resource.ListCollectionParams
 import io.chever.domain.model.resource.AppFailure
 import io.chever.domain.model.resource.AppResult
 import io.chever.domain.repository.ShowRepository
 import io.chever.domain.usecase.base.UseCaseParams
-import io.chever.domain.usecase.collection.ListMediaItemsWithDetailUseCase
+import io.chever.domain.usecase.media.ListMediaItemsWithDetailUseCase
 import io.chever.shared.observability.AppLogger
 import javax.inject.Inject
 

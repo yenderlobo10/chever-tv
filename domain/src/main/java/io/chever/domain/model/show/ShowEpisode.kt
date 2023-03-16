@@ -1,5 +1,6 @@
 package io.chever.domain.model.show
 
+import java.io.Serializable
 import java.util.Date
 
 data class ShowEpisode(
@@ -15,4 +16,5 @@ data class ShowEpisode(
     val runtime: Int = 0,
     val voteAverage: Float = 0f,
     val voteCount: Int = 0
-)
+
+) : Serializable

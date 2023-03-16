@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/g_background_primary_alt" />
+    <item
+        android:width="520dp"
+        android:height="280dp"
+        android:drawable="@drawable/banner_foreground"
+        android:top="-64dp" />
+</layer-list>

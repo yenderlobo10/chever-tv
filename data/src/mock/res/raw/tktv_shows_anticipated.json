@@ -1,1 +1,152 @@
-[{"list_count":3325,"show":{"title":"Gotham Knights","year":2023,"ids":{"trakt":194229,"slug":"gotham-knights","tvdb":420061,"imdb":"tt16418896","tmdb":195868,"tvrage":null}}},{"list_count":2862,"show":{"title":"True Lies","year":2023,"ids":{"trakt":195518,"slug":"true-lies-2023","tvdb":420096,"imdb":"tt7380366","tmdb":202099,"tvrage":null}}},{"list_count":2426,"show":{"title":"Hello Tomorrow!","year":2023,"ids":{"trakt":183216,"slug":"hello-tomorrow","tvdb":402320,"imdb":"tt14596212","tmdb":125000,"tvrage":null}}},{"list_count":1406,"show":{"title":"Hazbin Hotel","year":2023,"ids":{"trakt":143472,"slug":"hazbin-hotel","tvdb":358805,"imdb":"tt7216636","tmdb":94954,"tvrage":null}}},{"list_count":1350,"show":{"title":"The Company You Keep","year":2023,"ids":{"trakt":197673,"slug":"the-company-you-keep","tvdb":419747,"imdb":"tt18412092","tmdb":208713,"tvrage":null}}},{"list_count":1344,"show":{"title":"Not Dead Yet","year":2023,"ids":{"trakt":197581,"slug":"not-dead-yet","tvdb":418389,"imdb":"tt18250904","tmdb":203178,"tvrage":null}}},{"list_count":1337,"show":{"title":"The Consultant","year":2023,"ids":{"trakt":191307,"slug":"the-consultant-2023","tvdb":412634,"imdb":"tt16152716","tmdb":139099,"tvrage":null}}},{"list_count":1224,"show":{"title":"Daisy Jones \u0026 The Six","year":2023,"ids":{"trakt":196336,"slug":"daisy-jones-the-six","tvdb":416580,"imdb":"tt8749198","tmdb":95555,"tvrage":null}}},{"list_count":1130,"show":{"title":"Lucky Hank","year":2023,"ids":{"trakt":199744,"slug":"lucky-hank","tvdb":419270,"imdb":"tt19785210","tmdb":210239,"tvrage":null}}},{"list_count":1024,"show":{"title":"Rabbit Hole","year":2023,"ids":{"trakt":193078,"slug":"rabbit-hole","tvdb":415584,"imdb":"tt14629116","tmdb":156819,"tvrage":null}}}]
+[
+  {
+    "list_count": 3325,
+    "show": {
+      "title": "Gotham Knights",
+      "year": 2023,
+      "ids": {
+        "trakt": 194229,
+        "slug": "gotham-knights",
+        "tvdb": 420061,
+        "imdb": "tt16418896",
+        "tmdb": 195868,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 2862,
+    "show": {
+      "title": "True Lies",
+      "year": 2023,
+      "ids": {
+        "trakt": 195518,
+        "slug": "true-lies-2023",
+        "tvdb": 420096,
+        "imdb": "tt7380366",
+        "tmdb": 202099,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 2426,
+    "show": {
+      "title": "Hello Tomorrow!",
+      "year": 2023,
+      "ids": {
+        "trakt": 183216,
+        "slug": "hello-tomorrow",
+        "tvdb": 402320,
+        "imdb": "tt14596212",
+        "tmdb": 125000,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1406,
+    "show": {
+      "title": "Hazbin Hotel",
+      "year": 2023,
+      "ids": {
+        "trakt": 143472,
+        "slug": "hazbin-hotel",
+        "tvdb": 358805,
+        "imdb": "tt7216636",
+        "tmdb": 94954,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1350,
+    "show": {
+      "title": "The Company You Keep",
+      "year": 2023,
+      "ids": {
+        "trakt": 197673,
+        "slug": "the-company-you-keep",
+        "tvdb": 419747,
+        "imdb": "tt18412092",
+        "tmdb": 208713,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1344,
+    "show": {
+      "title": "Not Dead Yet",
+      "year": 2023,
+      "ids": {
+        "trakt": 197581,
+        "slug": "not-dead-yet",
+        "tvdb": 418389,
+        "imdb": "tt18250904",
+        "tmdb": 203178,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1337,
+    "show": {
+      "title": "The Consultant",
+      "year": 2023,
+      "ids": {
+        "trakt": 191307,
+        "slug": "the-consultant-2023",
+        "tvdb": 412634,
+        "imdb": "tt16152716",
+        "tmdb": 139099,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1224,
+    "show": {
+      "title": "Daisy Jones \u0026 The Six",
+      "year": 2023,
+      "ids": {
+        "trakt": 196336,
+        "slug": "daisy-jones-the-six",
+        "tvdb": 416580,
+        "imdb": "tt8749198",
+        "tmdb": 95555,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1130,
+    "show": {
+      "title": "Lucky Hank",
+      "year": 2023,
+      "ids": {
+        "trakt": 199744,
+        "slug": "lucky-hank",
+        "tvdb": 419270,
+        "imdb": "tt19785210",
+        "tmdb": 210239,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "list_count": 1024,
+    "show": {
+      "title": "Rabbit Hole",
+      "year": 2023,
+      "ids": {
+        "trakt": 193078,
+        "slug": "rabbit-hole",
+        "tvdb": 415584,
+        "imdb": "tt14629116",
+        "tmdb": 156819,
+        "tvrage": null
+      }
+    }
+  }
+]

@@ -1,1 +1,132 @@
-[{"list_count":42450,"movie":{"title":"Guardians of the Galaxy Volume 3","year":2023,"ids":{"trakt":293990,"slug":"guardians-of-the-galaxy-volume-3-2023","imdb":"tt6791350","tmdb":447365}}},{"list_count":40310,"movie":{"title":"The Flash","year":2023,"ids":{"trakt":195144,"slug":"the-flash-2023","imdb":"tt0439572","tmdb":298618}}},{"list_count":26166,"movie":{"title":"Avatar 3","year":2024,"ids":{"trakt":62544,"slug":"avatar-3-2024","imdb":"tt1757678","tmdb":83533}}},{"list_count":25776,"movie":{"title":"John Wick: Chapter 4","year":2023,"ids":{"trakt":448646,"slug":"john-wick-chapter-4-2023","imdb":"tt10366206","tmdb":603692}}},{"list_count":24356,"movie":{"title":"Indiana Jones and the Dial of Destiny","year":2023,"ids":{"trakt":216712,"slug":"indiana-jones-and-the-dial-of-destiny-2023","imdb":"tt1462764","tmdb":335977}}},{"list_count":20723,"movie":{"title":"Deadpool 3","year":2024,"ids":{"trakt":395672,"slug":"deadpool-3-2024","imdb":"tt6263850","tmdb":533535}}},{"list_count":20211,"movie":{"title":"The Marvels","year":2023,"ids":{"trakt":454832,"slug":"the-marvels-2023","imdb":"tt10676048","tmdb":609681}}},{"list_count":19908,"movie":{"title":"Ant-Man and the Wasp: Quantumania","year":2023,"ids":{"trakt":478761,"slug":"ant-man-and-the-wasp-quantumania-2023","imdb":"tt10954600","tmdb":640146}}},{"list_count":17860,"movie":{"title":"Aquaman and the Lost Kingdom","year":2023,"ids":{"trakt":423775,"slug":"aquaman-and-the-lost-kingdom-2023","imdb":"tt9663764","tmdb":572802}}},{"list_count":17783,"movie":{"title":"Avatar 4","year":2026,"ids":{"trakt":133603,"slug":"avatar-4-2026","imdb":"tt3095356","tmdb":216527}}}]
+[
+  {
+    "list_count": 42450,
+    "movie": {
+      "title": "Guardians of the Galaxy Volume 3",
+      "year": 2023,
+      "ids": {
+        "trakt": 293990,
+        "slug": "guardians-of-the-galaxy-volume-3-2023",
+        "imdb": "tt6791350",
+        "tmdb": 447365
+      }
+    }
+  },
+  {
+    "list_count": 40310,
+    "movie": {
+      "title": "The Flash",
+      "year": 2023,
+      "ids": {
+        "trakt": 195144,
+        "slug": "the-flash-2023",
+        "imdb": "tt0439572",
+        "tmdb": 298618
+      }
+    }
+  },
+  {
+    "list_count": 26166,
+    "movie": {
+      "title": "Avatar 3",
+      "year": 2024,
+      "ids": {
+        "trakt": 62544,
+        "slug": "avatar-3-2024",
+        "imdb": "tt1757678",
+        "tmdb": 83533
+      }
+    }
+  },
+  {
+    "list_count": 25776,
+    "movie": {
+      "title": "John Wick: Chapter 4",
+      "year": 2023,
+      "ids": {
+        "trakt": 448646,
+        "slug": "john-wick-chapter-4-2023",
+        "imdb": "tt10366206",
+        "tmdb": 603692
+      }
+    }
+  },
+  {
+    "list_count": 24356,
+    "movie": {
+      "title": "Indiana Jones and the Dial of Destiny",
+      "year": 2023,
+      "ids": {
+        "trakt": 216712,
+        "slug": "indiana-jones-and-the-dial-of-destiny-2023",
+        "imdb": "tt1462764",
+        "tmdb": 335977
+      }
+    }
+  },
+  {
+    "list_count": 20723,
+    "movie": {
+      "title": "Deadpool 3",
+      "year": 2024,
+      "ids": {
+        "trakt": 395672,
+        "slug": "deadpool-3-2024",
+        "imdb": "tt6263850",
+        "tmdb": 533535
+      }
+    }
+  },
+  {
+    "list_count": 20211,
+    "movie": {
+      "title": "The Marvels",
+      "year": 2023,
+      "ids": {
+        "trakt": 454832,
+        "slug": "the-marvels-2023",
+        "imdb": "tt10676048",
+        "tmdb": 609681
+      }
+    }
+  },
+  {
+    "list_count": 19908,
+    "movie": {
+      "title": "Ant-Man and the Wasp: Quantumania",
+      "year": 2023,
+      "ids": {
+        "trakt": 478761,
+        "slug": "ant-man-and-the-wasp-quantumania-2023",
+        "imdb": "tt10954600",
+        "tmdb": 640146
+      }
+    }
+  },
+  {
+    "list_count": 17860,
+    "movie": {
+      "title": "Aquaman and the Lost Kingdom",
+      "year": 2023,
+      "ids": {
+        "trakt": 423775,
+        "slug": "aquaman-and-the-lost-kingdom-2023",
+        "imdb": "tt9663764",
+        "tmdb": 572802
+      }
+    }
+  },
+  {
+    "list_count": 17783,
+    "movie": {
+      "title": "Avatar 4",
+      "year": 2026,
+      "ids": {
+        "trakt": 133603,
+        "slug": "avatar-4-2026",
+        "imdb": "tt3095356",
+        "tmdb": 216527
+      }
+    }
+  }
+]

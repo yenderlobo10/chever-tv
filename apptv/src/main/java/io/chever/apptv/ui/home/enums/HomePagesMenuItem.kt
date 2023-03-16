@@ -13,12 +13,18 @@ enum class HomePagesMenuItem(
     Home(
         id = 1,
         resIdTitle = R.string.menu_item_home_title,
-        resIdIcon = R.drawable.ic_house
+        resIdIcon = R.drawable.ic_home
     ),
 
     Movies(
         id = 2,
         resIdTitle = R.string.menu_item_movies_title,
-        resIdIcon = R.drawable.ic_films
+        resIdIcon = R.drawable.ic_movie
+    ),
+
+    Shows(
+        id = 3,
+        resIdTitle = R.string.menu_item_shows_title,
+        resIdIcon = R.drawable.ic_tv
     )
 }

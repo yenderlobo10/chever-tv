@@ -11,7 +11,7 @@ import io.chever.apptv.R
 import io.chever.apptv.databinding.HomePagesMenuItemBinding
 import io.chever.apptv.ui.home.enums.HomePagesMenuItem
 
-class HomeMenuItemPresenter(
+internal class HomeMenuItemPresenter(
     private val pagesMenuItem: HomePagesMenuItem
 ) : RowHeaderPresenter() {
 

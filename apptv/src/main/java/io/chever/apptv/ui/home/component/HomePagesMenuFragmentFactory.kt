@@ -6,6 +6,7 @@ import androidx.leanback.widget.Row
 import io.chever.apptv.ui.home.enums.HomePagesMenuItem
 import io.chever.apptv.ui.home.screen.HomeBrowseFragment
 import io.chever.apptv.ui.movies.screen.MoviesBrowseFragment
+import io.chever.apptv.ui.shows.screen.ShowsBrowseFragment
 
 class HomePagesMenuFragmentFactory : FragmentFactory<Fragment>() {
 
@@ -20,6 +21,7 @@ class HomePagesMenuFragmentFactory : FragmentFactory<Fragment>() {
 
             HomePagesMenuItem.Home -> HomeBrowseFragment()
             HomePagesMenuItem.Movies -> MoviesBrowseFragment()
+            HomePagesMenuItem.Shows -> ShowsBrowseFragment()
             else -> Fragment()
         }
     }

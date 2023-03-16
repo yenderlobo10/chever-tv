@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardPersonCastItem"
+    android:layout_width="120dp"
+    android:layout_height="200dp"
+    android:background="@drawable/g_background_primary_alt">
+
+    <!-- Profile image -->
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toTopOf="@+id/lyFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:paddingHorizontal="24dp"
+        tools:paddingVertical="36dp"
+        tools:src="@drawable/logo_foreground" />
+
+    <!-- Name & Character -->
+    <LinearLayout
+        android:id="@+id/lyFooter"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:clipToPadding="false"
+        android:gravity="start|bottom"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfileImage">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextAppearance.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="2"
+            tools:text="Zoe Saldana" />
+
+        <TextView
+            android:id="@+id/tvCharacter"
+            style="@style/TextAppearance.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:textColor="@color/lightGrayColor"
+            android:textSize="11sp"
+            tools:text="Neytiri" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

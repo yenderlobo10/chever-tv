@@ -16,7 +16,7 @@ enum class TorrentSite(val url: String) {
      * @see
      * <a href="https://ww5.cinecalidad.link/">https://ww5.cinecalidad.link/</a>
      */
-    CineCalidad("https://ww5.cinecalidad.link/"),
+    CineCalidad("https://cinecalidad.run/"),
 
     /**
      * Torrents EN/ES.
@@ -30,7 +30,8 @@ enum class TorrentSite(val url: String) {
      * @see
      * <a href="https://hacktorrent.org">https://hacktorrent.org</a>
      */
-    HackTorrent("https://hacktorrent.org/"),
+    @Deprecated("Required captcha resolution.")
+    HackTorrent("https://hacktorrent.eu/"),
 
     // Add more sites ...
 }

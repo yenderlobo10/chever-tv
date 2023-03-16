@@ -5,7 +5,7 @@ import androidx.leanback.widget.Presenter
 import androidx.leanback.widget.PresenterSelector
 import io.chever.apptv.ui.home.enums.HomePagesMenuItem
 
-class HomeMenuItemPresenterSelector : PresenterSelector() {
+internal class HomeMenuItemPresenterSelector : PresenterSelector() {
 
     override fun getPresenter(item: Any?): Presenter {
 

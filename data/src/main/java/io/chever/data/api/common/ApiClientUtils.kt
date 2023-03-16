@@ -15,7 +15,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * @param moshi Instance of [Moshi.Builder] to create factory,
  * if is not passed, return a factory create with [createMoshi] instance returned.
  */
-fun createMoshiConverterFactoryOrDefault(
+internal fun createMoshiConverterFactoryOrDefault(
     moshi: Moshi? = null
 ): MoshiConverterFactory {
     return if (moshi !is Moshi)
@@ -28,7 +28,7 @@ fun createMoshiConverterFactoryOrDefault(
  * Return an instance of [Moshi.Builder],
  * to create custom converter for JSON.
  */
-fun createMoshi(): Moshi.Builder = Moshi.Builder().apply {
+internal fun createMoshi(): Moshi.Builder = Moshi.Builder().apply {
 
     add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
     addLast(KotlinJsonAdapterFactory())
@@ -38,4 +38,4 @@ fun createMoshi(): Moshi.Builder = Moshi.Builder().apply {
  * Return an instance of [OkHttpClient.Builder].
  * Eg. Use to extends functions like add headers to a request.
  */
-fun createHttpClient() = OkHttpClient.Builder()
+internal fun createHttpClient() = OkHttpClient.Builder()

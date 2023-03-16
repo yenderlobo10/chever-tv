@@ -1,1 +1,152 @@
-[{"watcher_count":22514,"play_count":30019,"collected_count":9926,"movie":{"title":"Black Panther: Wakanda Forever","year":2022,"ids":{"trakt":352796,"slug":"black-panther-wakanda-forever-2022","imdb":"tt9114286","tmdb":505642}}},{"watcher_count":23595,"play_count":31461,"collected_count":8611,"movie":{"title":"Puss in Boots: The Last Wish","year":2022,"ids":{"trakt":197298,"slug":"puss-in-boots-the-last-wish-2022","imdb":"tt3915174","tmdb":315162}}},{"watcher_count":32024,"play_count":42699,"collected_count":7829,"movie":{"title":"M3GAN","year":2022,"ids":{"trakt":388074,"slug":"m3gan-2022","imdb":"tt8760708","tmdb":536554}}},{"watcher_count":10584,"play_count":14113,"collected_count":5598,"movie":{"title":"Devotion","year":2022,"ids":{"trakt":488476,"slug":"devotion-2022","imdb":"tt7693316","tmdb":653851}}},{"watcher_count":10809,"play_count":14412,"collected_count":5595,"movie":{"title":"The Pale Blue Eye","year":2022,"ids":{"trakt":635822,"slug":"the-pale-blue-eye-2022","imdb":"tt14138650","tmdb":800815}}},{"watcher_count":26860,"play_count":35814,"collected_count":5477,"movie":{"title":"The Menu","year":2022,"ids":{"trakt":439843,"slug":"the-menu-2022","imdb":"tt9764362","tmdb":593643}}},{"watcher_count":6091,"play_count":8122,"collected_count":4914,"movie":{"title":"Babylon","year":2022,"ids":{"trakt":459051,"slug":"babylon-2022","imdb":"tt10640346","tmdb":615777}}},{"watcher_count":7883,"play_count":10511,"collected_count":4224,"movie":{"title":"Shotgun Wedding","year":2022,"ids":{"trakt":597233,"slug":"shotgun-wedding-2022","imdb":"tt9686790","tmdb":758009}}},{"watcher_count":7719,"play_count":10292,"collected_count":3588,"movie":{"title":"Plane","year":2023,"ids":{"trakt":483349,"slug":"plane-2023","imdb":"tt5884796","tmdb":646389}}},{"watcher_count":24402,"play_count":32537,"collected_count":3175,"movie":{"title":"Avatar: The Way of Water","year":2022,"ids":{"trakt":56580,"slug":"avatar-the-way-of-water-2022","imdb":"tt1630029","tmdb":76600}}}]
+[
+  {
+    "watcher_count": 22514,
+    "play_count": 30019,
+    "collected_count": 9926,
+    "movie": {
+      "title": "Black Panther: Wakanda Forever",
+      "year": 2022,
+      "ids": {
+        "trakt": 352796,
+        "slug": "black-panther-wakanda-forever-2022",
+        "imdb": "tt9114286",
+        "tmdb": 505642
+      }
+    }
+  },
+  {
+    "watcher_count": 23595,
+    "play_count": 31461,
+    "collected_count": 8611,
+    "movie": {
+      "title": "Puss in Boots: The Last Wish",
+      "year": 2022,
+      "ids": {
+        "trakt": 197298,
+        "slug": "puss-in-boots-the-last-wish-2022",
+        "imdb": "tt3915174",
+        "tmdb": 315162
+      }
+    }
+  },
+  {
+    "watcher_count": 32024,
+    "play_count": 42699,
+    "collected_count": 7829,
+    "movie": {
+      "title": "M3GAN",
+      "year": 2022,
+      "ids": {
+        "trakt": 388074,
+        "slug": "m3gan-2022",
+        "imdb": "tt8760708",
+        "tmdb": 536554
+      }
+    }
+  },
+  {
+    "watcher_count": 10584,
+    "play_count": 14113,
+    "collected_count": 5598,
+    "movie": {
+      "title": "Devotion",
+      "year": 2022,
+      "ids": {
+        "trakt": 488476,
+        "slug": "devotion-2022",
+        "imdb": "tt7693316",
+        "tmdb": 653851
+      }
+    }
+  },
+  {
+    "watcher_count": 10809,
+    "play_count": 14412,
+    "collected_count": 5595,
+    "movie": {
+      "title": "The Pale Blue Eye",
+      "year": 2022,
+      "ids": {
+        "trakt": 635822,
+        "slug": "the-pale-blue-eye-2022",
+        "imdb": "tt14138650",
+        "tmdb": 800815
+      }
+    }
+  },
+  {
+    "watcher_count": 26860,
+    "play_count": 35814,
+    "collected_count": 5477,
+    "movie": {
+      "title": "The Menu",
+      "year": 2022,
+      "ids": {
+        "trakt": 439843,
+        "slug": "the-menu-2022",
+        "imdb": "tt9764362",
+        "tmdb": 593643
+      }
+    }
+  },
+  {
+    "watcher_count": 6091,
+    "play_count": 8122,
+    "collected_count": 4914,
+    "movie": {
+      "title": "Babylon",
+      "year": 2022,
+      "ids": {
+        "trakt": 459051,
+        "slug": "babylon-2022",
+        "imdb": "tt10640346",
+        "tmdb": 615777
+      }
+    }
+  },
+  {
+    "watcher_count": 7883,
+    "play_count": 10511,
+    "collected_count": 4224,
+    "movie": {
+      "title": "Shotgun Wedding",
+      "year": 2022,
+      "ids": {
+        "trakt": 597233,
+        "slug": "shotgun-wedding-2022",
+        "imdb": "tt9686790",
+        "tmdb": 758009
+      }
+    }
+  },
+  {
+    "watcher_count": 7719,
+    "play_count": 10292,
+    "collected_count": 3588,
+    "movie": {
+      "title": "Plane",
+      "year": 2023,
+      "ids": {
+        "trakt": 483349,
+        "slug": "plane-2023",
+        "imdb": "tt5884796",
+        "tmdb": 646389
+      }
+    }
+  },
+  {
+    "watcher_count": 24402,
+    "play_count": 32537,
+    "collected_count": 3175,
+    "movie": {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "ids": {
+        "trakt": 56580,
+        "slug": "avatar-the-way-of-water-2022",
+        "imdb": "tt1630029",
+        "tmdb": 76600
+      }
+    }
+  }
+]

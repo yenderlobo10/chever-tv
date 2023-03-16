@@ -2,10 +2,10 @@ package io.chever.data.api.themoviedb.service
 
 import io.chever.data.api.themoviedb.model.TMCollectionResponse
 import io.chever.data.api.themoviedb.model.TMVideosResponse
-import io.chever.data.api.themoviedb.model.movies.TMMovieCreditsResponse
-import io.chever.data.api.themoviedb.model.movies.TMMovieDetailResponse
-import io.chever.data.api.themoviedb.model.movies.TMMovieResponse
-import io.chever.data.api.themoviedb.model.movies.TMMovieTitlesResponse
+import io.chever.data.api.themoviedb.model.TMCreditsResponse
+import io.chever.data.api.themoviedb.model.movie.TMMovieDetailResponse
+import io.chever.data.api.themoviedb.model.movie.TMMovieResponse
+import io.chever.data.api.themoviedb.model.movie.TMMovieTitlesResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -25,7 +25,7 @@ interface TMDBMoviesService {
     @GET("movie/{movie_id}/credits")
     suspend fun credits(
         @Path("movie_id") id: Long
-    ): Response<TMMovieCreditsResponse>
+    ): Response<TMCreditsResponse>
 
     @GET("movie/{movie_id}/recommendations")
     suspend fun recommendations(

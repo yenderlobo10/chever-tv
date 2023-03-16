@@ -1,7 +1,6 @@
 package io.chever.data.api.themoviedb.model
 
 import com.squareup.moshi.Json
-import java.io.Serializable
 import java.util.Date
 
 /**
@@ -36,4 +35,4 @@ data class TMPersonDetailResponse(
     @Json(name = "also_known_as")
     val alsoKnownAs: List<String>
 
-) : Serializable
+)

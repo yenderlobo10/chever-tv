@@ -2,13 +2,13 @@ package io.chever.data.api.trakttv.service
 
 import io.chever.data.api.trakttv.enums.TKPeriodEnum
 import io.chever.data.api.trakttv.model.TKCommentResponse
-import io.chever.data.api.trakttv.model.movies.TKMovieRatingResponse
-import io.chever.data.api.trakttv.model.movies.TKMovieResponse
-import io.chever.data.api.trakttv.model.movies.TKMovieStatsResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesAnticipatedResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesCollectionResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesRecommendedResponse
-import io.chever.data.api.trakttv.model.movies.TKMoviesTrendingResponse
+import io.chever.data.api.trakttv.model.movie.TKMovieRatingResponse
+import io.chever.data.api.trakttv.model.movie.TKMovieResponse
+import io.chever.data.api.trakttv.model.movie.TKMovieStatsResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesAnticipatedResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesCollectionResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesRecommendedResponse
+import io.chever.data.api.trakttv.model.movie.TKMoviesTrendingResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,1 +1,182 @@
-[{"watcher_count":48601,"play_count":90445,"collected_count":18289,"collector_count":13484,"show":{"title":"The Last of Us","year":2023,"ids":{"trakt":158947,"slug":"the-last-of-us","tvdb":392256,"imdb":"tt3581920","tmdb":100088,"tvrage":null}}},{"watcher_count":7581,"play_count":24421,"collected_count":9625,"collector_count":3868,"show":{"title":"Mayor of Kingstown","year":2021,"ids":{"trakt":165410,"slug":"mayor-of-kingstown","tvdb":386630,"imdb":"tt11712058","tmdb":97951,"tvrage":null}}},{"watcher_count":6874,"play_count":40008,"collected_count":42723,"collector_count":3830,"show":{"title":"The Good Doctor","year":2017,"ids":{"trakt":119095,"slug":"the-good-doctor","tvdb":328634,"imdb":"tt6470478","tmdb":71712,"tvrage":null}}},{"watcher_count":4237,"play_count":13663,"collected_count":10960,"collector_count":3730,"show":{"title":"Star Wars: The Bad Batch","year":2021,"ids":{"trakt":164423,"slug":"star-wars-the-bad-batch","tvdb":385376,"imdb":"tt12708542","tmdb":105971,"tvrage":null}}},{"watcher_count":8938,"play_count":35993,"collected_count":13488,"collector_count":3514,"show":{"title":"Poker Face","year":2023,"ids":{"trakt":187032,"slug":"poker-face-2023","tvdb":398822,"imdb":"tt14269590","tmdb":120998,"tvrage":null}}},{"watcher_count":8608,"play_count":39993,"collected_count":23873,"collector_count":3433,"show":{"title":"The Rookie","year":2018,"ids":{"trakt":134421,"slug":"the-rookie-2018","tvdb":350665,"imdb":"tt7587890","tmdb":79744,"tvrage":null}}},{"watcher_count":4174,"play_count":32610,"collected_count":34564,"collector_count":2876,"show":{"title":"Young Sheldon","year":2017,"ids":{"trakt":119172,"slug":"young-sheldon","tvdb":328724,"imdb":"tt6226232","tmdb":71728,"tvrage":null}}},{"watcher_count":3973,"play_count":13213,"collected_count":5847,"collector_count":2587,"show":{"title":"National Treasure: Edge of History","year":2022,"ids":{"trakt":162050,"slug":"national-treasure-edge-of-history","tvdb":382210,"imdb":"tt12580982","tmdb":137437,"tvrage":null}}},{"watcher_count":6968,"play_count":22824,"collected_count":10068,"collector_count":2571,"show":{"title":"Your Honor","year":2020,"ids":{"trakt":144121,"slug":"your-honor-2020","tvdb":359579,"imdb":"tt7440726","tmdb":86430,"tvrage":null}}},{"watcher_count":3830,"play_count":7276,"collected_count":5619,"collector_count":2450,"show":{"title":"Quantum Leap","year":2022,"ids":{"trakt":195530,"slug":"quantum-leap-2022","tvdb":419936,"imdb":"tt17043230","tmdb":202102,"tvrage":null}}}]
+[
+  {
+    "watcher_count": 48601,
+    "play_count": 90445,
+    "collected_count": 18289,
+    "collector_count": 13484,
+    "show": {
+      "title": "The Last of Us",
+      "year": 2023,
+      "ids": {
+        "trakt": 158947,
+        "slug": "the-last-of-us",
+        "tvdb": 392256,
+        "imdb": "tt3581920",
+        "tmdb": 100088,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 7581,
+    "play_count": 24421,
+    "collected_count": 9625,
+    "collector_count": 3868,
+    "show": {
+      "title": "Mayor of Kingstown",
+      "year": 2021,
+      "ids": {
+        "trakt": 165410,
+        "slug": "mayor-of-kingstown",
+        "tvdb": 386630,
+        "imdb": "tt11712058",
+        "tmdb": 97951,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 6874,
+    "play_count": 40008,
+    "collected_count": 42723,
+    "collector_count": 3830,
+    "show": {
+      "title": "The Good Doctor",
+      "year": 2017,
+      "ids": {
+        "trakt": 119095,
+        "slug": "the-good-doctor",
+        "tvdb": 328634,
+        "imdb": "tt6470478",
+        "tmdb": 71712,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 4237,
+    "play_count": 13663,
+    "collected_count": 10960,
+    "collector_count": 3730,
+    "show": {
+      "title": "Star Wars: The Bad Batch",
+      "year": 2021,
+      "ids": {
+        "trakt": 164423,
+        "slug": "star-wars-the-bad-batch",
+        "tvdb": 385376,
+        "imdb": "tt12708542",
+        "tmdb": 105971,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 8938,
+    "play_count": 35993,
+    "collected_count": 13488,
+    "collector_count": 3514,
+    "show": {
+      "title": "Poker Face",
+      "year": 2023,
+      "ids": {
+        "trakt": 187032,
+        "slug": "poker-face-2023",
+        "tvdb": 398822,
+        "imdb": "tt14269590",
+        "tmdb": 120998,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 8608,
+    "play_count": 39993,
+    "collected_count": 23873,
+    "collector_count": 3433,
+    "show": {
+      "title": "The Rookie",
+      "year": 2018,
+      "ids": {
+        "trakt": 134421,
+        "slug": "the-rookie-2018",
+        "tvdb": 350665,
+        "imdb": "tt7587890",
+        "tmdb": 79744,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 4174,
+    "play_count": 32610,
+    "collected_count": 34564,
+    "collector_count": 2876,
+    "show": {
+      "title": "Young Sheldon",
+      "year": 2017,
+      "ids": {
+        "trakt": 119172,
+        "slug": "young-sheldon",
+        "tvdb": 328724,
+        "imdb": "tt6226232",
+        "tmdb": 71728,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 3973,
+    "play_count": 13213,
+    "collected_count": 5847,
+    "collector_count": 2587,
+    "show": {
+      "title": "National Treasure: Edge of History",
+      "year": 2022,
+      "ids": {
+        "trakt": 162050,
+        "slug": "national-treasure-edge-of-history",
+        "tvdb": 382210,
+        "imdb": "tt12580982",
+        "tmdb": 137437,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 6968,
+    "play_count": 22824,
+    "collected_count": 10068,
+    "collector_count": 2571,
+    "show": {
+      "title": "Your Honor",
+      "year": 2020,
+      "ids": {
+        "trakt": 144121,
+        "slug": "your-honor-2020",
+        "tvdb": 359579,
+        "imdb": "tt7440726",
+        "tmdb": 86430,
+        "tvrage": null
+      }
+    }
+  },
+  {
+    "watcher_count": 3830,
+    "play_count": 7276,
+    "collected_count": 5619,
+    "collector_count": 2450,
+    "show": {
+      "title": "Quantum Leap",
+      "year": 2022,
+      "ids": {
+        "trakt": 195530,
+        "slug": "quantum-leap-2022",
+        "tvdb": 419936,
+        "imdb": "tt17043230",
+        "tmdb": 202102,
+        "tvrage": null
+      }
+    }
+  }
+]

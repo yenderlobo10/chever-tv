@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import io.chever.apptv.ui.home.screen.HomeFragment
 import io.chever.apptv.ui.launch.LaunchFragment
 
-sealed class MainFragmentView(
+internal sealed class MainFragmentView(
     val fragment: Fragment,
     val tag: String
 ) {

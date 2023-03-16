@@ -1,5 +1,6 @@
 package io.chever.domain.model.show
 
+import java.io.Serializable
 import java.util.Date
 
 data class ShowSeason(
@@ -11,4 +12,5 @@ data class ShowSeason(
     val airDate: Date?,
     val episodeCount: Int,
     val number: Int
-)
+
+) : Serializable

@@ -37,6 +37,21 @@ sealed class AppResult<out L, out R> {
      */
     val isSuccess get() = this is Success<R>
 
+    /**
+     * TODO: document
+     */
+    fun <T> mapSuccessTo(transform: (R) -> T) = when (this) {
+        is Success -> Success(transform(this.value))
+        is Failure -> Failure(this.value)
+    }
+
+    /**
+     * TODO: document
+     */
+    fun <T> mapFailureTo(transform: (L) -> T) = when (this) {
+        is Success -> Success(this.value)
+        is Failure -> Failure(transform(this.value))
+    }
 
     /**
      * Create a [AppResult.Failure] type.

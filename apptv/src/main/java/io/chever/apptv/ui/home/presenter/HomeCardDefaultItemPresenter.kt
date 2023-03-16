@@ -15,11 +15,13 @@ import io.chever.apptv.databinding.CardCollectionDefaultItemBinding
 import io.chever.apptv.ui.home.model.MediaCardItem
 import io.chever.apptv.ui.home.model.MediaItemMetadata
 import io.chever.data.api.themoviedb.enums.TMImageSizeEnum
-import io.chever.domain.model.collection.MediaItemDetail
+import io.chever.domain.model.media.MediaItemDetail
+import io.chever.shared.enums.DateTimePattern
 import io.chever.shared.extension.onlyYear
 import io.chever.shared.extension.pxFromDp
+import io.chever.shared.extension.toFormat
 
-class HomeCardDefaultItemPresenter(
+internal class HomeCardDefaultItemPresenter(
     context: Context
 ) : BaseCardPresenter<BaseCardView, MediaCardItem>(context) {
 
@@ -96,7 +98,13 @@ class HomeCardDefaultItemPresenter(
 
         cardModel.collection.metadata.forEachIndexed { i, metadata ->
 
-            cardModel.mediaItem.metadata[metadata.keyValue]?.let {
+            val value = when (metadata.keyValue) {
+                "anticipated" ->
+                    cardModel.mediaItem.detail.getAnticipatedMetadataValue()
+                else -> cardModel.mediaItem.metadata[metadata.keyValue]
+            }
+
+            value?.let {
 
                 this.lyWrapperChips.addView(
                     createTvChip(
@@ -116,6 +124,14 @@ class HomeCardDefaultItemPresenter(
                 )
             }
         }
+    }
+
+    private fun MediaItemDetail.getAnticipatedMetadataValue(): String? = when (this) {
+        is MediaItemDetail.Movie ->
+            this.detail.releaseAt?.toFormat(DateTimePattern.DateThree)
+        is MediaItemDetail.Show ->
+            this.detail.firstAirDate?.toFormat(DateTimePattern.DateThree)
+        else -> null
     }
 
     private fun createTvChip(

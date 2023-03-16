@@ -2,14 +2,15 @@ package io.chever.apptv.ui.main
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.chever.apptv.model.ResourceState
 import io.chever.apptv.ui.home.enums.HomeCollection
 import io.chever.apptv.ui.home.model.MediaCardItem
 import io.chever.domain.enums.ListCollection
 import io.chever.domain.enums.TimeWindowEnum
-import io.chever.domain.model.common.ListCollectionParams
 import io.chever.domain.model.resource.AppResult
-import io.chever.domain.usecase.collection.ListCollectionsUseCase
-import io.chever.domain.usecase.collection.ListCollectionTrendingUseCase
+import io.chever.domain.model.resource.ListCollectionParams
+import io.chever.domain.usecase.media.ListMediaCollectionUseCase
+import io.chever.domain.usecase.media.ListMediaTrendingUseCase
 import io.chever.shared.observability.AppLogger
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,41 +18,44 @@ import kotlinx.coroutines.flow.flow
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val listCollectionTrendingUseCase: ListCollectionTrendingUseCase,
-    private val listCollectionsUseCase: ListCollectionsUseCase
+    private val listMediaTrendingUseCase: ListMediaTrendingUseCase,
+    private val listMediaCollectionUseCase: ListMediaCollectionUseCase
 ) : ViewModel() {
 
-    private val _mainState = MutableStateFlow<MainState>(MainState.Loading)
+    private val mainState =
+        MutableStateFlow<ResourceState<List<MediaCardItem>>>(ResourceState.Empty)
     private val homeCollections = mutableListOf<MediaCardItem>()
 
     suspend fun loadHomeCollections() = flow {
 
-        when (_mainState.value) {
+        when (mainState.value) {
 
-            is MainState.Success -> emit(_mainState.value)
+            is ResourceState.Success -> emit(mainState.value)
 
             else -> {
-                emit(MainState.Loading)
+                emit(ResourceState.Loading)
 
                 HomeCollection.values().forEach {
                     loadMediaItemsByCollection(it)
                 }
 
                 whenLoadHomeCollectionsFinished()
-                emit(_mainState.value)
+                emit(mainState.value)
             }
         }
     }
 
     private fun whenLoadHomeCollectionsFinished() {
 
-        _mainState.value = when {
+        mainState.value = when {
 
-            homeCollections.isNotEmpty() -> MainState.Success(
-                homeCollections = homeCollections.toList()
+            homeCollections.isNotEmpty() -> ResourceState.Success(
+                data = homeCollections.toList()
             )
 
-            else -> MainState.Error
+            else -> ResourceState.Error(
+                message = "Collection is empty"
+            )
         }
 
         homeCollections.clear()
@@ -83,8 +87,8 @@ class MainViewModel @Inject constructor(
         timeWindow: TimeWindowEnum
     ) {
 
-        listCollectionTrendingUseCase(
-            params = ListCollectionTrendingUseCase.Params(
+        listMediaTrendingUseCase(
+            params = ListMediaTrendingUseCase.Params(
                 timeWindow = timeWindow
             )
         ) { result ->
@@ -110,7 +114,7 @@ class MainViewModel @Inject constructor(
         collection: HomeCollection
     ) {
 
-        listCollectionsUseCase(
+        listMediaCollectionUseCase(
             params = ListCollectionParams(
                 collection = collection.mapToListCollection()
             )

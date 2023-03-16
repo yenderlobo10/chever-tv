@@ -38,4 +38,14 @@
     <string name="metadata_label_collector">%s episodios</string>
     <string name="metadata_label_list">%s listas</string>
 
+    <!-- Media item detail -->
+    <string name="media_detail_count_votes_label">%s Votos</string>
+    <string name="media_detail_released_label">Estreno</string>
+    <string name="media_detail_runtime_label">Duración</string>
+    <string name="media_detail_cast_title">Reparto</string>
+    <string name="media_detail_related_title">Recomendaciones</string>
+    <string name="media_detail_action_play_label">Reproducir</string>
+    <string name="media_detail_action_trailer_label">Trailer</string>
+    <string name="media_detail_action_my_list_label">Mi Lista</string>
+
 </resources>

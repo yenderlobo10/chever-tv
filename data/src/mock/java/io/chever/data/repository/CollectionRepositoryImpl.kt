@@ -1,10 +1,10 @@
 package io.chever.data.repository
 
 import io.chever.data.api.themoviedb.TMDBTrendingMockService
-import io.chever.data.transform.mapToMediaItemList
+import io.chever.data.api.themoviedb.mapper.mapToMediaItemList
 import io.chever.domain.enums.MediaTypeEnum
 import io.chever.domain.enums.TimeWindowEnum
-import io.chever.domain.model.collection.MediaItem
+import io.chever.domain.model.media.MediaItem
 import io.chever.domain.model.resource.AppFailure
 import io.chever.domain.model.resource.AppResult
 import io.chever.domain.repository.CollectionRepository

@@ -64,6 +64,6 @@ fun Date.toFormat(
     } catch (ex: Exception) {
 
         Timber.e(ex, ex.message!!)
-        this.toString()
+        String.error()
     }
 }

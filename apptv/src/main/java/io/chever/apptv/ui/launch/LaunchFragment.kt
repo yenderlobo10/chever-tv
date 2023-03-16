@@ -9,14 +9,15 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import io.chever.apptv.R
 import io.chever.apptv.databinding.FragmentLaunchBinding
+import io.chever.apptv.model.ResourceState
 import io.chever.apptv.ui.main.MainFragmentView
-import io.chever.apptv.ui.main.MainState
 import io.chever.apptv.ui.main.MainViewModel
 import io.chever.data.BuildConfig
 import io.chever.shared.extension.showLongToast
 import io.chever.shared.observability.AppLogger
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LaunchFragment : Fragment() {
 
@@ -61,15 +62,16 @@ class LaunchFragment : Fragment() {
     @Suppress("KotlinConstantConditions")
     private fun loadHomeCollections() {
 
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
 
             if (BuildConfig.FLAVOR == "mock") delay(3.seconds)
 
             mainViewModel.loadHomeCollections().collect {
-                if (it is MainState.Success)
+                if (it is ResourceState.Success)
                     whenMainStateSuccess()
-                else if (it is MainState.Error) // TODO: show error dialog
+                else if (it is ResourceState.Error)
                     requireContext().showLongToast(R.string.app_unknown_error_two)
+                // TODO: show error dialog
             }
         }
     }

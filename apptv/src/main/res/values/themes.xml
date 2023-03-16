@@ -94,7 +94,7 @@
         <item name="android:fontFamily">@font/ubuntu</item>
     </style>
 
-    <!-- Splash-UI styles -->
+    <!-- Splash UI styles -->
     <style name="SplashTextViewLogoLetter" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -104,7 +104,7 @@
         <item name="android:fontFamily">@font/ubuntu_medium</item>
     </style>
 
-    <!-- Movies-UI styles -->
+    <!-- Browse UI styles -->
     <style name="MediaItemLabelChip" parent="TextAppearance.AppCompat.Caption">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -116,6 +116,18 @@
         <item name="android:textColor">@color/lightColor</item>
         <item name="fontFamily">@font/ubuntu_medium</item>
         <item name="android:fontFamily">@font/ubuntu_medium</item>
+    </style>
+
+    <!-- Media UI styles -->
+    <style name="Theme.Chever.Details">
+        <item name="android:windowEnterTransition">@transition/lb_details_enter_transition</item>
+        <item name="android:windowReturnTransition">@transition/lb_details_return_transition</item>
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/lb_shared_element_enter_transition
+        </item>
+        <item name="android:windowSharedElementReturnTransition">
+            @transition/lb_shared_element_return_transition
+        </item>
     </style>
 
 </resources>
